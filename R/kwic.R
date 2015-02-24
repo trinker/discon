@@ -58,8 +58,9 @@
 #' @examples
 #' out <- with(pres_debates2012, kwic(dialogue, list(time, person)))
 #' plot(out[[1]])
-#' plot(out)
-#' plot(out, rm.vars = pres_debates2012[["time"]], total.color = NULL)
+#' head(out[[2]])
+#' with(pres_debates2012, plot(keyWords, grouping.var = person, rm.vars = time, 
+#' total.color = NULL))
 kwic <- function(text.var, grouping.var, n.before = 1, tot = FALSE, 
     n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"), top = 15,
     at.least = 5, extend = TRUE, ignore.case = FALSE, left = "\\b", right = "",

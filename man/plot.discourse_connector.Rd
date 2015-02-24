@@ -4,10 +4,14 @@
 \alias{plot.discourse_connector}
 \title{Plots a discourse_connector Object}
 \usage{
-\method{plot}{discourse_connector}(x, unlist.terms = TRUE, plot = TRUE, ...)
+\method{plot}{discourse_connector}(x, grouping.var = NULL,
+  unlist.terms = TRUE, plot = TRUE, ...)
 }
 \arguments{
 \item{x}{The discourse_connector object.}
+
+\item{grouping.var}{The grouping variables.  Take from \code{x} unless
+supplied by the user.}
 
 \item{unlist.terms}{logical.  If \code{TRUE} the terms will be separated rather than grouped as a single (sub)marker.}
 

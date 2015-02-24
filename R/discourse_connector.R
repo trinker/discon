@@ -62,6 +62,29 @@
 #' 
 #' ## Save externally use .doc or .txt
 #' ## print(out2[[2]], file="you_I.doc")
+#' 
+#' ## Key Words in Context
+#' ## Determine top 15 words
+#' topterms <- qdap::freq_terms(
+#'     qdap::pres_debates2012[["dialogue"]], 
+#'     top = 20, 
+#'     at.least = 5, 
+#'     stopwords = c(qdapDictionaries::contractions[[1]], qdapDictionaries::Top200Words)
+#' )
+#' 
+#' ## Marker with top 15 words
+#' out3 <- with(pres_debates2012, discourse_connector(dialogue, person,
+#'     names = c("top15"),
+#'     regex =  list(
+#'         top15 = qdapRegex::pastex(qdapRegex::group(qdapRegex::bind(topterms[[1]])))
+#'     ),
+#'     terms = list(
+#'         top15 = qdap::spaste(topterms[[1]])
+#'     )
+#' ))
+#' out3[[1]]
+#' out3[[2]]
+#' plot(out3)
 discourse_connector <- function(text.var, grouping.var, n.before = 1, tot = FALSE, 
     n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"), 
     name = NULL, ...){
@@ -180,6 +203,8 @@ print.discourse_connector <- function(x, ...) {
 #' Plots a discourse_connector object.
 #' 
 #' @param x The discourse_connector object.
+#' @param grouping.var The grouping variables.  Take from \code{x} unless 
+#' supplied by the user.
 #' @param plot logical.  If \code{TRUE} the plot will automatically plot. The 
 #' user may wish to set to \code{FALSE} for use in \pkg{knitr}, \pkg{sweave}, 
 #' etc. to add additional plot layers.
@@ -187,7 +212,8 @@ print.discourse_connector <- function(x, ...) {
 #' @param \ldots Other arguments passed to \code{\link[qdap]{dispersion_plot}}.
 #' @method plot discourse_connector
 #' @export
-plot.discourse_connector <- function(x, unlist.terms = TRUE, plot = TRUE, ...){
+plot.discourse_connector <- function(x, grouping.var = NULL, 
+    unlist.terms = TRUE, plot = TRUE, ...){
 
     dat <- as.list.environment(attributes(x)[["meta"]])
     dat[["terms"]] <- lapply(dat[["terms"]], function(x){
@@ -197,6 +223,24 @@ plot.discourse_connector <- function(x, unlist.terms = TRUE, plot = TRUE, ...){
     if (isTRUE(unlist.terms)){
         dat[["terms"]] <- unlist(dat[["terms"]], use.names=FALSE)
     }
+    if (!is.null(grouping.var)) {
+        dat[["grouping.var"]] <- grouping.var
+
+        ## Grab the grouping variable name
+        if (is.list(grouping.var)) {
+            m <- unlist(as.character(substitute(grouping.var))[-1])
+            m <- sapply(strsplit(m, "$", fixed=TRUE), function(x) {
+                    x[length(x)]
+                }
+            )
+            dat[["group.nms"]] <- paste(m, collapse="&")
+        } else {
+            G <- as.character(substitute(grouping.var))
+            dat[["group.nms"]] <- G[length(G)]
+        }
+
+    }
+   
     out <- with(dat, qdap::dispersion_plot(match.terms = terms, 
         grouping.var = grouping.var, text.var = text.var, plot = FALSE, ...)) +
         ggplot2::ylab(paste(sapply(unlist(strsplit(dat[["group.nms"]], 
@@ -206,8 +250,6 @@ plot.discourse_connector <- function(x, unlist.terms = TRUE, plot = TRUE, ...){
     }
     return(invisible(out))
 }
-
-
 
 
 

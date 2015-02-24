@@ -83,8 +83,9 @@ modular use of functions in the pkg{discon} package.
 \examples{
 out <- with(pres_debates2012, kwic(dialogue, list(time, person)))
 plot(out[[1]])
-plot(out)
-plot(out, rm.vars = pres_debates2012[["time"]], total.color = NULL)
+head(out[[2]])
+with(pres_debates2012, plot(keyWords, grouping.var = person, rm.vars = time,
+total.color = NULL))
 }
 \references{
 Ryan, G. W. & Bernard, H. R. (2003). \href{http://goo.gl/KdYxB8}{Techniques to identify themes}. \emph{Field Methods. 15}(1), 85-109. doi: \href{http://fmx.sagepub.com/content/15/1/85}{10.1177/1525822X02239569}

@@ -91,20 +91,26 @@ Specific discourse connector functions for exploring the context in which such m
 <h4 id = "causality" >Causality</h4>
 
 
-```{r, comment=NA, fig.height=2.5, fig.width=11}
-causality_1 <- with(pres_debates2012[1:60, ], dc_causality(dialogue, person))
+```{r, comment=NA, fig.height=7, fig.width=11}
+causality_1 <- with(pres_debates2012, dc_causality(dialogue, person))
+plot(causality_1)
+```
+
+```{r, comment=NA, fig.height=3, fig.width=4}
+plot(causality_1[[1]], high = "darkgreen")
 causality_1[1]
-causality_1[2]
-plot(causality_1) 
+head(causality_1[2])
 ```
 
 <h4 id = "causality2" >Causality: Subgroups</h4>
 
-```{r, comment=NA}
-causality_2 <- with(pres_debates2012[100:120, ], dc_causality_sub(dialogue, person))
+```{r, comment=NA, fig.height=7, fig.width=11}
+causality_2 <- with(pres_debates2012, dc_causality_sub(dialogue, person))
+plot(causality_2, bg.color = "grey60", color = "blue", 
+    total.color = "grey40", horiz.color="grey20")
 causality_2[1]
-causality_2[2]
-causality_2[3]
+head(causality_2[2])
+head(causality_2[3])
 ```
 
 <h4 id="revision">Revision</h4>
@@ -158,7 +164,9 @@ plot(keyWords[[1]], high = "red")
 ```
 
 ```{r, comment=NA, fig.height=18, fig.width=11}
-plot(keyWords, rm.vars = pres_debates2012[["time"]], total.color = NULL)
+with(pres_debates2012, plot(keyWords, grouping.var = person, rm.vars = time, 
+    total.color = NULL, bg.color = "black", color = "yellow", 
+    horiz.color="grey20"))
 head(keyWords[[2]])
 ```
 

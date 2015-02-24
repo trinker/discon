@@ -26,9 +26,18 @@ And constructed with the following guidelines:
 * `dc_negator` & `dc_negator_sub` functions added to search for negator discourse 
   connectors.
 
+* `dc_comparison` function added to search for comparison discourse connectors.
+
+* `kwic` functions added to search for  and plot the distribution of 
+  *key words in context*.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
+
+* Generic `plot` for `dicourse_connector` picks up a `grouping.var` argument.
+  This allows for flexibility in use while maintaining the no fuss default 
+  settings.
 
 **CHANGES**
 
