@@ -1,0 +1,3 @@
+<p><img src="https://raw.githubusercontent.com/trinker/discmark/master/inst/discmark_logo/r_discmark.png" width="300"/><br/>
+<p><a href="http://trinker.github.com/discmark_dev">discmark</a> is a collection of R tools for analysing discourse markers in text.  Discourse markers are cohesive devices that can be used to help identify themes within a text.  This package provides computational means of extracting various elements from the text that contain discourse markers.  This can aid in qualitative analysis of discourse by identifying categories that may aide analysis (using the computer for efficiency and data coverage) towards generating themes.</p>
+<p>Download the development version of discmark <a href="https://github.com/trinker/discmark/">here</a> 

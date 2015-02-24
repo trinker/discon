@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>dc_revision. discon 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Revision Discourse Connectors in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>dc_revision(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"revision", ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the revision
+discourse connectors.  Use <code>c("", "")</code> to not mark the revision discourse
+markers.</dd>
+      <dt>name</dt>
+      <dd>A string indicating the name to search for within the internal
+data sets, typically the function's name.  Generally, for internal use.</dd>
+      <dt>inds</dt>
+      <dd>A list of integer indices to print context for.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Revision Discourse Connectors in Context">
+      <h2>Extract Revision Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Extract Revision Discourse Connectors in Context">
+      <h2>Extract Revision Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p><code>dc_revision</code> - Returns returns a list of 2:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of revision discourse connector counts.
+revisionA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of revision discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>dc_revision</code> - Extract revision discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Alemany, L. A. (2005). Representing discourse for automatic text summarization via shallow NLP techniques (Unpublished doctoral dissertation). Universitat de Barcelona, Barcelona.</p>
+  
+      <p><a href = 'http://russell.famaf.unc.edu.ar/~laura/shallowdisc4summ/discmar'>http://russell.famaf.unc.edu.ar/~laura/shallowdisc4summ/discmar</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>out &lt;- with(pres_debates2012[1:200, ], dc_revision(dialogue, person))
+out[1]
+</div>
+<div class='output'>$counts
+  person word.count revision
+1  OBAMA        943  8(.85%)
+2 ROMNEY       1349  8(.59%)
+3 LEHRER        316  2(.63%)
+
+</div>
+<div class='input'>out[2]
+</div>
+<div class='output'>$revision
+===================================
+Event 1: [lines 1-3]
+
+    LEHRER: We&#39;ll talk about specifically about health care in a
+            moment.
+
+ ** LEHRER: &lt;&lt;But&gt;&gt; what do you support the voucher system, Governor?
+
+    ROMNEY: What I support is no change for current retirees and near
+            retirees to Medicare. 
+ 
+===================================
+Event 2: [lines 17-19]
+
+    ROMNEY: If I don&#39;t like them, I can get rid of them and find a
+            different insurance company.
+
+ ** ROMNEY: &lt;&lt;But&gt;&gt; people make their own choice.
+
+    ROMNEY: The other thing we have to do to save Medicare? 
+ 
+===================================
+Event 3: [lines 19-21]
+
+    ROMNEY: The other thing we have to do to save Medicare?
+
+ ** ROMNEY: We have to have the benefits high for those that are low
+            income, &lt;&lt;but&gt;&gt; for higher income people, we&#39;re going to
+            have to lower some of the benefits.
+
+    ROMNEY: We have to make sure this program is there for the long
+            term. 
+ 
+===================================
+Event 4: [lines 22-24]
+
+    ROMNEY: That&#39;s the plan that I&#39;ve put forward.
+
+ ** ROMNEY: And, by the way the idea came not even from Paul Ryan or
+            or Senator Wyden, who&#39;s the co author of the bill with
+            with Paul Ryan in the Senate, &lt;&lt;but&gt;&gt; also it came from
+            Bill Bill Clinton&#39;s chief of staff.
+
+    ROMNEY: This is an idea that&#39;s been around a long time, which is
+            saying, hey, let&#39;s see if we can&#39;t get competition into
+            the Medicare world so that people can get the choice of
+            different plans at lower cost, better quality. 
+ 
+===================================
+Event 5: [lines 38-40]
+
+    LEHRER: Talk about that in a minute.
+
+ ** OBAMA:  &lt;&lt;but&gt;&gt; &lt;&lt;but&gt;&gt; &lt;&lt;but&gt;&gt; overall.
+
+    LEHRER: OK. 
+ 
+===================================
+Event 6: [lines 46-48]
+
+    OBAMA:  I&#39;m sorry.
+
+ ** LEHRER: &lt;&lt;But&gt;&gt; all I want to do is go very quickly|
+
+    ROMNEY: Let&#39;s get back to Medicare. 
+ 
+===================================
+Event 7: [lines 54-56]
+
+    LEHRER: Wait a minute, Governor.
+
+ ** ROMNEY: &lt;&lt;But&gt;&gt; my experience my experience the private sector
+            typically is able to provide a better product at a lower
+            cost.
+
+    LEHRER: All right. 
+ 
+===================================
+Event 8: [lines 99-101]
+
+    LEHRER: Well, here&#39;s a specific|
+
+ ** ROMNEY: &lt;&lt;But&gt;&gt; let&#39;s let&#39;s mention let me mention the other one.
+
+    ROMNEY: Let&#39;s talk| 
+ 
+===================================
+Event 9: [lines 109-111]
+
+    OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they weren&#39;t.
+
+ ** OBAMA:  &lt;&lt;But&gt;&gt; you also had banks making money hand over fist,
+            churning out products that the bankers themselves didn&#39;t
+            even understand, in order to make big profits, &lt;&lt;but&gt;&gt;
+            knowing that it made the entire system vulnerable.
+
+    OBAMA:  So what did we do? 
+ 
+===================================
+Event 10: [lines 118-120]
+
+    OBAMA:  And, you know, I appreciate and it appears we&#39;ve got some
+            agreement that a marketplace to work has to have some
+            regulation.
+
+ ** OBAMA:  &lt;&lt;But&gt;&gt; in the past, Governor Romney has said he just
+            want to repeal Dodd Frank, roll it back.
+
+    OBAMA:  And so the question is: Does anybody out there think that
+            the big problem we had is that there was too much
+            oversight and regulation of Wall Street? 
+ 
+===================================
+Event 11: [lines 121-123]
+
+    OBAMA:  Because if you do, then Governor Romney is your
+            candidate.
+
+ ** OBAMA:  &lt;&lt;But&gt;&gt; that&#39;s not what I believe.
+
+    ROMNEY: Sorry, but that&#39;s just not that&#39;s just not the facts. 
+ 
+===================================
+Event 12: [lines 122-124]
+
+    OBAMA:  But that&#39;s not what I believe.
+
+ ** ROMNEY: Sorry, &lt;&lt;but&gt;&gt; that&#39;s just not that&#39;s just not the facts.
+
+    ROMNEY: Look, we have to have regulation on Wall Street. 
+ 
+===================================
+Event 13: [lines 125-127]
+
+    ROMNEY: That&#39;s why I&#39;d have regulation.
+
+ ** ROMNEY: &lt;&lt;But&gt;&gt; I wouldn&#39;t designate five banks as too big to
+            fail and give them a blank check.
+
+    ROMNEY: That&#39;s one of the unintended consequences of Dodd Frank. 
+ 
+===================================
+Event 14: [lines 134-136]
+
+    ROMNEY: It&#39;s one of the reasons for the great financial calamity
+            we had.
+
+ ** ROMNEY: And so Dodd Frank correctly says we need to have
+            qualified mortgages, and if you give a mortgage that&#39;s
+            not qualified, there are big penalties, &lt;&lt;except&gt;&gt; they
+            didn&#39;t ever go on and define what a qualified mortgage
+            was.
+
+    ROMNEY: It&#39;s been two years. 
+ 
+===================================
+Event 15: [lines 178-180]
+
+    OBAMA:  And it wasn&#39;t just that small businesses were seeing
+            costs skyrocket and they couldn&#39;t get affordable coverage
+            even if they wanted to provide it to their employees.
+
+ ** OBAMA:  It wasn&#39;t just that this was the biggest driver of our
+            federal deficit, our overall health care costs, &lt;&lt;but&gt;&gt;
+            it was families who were worried about going bankrupt if
+            they got sick, millions of families, all across the
+            country.
+
+    OBAMA:  If they had a pre existing condition, they might not be
+            able to get coverage at all. 
+ 
+===================================
+Event 16: [lines 187-189]
+
+    OBAMA:  You keep your own doctor.
+
+ ** OBAMA:  &lt;&lt;But&gt;&gt; it does say insurance companies can&#39;t jerk you
+            around.
+
+    OBAMA:  They can&#39;t impose arbitrary lifetime limits. 
+
+</div>
+<div class='input'>plot(out)
+</div>
+<p><img src='dc_revision-6.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[2]], file=&quot;revision_causality.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dc_revision</li>
+    </ul>
+    <ul>
+      <li>revision</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

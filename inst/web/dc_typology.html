@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>dc_typology. discon 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.1.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Typology Dicourse Connectors in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>dc_typology(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"typology", ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the typology
+dicourse connectors.  Use <code>c("", "")</code> to not mark the typology discourse
+markers.</dd>
+      <dt>name</dt>
+      <dd>A string indicating the name to search for within the internal
+data sets, typically the function's name.  Generally, for internal use.</dd>
+      <dt>inds</dt>
+      <dd>A list of integer indices to print context for.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Typology Dicourse Connectors in Context">
+      <h2>Extract Typology Dicourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Extract Typology Dicourse Connectors in Context">
+      <h2>Extract Typology Dicourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns returns a list of 3:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of positive and negative typology discourse marker counts.
+negativeA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of positive typology dicourse connectors in context.
+positiveA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of negative typology dicourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Extract typology dicourse connectors in context.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Ryan, G. W. & Bernard, H. R. (2003). <a href = 'http://goo.gl/KdYxB8'>Techniques to identify themes</a>. <em>Field Methods. 15</em>(1), 85-109. doi: <a href = 'http://fmx.sagepub.com/content/15/1/85'>10.1177/1525822X02239569</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>out &lt;- with(pres_debates2012[1:200, ], dc_typology(dialogue, person))
+out[1]
+</div>
+<div class='output'>$counts
+  person word.count positive negative
+1  OBAMA        943  1(.11%)        0
+2 ROMNEY       1349  3(.22%)        0
+3 LEHRER        316  3(.95%)  1(.32%)
+
+</div>
+<div class='input'>out[2]
+</div>
+<div class='output'>$positive
+===================================
+Event 1: [lines 41-43]
+
+    OBAMA:  And so|
+
+ ** ROMNEY: That&#39;s &lt;&lt;that&#39;s a&gt;&gt; big topic.
+
+    ROMNEY: Can we can we stay on Medicare? 
+ 
+===================================
+Event 2: [lines 98-100]
+
+    ROMNEY: You need transparency, you need to have leverage limits
+            for|
+
+ ** LEHRER: Well, &lt;&lt;here&#39;s a&gt;&gt; specific|
+
+    ROMNEY: But let&#39;s let&#39;s mention let me mention the other one. 
+ 
+===================================
+Event 3: [lines 103-105]
+
+    LEHRER: Let&#39;s let him respond let&#39;s let him respond to this
+            specific on Dodd Frank and what the governor just said.
+
+ ** OBAMA:  I think this &lt;&lt;is a&gt;&gt; great example.
+
+    OBAMA:  The reason we have been in such a enormous economic
+            crisis was prompted by reckless behavior across the
+            board. 
+ 
+===================================
+Event 4: [lines 145-147]
+
+    LEHRER: I think we have another clear difference between the two
+            of you.
+
+ ** LEHRER: Now, let&#39;s move to health care where I know there &lt;&lt;is
+            a&gt;&gt; clear difference, and that has to do with the
+            Affordable Care Act, Obamacare.
+
+    LEHRER: And it&#39;s a two minute new new segment, and that means two
+            minutes each. 
+ 
+===================================
+Event 5: [lines 146-148]
+
+    LEHRER: Now, let&#39;s move to health care where I know there is a
+            clear difference, and that has to do with the Affordable
+            Care Act, Obamacare.
+
+ ** LEHRER: And &lt;&lt;it&#39;s a&gt;&gt; two minute new new segment, and that means
+            two minutes each.
+
+    LEHRER: And you go first, Governor Romney. 
+
+</div>
+<div class='input'>out[3]
+</div>
+<div class='output'>$negative
+===================================
+Event 1: [lines 66-68]
+
+    LEHRER: Beginning with you.
+
+ ** LEHRER: This &lt;&lt;is not a&gt;&gt; new two minute segment to start.
+
+    LEHRER: And we&#39;ll go for a few minutes, and then we&#39;re going to
+            go to health care, OK? 
+
+</div>
+<div class='input'>plot(out)
+</div>
+<p><img src='dc_typology-8.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[2]], file=&quot;neg_typology.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dc_typology</li>
+    </ul>
+    <ul>
+      <li>category</li><li>define</li><li>taxonomy</li><li>typology</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

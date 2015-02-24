@@ -1,0 +1,151 @@
+# discon
+
+```{r, echo=FALSE}
+desc <- suppressWarnings(readLines("DESCRIPTION"))
+regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
+loc <- grep(regex, desc)
+ver <- gsub(regex, "\\2", desc[loc])
+verbad <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+````
+[![Build Status](https://travis-ci.org/trinker/discon.png?branch=master)](https://travis-ci.org/trinker/discon)
+[![Coverage Status](https://coveralls.io/repos/trinker/discon/badge.png)](https://coveralls.io/r/trinker/discon)
+[![DOI](https://zenodo.org/badge/5398/trinker/discon.svg)](http://dx.doi.org/10.5281/zenodo.15542)
+`r verbad`
+
+
+<img src="inst/discon_logo/r_discon.png" width = "300" alt="discon logo">   
+
+
+[discon](http://trinker.github.com/discon_dev) is a collection of R tools for analysing discourse connectors in text.  Discourse connectors are cohesive devices that can be used to help identify themes within a text.  This package provides computational means of extracting various elements from the text that contain discourse connectors.  This can aid in qualitative analysis of discourse by identifying categories that may aide analysis (using the computer for efficiency and data coverage) towards generating themes.
+
+
+
+Please see the following resources for additional information:
+
+
+- Alemany, L. A. (2005). [Representing discourse for automatic text summarization via shallow NLP techniques](http://www.cs.famaf.unc.edu.ar/~laura/shallowdisc4summ/tesi_electronica.pdf) (Unpublished doctoral dissertation). Universitat de Barcelona, Barcelona.     
+  - [Web Site](http://russell.famaf.unc.edu.ar/~laura/shallowdisc4summ/discmar)    
+- Halliday, M. A. K. & Hasan, R. (1976). *Cohesion in English*. English Language Series. London: Longman.
+- Kalajahi, S. A. R., Abdullah, A. N., Mukundan, J., & Tannacito, D. J. (2012) [Discourse connectors: An overview of the history, definition and classification of the term](http://goo.gl/eS0OwV) *World Applied Sciences Journal, 19*(11), 1659-1673. 
+- Ryan, G. W. & Bernard, H. R. (2003). [Techniques to identify themes](http://goo.gl/KdYxB8). *Field Methods.  15*(1), 85-109. doi:[10.1177/1525822X02239569.](http://fmx.sagepub.com/content/15/1/85)
+- Schiffrin, D. (1987). *Discourse markers*. London: Cambridge University Press.      
+- Schiffrin, D. (2001). [Discourse markers: Language, meaning, and context](http://goo.gl/KbwG9I). In D. Schiffrin, D., D. Tannen, & H. E. Hamilton, (Eds.) *The handbook of discourse analysis* (pp. 54-75). Malden, MA: Blackwell Publishing.
+
+
+## Installation
+
+To download the development version of discon:
+
+Download the [zip ball](https://github.com/trinker/discon/zipball/master) or [tar ball](https://github.com/trinker/discon/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
+
+```r
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh(
+    "trinker/qdapRegex", 
+    "trinker/qdapTools", 
+    "trinker/qdapDictionaries", 
+    "trinker/qdap",
+    "trinker/discon"
+)
+```
+
+## Help
+
+- [Web Page](http://trinker.github.com/discon/)     
+- [Package PDF Help Manual](https://dl.dropboxusercontent.com/u/61803503/discon.pdf)   
+
+## Contact
+
+You are welcome to:
+* submit suggestions and bug-reports at: <https://github.com/trinker/discon/issues>
+* send a pull request on: <https://github.com/trinker/discon/>
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>
+
+## List of Functions
+
+1. `discourse_connector`
+2. `dc_causality` & `dc_causality_sub`
+3. `dc_context` & `dc_context_sub`
+4. `dc_equality` & `dc_equality_sub`
+5. `dc_revision`
+6. `dc_typology`
+
+\****Note*** *that all `discourse_connector` based functions (incuding functions prefixed with `dc_`) have generic `plot` method that utilizes `qdap::dispersion_plot` to generate a lexical dispersion plot.*
+
+## Examples
+
+```{r, echo=FALSE}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(discon)
+knitr::opts_chunk$set(fig.path = "inst/figure/")
+```
+
+### Specific Discourse Connector/Connector Functions
+
+Specific discourse connector functions for exploring the context in which such markers are used.  Note these functions are prefixed with a `dc_` (for discourse connector).
+
+<h4 id = "causality" >Causality</h4>
+
+
+```{r, comment=NA, fig.height=2.5, fig.width=11}
+causality_1 <- with(pres_debates2012[1:60, ], dc_causality(dialogue, person))
+causality_1[1]
+causality_1[2]
+plot(causality_1) 
+```
+
+<h4 id = "causality2" >Causality: Subgroups</h4>
+
+```{r, comment=NA}
+causality_2 <- with(pres_debates2012[100:120, ], dc_causality_sub(dialogue, person))
+causality_2[1]
+causality_2[2]
+causality_2[3]
+```
+
+<h4 id="revision">Revision</h4>
+
+```{r, comment=NA}
+revision <- with(pres_debates2012[1:25, ], dc_revision(dialogue, person))
+revision[1]
+revision[2]
+```
+
+<h4 id="typology">Typology</h4>
+
+```{r, comment=NA}
+typology <- with(pres_debates2012[1:120, ], dc_typology(dialogue, person))
+typology[1]
+typology[2]
+typology[3]
+```
+
+### Generalizable Discourse Connector Function
+
+We will now examine `discourse_connector`, the basic root function that all of the other `dc_` prefixed functions are based upon.  This can be used by the researcher to find specific *text elements* + *surrounding context*.
+
+```{r, comment=NA}
+## Marker with one type (just: "I")
+with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
+    names = c("I"),
+    regex = "\\bI('[a-z]+)*\\b",
+    terms = list(I = c(" I ", " I'"))
+))
+## Marker with two types (both: "I" & "you")
+with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
+    names = c("I", "you"),
+    regex =  list(
+        I = "I('[a-z]+)*\\b",
+        you = "(\\b[Yy]ou('[a-z]+)*\\b)"
+    ),
+    terms = list(
+        I = c(" I ", " I'"),
+        you = c(" you ", " you'")
+    )
+))
+```
+
+
+
+
+

@@ -1,0 +1,42 @@
+Package: discon
+Type: Package
+Title: Discourse Connectors Analysis
+Version: 0.1.0
+Date: 2015-02-19
+Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com",
+    role = c("aut", "cre")))
+Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Depends:
+    R (>= 3.1.2),
+    qdap (>= 2.2.0)
+Imports:
+    ggplot2 (>= 1.0.0),
+    qdapRegex (>= 0.2.0)
+Suggests:
+    testthat (>= 0.9.1),
+    qdapDictionaries (>= 1.0.2),
+    qdapTools (>= 1.0.1)
+LazyData: TRUE
+Description: A collection of R tools for analysing discourse connectors in
+    text.  Discourse connectors are cohesive devices that can be used to help
+    identify themes within a text.  This package provides computational means
+    of extracting various elements from the text that contain discourse
+    connectors.  This can aid in qualitative analysis of discourse by
+    identifying categories that may aide analysis (using the computer for
+    efficiency and data coverage) towards generating themes.
+License: GPL-2
+URL: http://trinker.github.com/discon/
+BugReports: http://github.com/trinker/discon/issues
+Roxygen: list(wrap = FALSE)
+Collate:
+    'utils.R'
+    'internal_data_bases_list.R'
+    'internal_data_term_list.R'
+    'internal_data_regex_list.R'
+    'discourse_connector.R'
+    'dc_causality.R'
+    'dc_context.R'
+    'dc_equality.R'
+    'dc_revision.R'
+    'dc_typology.R'
+    'discon-package.R'

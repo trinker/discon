@@ -1,0 +1,17 @@
+citHeader("To cite discon in publications, please use:")
+
+
+citEntry(entry = "manual",
+    title = "{discon}: Discourse Connector Analysis",
+    author = "Tyler W. Rinker",
+    organization = "University at Buffalo/SUNY",
+    address = "Buffalo, New York",
+    note = "version 0.1.0",
+    doi = "",
+    year = "2015",
+    url = "http://github.com/trinker/discon", 
+    textVersion  = paste("Rinker, T. W. (2015).",
+        "discon: Discourse Connector Analysis.",
+        "version 0.1.0. University at Buffalo. Buffalo, New York.",
+        "http://github.com/trinker/discon")
+)
