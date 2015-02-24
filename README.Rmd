@@ -99,7 +99,7 @@ plot(causality_1)
 ```{r, comment=NA, fig.height=3, fig.width=4}
 plot(causality_1[[1]], high = "darkgreen")
 causality_1[1]
-head(causality_1[[2]], 10)
+head(causality_1[[2]])
 ```
 
 <h4 id = "causality2" >Causality: Subgroups</h4>
@@ -109,14 +109,14 @@ causality_2 <- with(pres_debates2012, dc_causality_sub(dialogue, person))
 plot(causality_2, bg.color = "grey60", color = "blue", 
     total.color = "grey40", horiz.color="grey20")
 causality_2[1]
-head(causality_2[[2]], 10)
-head(causality_2[[3]], 10)
+head(causality_2[[2]])
+head(causality_2[[3]])
 ```
 
 <h4 id="revision">Revision</h4>
 
 ```{r, comment=NA}
-revision <- with(pres_debates2012[1:25, ], dc_revision(dialogue, person))
+revision <- with(pres_debates2012[1:20, ], dc_revision(dialogue, person))
 revision[1]
 revision[2]
 ```
@@ -136,13 +136,15 @@ We will now examine `discourse_connector`, the basic root function that all of t
 
 ```{r, comment=NA}
 ## Marker with one type (just: "I")
-with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
+i_disc <- with(pres_debates2012, discourse_connector(dialogue, person,
     names = c("I"),
     regex = "\\bI('[a-z]+)*\\b",
     terms = list(I = c(" I ", " I'"))
 ))
+i_disc[[1]]
+head(i_disc[[2]])
 ## Marker with two types (both: "I" & "you")
-with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
+i_you_disc <- with(pres_debates2012, discourse_connector(dialogue, person,
     names = c("I", "you"),
     regex =  list(
         I = "I('[a-z]+)*\\b",
@@ -153,6 +155,9 @@ with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
         you = c(" you ", " you'")
     )
 ))
+i_you_disc[[1]]
+head(i_you_disc[[2]])
+head(i_you_disc[[3]])
 ```
 
 ### Key Words in Context

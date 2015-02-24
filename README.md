@@ -112,7 +112,7 @@ $counts
 ```
 
 ```r
-head(causality_1[[2]], 10)
+head(causality_1[[2]])
 ```
 
 ```
@@ -138,26 +138,6 @@ Event 2: [lines 9-11]
             additional dollar six thousand.
 
     ROMNEY: That's not going to happen. 
- 
-===================================
-Event 3: [lines 23-25]
-
-    ROMNEY: And, by the way the idea came not even from Paul Ryan or
-            or Senator Wyden, who's the co author of the bill with
-            with Paul Ryan in the Senate, but also it came from Bill
-            Bill Clinton's chief of staff.
-
- ** ROMNEY: This is an idea that's been around a long time, which is
-            saying, hey, let's see if we can't get competition into
-            the Medicare world <<so that>> people can get the choice
-            of different plans at lower cost, better quality.
-
-    ROMNEY: I believe in competition. 
- 
-===================================
-Event 4: [lines 29-31]
-
-    OBAMA:  That's what they do. 
 ```
 
 <h4 id = "causality2" >Causality: Subgroups</h4>
@@ -187,7 +167,7 @@ $counts
 ```
 
 ```r
-head(causality_2[[2]], 10)
+head(causality_2[[2]])
 ```
 
 ```
@@ -213,85 +193,50 @@ Event 2: [lines 9-11]
             additional dollar six thousand.
 
     ROMNEY: That's not going to happen. 
- 
-===================================
-Event 3: [lines 23-25]
-
-    ROMNEY: And, by the way the idea came not even from Paul Ryan or
-            or Senator Wyden, who's the co author of the bill with
-            with Paul Ryan in the Senate, but also it came from Bill
-            Bill Clinton's chief of staff.
-
- ** ROMNEY: This is an idea that's been around a long time, which is
-            saying, hey, let's see if we can't get competition into
-            the Medicare world <<so that>> people can get the choice
-            of different plans at lower cost, better quality.
-
-    ROMNEY: I believe in competition. 
- 
-===================================
-Event 4: [lines 29-31]
-
-    OBAMA:  That's what they do. 
 ```
 
 ```r
-head(causality_2[[3]], 10)
+head(causality_2[[3]])
 ```
 
 ```
 ===================================
 Event 1: [lines 106-108]
 
-    OBAMA:  Now, it wasn't just on Wall Street.
+    OBAMA: Now, it wasn't just on Wall Street.
 
- ** OBAMA:  You had loan officers were that were giving loans and
-            mortgages that really shouldn't have been given,
-            <<because>> the folks didn't qualify.
+ ** OBAMA: You had loan officers were that were giving loans and
+           mortgages that really shouldn't have been given,
+           <<because>> the folks didn't qualify.
 
-    OBAMA:  You had people who were borrowing money to buy a house
-            that they couldn't afford. 
+    OBAMA: You had people who were borrowing money to buy a house
+           that they couldn't afford. 
  
 ===================================
 Event 2: [lines 120-122]
 
-    OBAMA:  And so the question is: Does anybody out there think that
-            the big problem we had is that there was too much
-            oversight and regulation of Wall Street?
+    OBAMA: And so the question is: Does anybody out there think that
+           the big problem we had is that there was too much
+           oversight and regulation of Wall Street?
 
- ** OBAMA:  <<Because>> if you do, then Governor Romney is your
-            candidate.
+ ** OBAMA: <<Because>> if you do, then Governor Romney is your
+           candidate.
 
-    OBAMA:  But that's not what I believe. 
- 
-===================================
-Event 3: [lines 128-130]
-
-    ROMNEY: It wasn't thought through properly.
-
- ** ROMNEY: We need to get rid of that provision <<because>> it's
-            killing regional and small banks.
-
-    ROMNEY: They're getting hurt. 
- 
-===================================
-Event 4: [lines 139-141]
-
-    ROMNEY: Try and get a mortgage these days. 
+    OBAMA: But that's not what I believe. 
 ```
 
 <h4 id="revision">Revision</h4>
 
 
 ```r
-revision <- with(pres_debates2012[1:25, ], dc_revision(dialogue, person))
+revision <- with(pres_debates2012[1:20, ], dc_revision(dialogue, person))
 revision[1]
 ```
 
 ```
 $counts
   person word.count revision
-1 ROMNEY        365  3(.82%)
+1 ROMNEY        260  2(.77%)
 2 LEHRER         24 1(4.17%)
 ```
 
@@ -323,31 +268,13 @@ Event 2: [lines 17-19]
     ROMNEY: The other thing we have to do to save Medicare? 
  
 ===================================
-Event 3: [lines 19-21]
+Event 3: [lines 19-20]
 
     ROMNEY: The other thing we have to do to save Medicare?
 
  ** ROMNEY: We have to have the benefits high for those that are low
             income, <<but>> for higher income people, we're going to
-            have to lower some of the benefits.
-
-    ROMNEY: We have to make sure this program is there for the long
-            term. 
- 
-===================================
-Event 4: [lines 22-24]
-
-    ROMNEY: That's the plan that I've put forward.
-
- ** ROMNEY: And, by the way the idea came not even from Paul Ryan or
-            or Senator Wyden, who's the co author of the bill with
-            with Paul Ryan in the Senate, <<but>> also it came from
-            Bill Bill Clinton's chief of staff.
-
-    ROMNEY: This is an idea that's been around a long time, which is
-            saying, hey, let's see if we can't get competition into
-            the Medicare world so that people can get the choice of
-            different plans at lower cost, better quality. 
+            have to lower some of the benefits. 
 ```
 
 <h4 id="typology">Typology</h4>
@@ -428,20 +355,29 @@ We will now examine `discourse_connector`, the basic root function that all of t
 
 ```r
 ## Marker with one type (just: "I")
-with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
+i_disc <- with(pres_debates2012, discourse_connector(dialogue, person,
     names = c("I"),
     regex = "\\bI('[a-z]+)*\\b",
     terms = list(I = c(" I ", " I'"))
 ))
+i_disc[[1]]
 ```
 
 ```
-$counts
-  person word.count        I
-1 ROMNEY        190 6(3.16%)
-2 LEHRER         24        0
+     person word.count          I
+1     OBAMA      18317 330(1.80%)
+2    ROMNEY      19923 505(2.53%)
+3   CROWLEY       1670  49(2.93%)
+4    LEHRER        765   9(1.18%)
+5  QUESTION        583  18(3.09%)
+6 SCHIEFFER       1445  25(1.73%)
+```
 
-$I
+```r
+head(i_disc[[2]])
+```
+
+```
 ===================================
 Event 1: [lines 2-4]
 
@@ -464,34 +400,11 @@ Event 2: [lines 6-8]
             current Medicare program or a private plan.
 
     ROMNEY: Their choice. 
- 
-===================================
-Event 3: [lines 13-15]
-
-    ROMNEY: And by the way, if the government can be as efficient as
-            the private sector and offer premiums that are as low as
-            the private sector, people will be happy to get
-            traditional Medicare or they'll be able to get a private
-            plan.
-
- ** ROMNEY: <<I>> know my own view is <<I'd>> rather have a private
-            plan.
-
-    ROMNEY: I'd just assume not have the government telling me what
-            kind of health care I get. 
- 
-===================================
-Event 4: [lines 14-15]
-
-    ROMNEY: I know my own view is I'd rather have a private plan.
-
- ** ROMNEY: <<I'd>> just assume not have the government telling me
-            what kind of health care <<I>> get. 
 ```
 
 ```r
 ## Marker with two types (both: "I" & "you")
-with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
+i_you_disc <- with(pres_debates2012, discourse_connector(dialogue, person,
     names = c("I", "you"),
     regex =  list(
         I = "I('[a-z]+)*\\b",
@@ -502,15 +415,24 @@ with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
         you = c(" you ", " you'")
     )
 ))
+i_you_disc[[1]]
 ```
 
 ```
-$counts
-  person word.count        I      you
-1 ROMNEY        190 6(3.16%)        0
-2 LEHRER         24        0 1(4.17%)
+     person word.count          I        you
+1     OBAMA      18317 330(1.80%) 252(1.38%)
+2    ROMNEY      19923 505(2.53%) 227(1.14%)
+3   CROWLEY       1670  49(2.93%)  73(4.37%)
+4    LEHRER        765   9(1.18%)  36(4.71%)
+5  QUESTION        583  18(3.09%)  22(3.77%)
+6 SCHIEFFER       1445  25(1.73%)  61(4.22%)
+```
 
-$I
+```r
+head(i_you_disc[[2]])
+```
+
+```
 ===================================
 Event 1: [lines 2-4]
 
@@ -533,31 +455,13 @@ Event 2: [lines 6-8]
             current Medicare program or a private plan.
 
     ROMNEY: Their choice. 
- 
-===================================
-Event 3: [lines 13-15]
+```
 
-    ROMNEY: And by the way, if the government can be as efficient as
-            the private sector and offer premiums that are as low as
-            the private sector, people will be happy to get
-            traditional Medicare or they'll be able to get a private
-            plan.
+```r
+head(i_you_disc[[3]])
+```
 
- ** ROMNEY: <<I>> know my own view is <<I'd>> rather have a private
-            plan.
-
-    ROMNEY: I'd just assume not have the government telling me what
-            kind of health care I get. 
- 
-===================================
-Event 4: [lines 14-15]
-
-    ROMNEY: I know my own view is I'd rather have a private plan.
-
- ** ROMNEY: <<I'd>> just assume not have the government telling me
-            what kind of health care <<I>> get. 
-
-$you
+```
 ===================================
 Event 1: [lines 1-3]
 
@@ -568,6 +472,18 @@ Event 1: [lines 1-3]
 
     ROMNEY: What I support is no change for current retirees and near
             retirees to Medicare. 
+ 
+===================================
+Event 2: [lines 29-31]
+
+    OBAMA:  That's what they do.
+
+ ** OBAMA:  And so <<you've>> got higher administrative costs, plus
+            profit on top of that.
+
+    OBAMA:  And if you are going to save any money through what
+            Governor Romney's proposing, what has to happen is, is
+            that the money has to come from somewhere. 
 ```
 
 ### Key Words in Context
