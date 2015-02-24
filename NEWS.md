@@ -52,6 +52,8 @@ And constructed with the following guidelines:
 * `dc_equality` & `dc_equality_sub` functions added to search for equality 
   discourse connectors.
 
+* `dc_timing` function added to search for timing discourse connectors.
+
 **IMPROVEMENTS**
 
 * `additional unit test for `print.discourse_connector` added.

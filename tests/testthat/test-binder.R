@@ -11,7 +11,7 @@ test_that("binder is collapsing into OR separated grouped boundaries",{
     )
 })
 
-test_that("binder is collapsing into OR separated grouped boundaries",{
+test_that("binder2 is collapsing into OR separated grouped boundaries",{
     
     expect_equal(binder2(LETTERS[1:5], ignore.case = TRUE), 
         "((\\bA\\b)|(\\bB\\b)|(\\bC\\b)|(\\bD\\b)|(\\bE\\b))"
@@ -19,4 +19,10 @@ test_that("binder is collapsing into OR separated grouped boundaries",{
     
 })
 
-
+test_that("binder3 is collapsing into OR separated grouped boundaries",{
+    
+    expect_equal(binder3(LETTERS[1:5], ignore.case = TRUE), 
+        "([aA]|[bB]|[cC]|[dD]|[eE])"
+    )
+    
+})
