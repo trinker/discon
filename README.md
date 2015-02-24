@@ -72,9 +72,6 @@ You are welcome to:
 ## Examples
 
 
-```
-## Loading required package: pacman
-```
 
 ### Specific Discourse Connector/Connector Functions
 
@@ -574,11 +571,12 @@ plot(keyWords[[1]])
 
 ![plot of chunk unnamed-chunk-8](inst/figure/unnamed-chunk-8-1.png) 
 
+
 ```r
 plot(keyWords, rm.vars = pres_debates2012[["time"]], total.color = NULL)
 ```
 
-![plot of chunk unnamed-chunk-8](inst/figure/unnamed-chunk-8-2.png) 
+![plot of chunk unnamed-chunk-9](inst/figure/unnamed-chunk-9-1.png) 
 
 ```r
 head(keyWords[[2]])
