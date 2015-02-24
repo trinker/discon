@@ -33,7 +33,8 @@ regex_list <- list(
     revision = binder(revise, ignore.case = TRUE),
     negator = binder3(unlist(negators, use.names=FALSE)),
     negator_sub = negators,
-    timing = binder(time_terms, ignore.case = TRUE, right="")
+    timing = binder(time_terms, ignore.case = TRUE, right=""),
+    comparison = qdapRegex::pastex(qdapRegex::group(comp_regex))
 )
 
 

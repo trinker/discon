@@ -55,4 +55,36 @@ time_terms <- c("after", "all at once", "all of the time", "all the while",
     "then", "today", "tomorrow", "until", "up to now", "usually", 
     "when", "while", "without exception", "yesterday")
 
+comp_regex <- c(
+  "\\b[Aa]s\\b\\s+[a-z]+\\b\\s+as", 
+  "\\b(([Mm]ore)|([Ll]ess))\\b\\s+[a-z]+\\b\\s+than", 
+  "\\b[A-Za-z]??[a-z]*'*(s|(re)) like", 
+  "\\b[Aa]s ((if)|(though))", 
+  "\\b[Un]like", 
+  "\\b[Ii]n\\s??(much)* the same way", 
+  "\\b[Rr]esembling", 
+  "\\b[Pp]arallel to", 
+  "\\b[Ss]ame as", 
+  "\\b(([Ee]qual)|([Ii]dentical)|([Ss]imilar))((ly)|( to))", 
+  "\\b[Oo]f little difference", 
+  "\\b[Mm]atching", 
+  "\\balso", 
+  "\\b[Ee]xactly", 
+  "\\b[Ii]n relation to"
+)
+
+
+com_terms <- c("'s like", "also", "as if", "as though", "as xxx as", "equal to", 
+    "equally", "exactly", "identical to", "identically", "in much the same way", 
+    "in relation to", "in the same way", "is like", "less xxx than", 
+    "matching", "more xxx than", "of little difference", "parallel to", 
+    "re like", "resembling", "same as", "similar to", "similarly", 
+    "unlike", "was like")
+
+search_comp <- c(
+    "(\\b[Aa]s\\b)(\\s+[a-z]+\\b\\s+)(as)", 
+    "(\\b(([Mm]ore)|([Ll]ess))\\b)(\\s+[a-z]+\\b\\s+)(than)"
+)
+
+replace_comp <- c("\\1 xxx \\3", "\\1 xxx \\6")
 

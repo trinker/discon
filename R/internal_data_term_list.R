@@ -34,7 +34,8 @@ term_list <- list(
     revision = list(revision = qdap::spaste(revise)),
     negator = list(negators = unlist(negators_terms, use.names=FALSE)),
     negator_sub = negators_terms,
-    timing = list(timing = time_terms)
+    timing = list(timing = time_terms),
+    comparison = list(comparison = com_terms)
 )
 
 

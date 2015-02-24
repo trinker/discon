@@ -26,6 +26,8 @@ NEW FEATURES
 * `dc_negator` & `dc_negator_sub` functions added to search for negator discourse 
   connectors.
 
+* `dc_comparison` function added to search for comparison discourse connectors.
+
 * `kwic` functions added to search for  and plot the distribution of 
   *key words in context*.
 

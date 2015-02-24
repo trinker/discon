@@ -59,13 +59,14 @@ You are welcome to:
 
 1. `discourse_connector`
 2. `dc_causality` & `dc_causality_sub`
-3. `dc_context` & `dc_context_sub`
-4. `dc_equality` & `dc_equality_sub`
-5. `dc_negator`
-6. `dc_revision`
-6. `dc_timing`
-7. `dc_typology`
-8. `kwic` (Key Words in Context)
+3. `dc_comparison` 
+4. `dc_context` & `dc_context_sub`
+5. `dc_equality` & `dc_equality_sub`
+6. `dc_negator`
+7. `dc_revision`
+8. `dc_timing`
+9. `dc_typology`
+10. `kwic` (Key Words in Context)
 
 \****Note*** *that all `discourse_connector` based functions (incuding functions prefixed with `dc_`) have generic `plot` method that utilizes `qdap::dispersion_plot` to generate a lexical dispersion plot.*
 

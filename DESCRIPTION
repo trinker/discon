@@ -35,6 +35,7 @@ Collate:
     'internal_data_regex_list.R'
     'discourse_connector.R'
     'dc_causality.R'
+    'dc_comparison.R'
     'dc_context.R'
     'dc_equality.R'
     'dc_negator.R'

@@ -19,7 +19,7 @@
 #' data sets, typically the function's name.  Generally, for internal use.
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
 #' @return Returns returns a list of 2: 
-#' \item{counts}{A \code{\link[qdap]{termco}} object of positive and negative timing discourse marker counts.} 
+#' \item{counts}{A \code{\link[qdap]{termco}} object of timing discourse marker counts.} 
 #' \item{timing}{A \code{\link[qdap]{trans_context}} object of timing discourse connectors in context.} 
 #' @references Kalajahi, S. A. R., Abdullah, A. N., Mukundan, J., & Tannacito, D. J. (2012) \href{http://goo.gl/eS0OwV}{Discourse connectors: An overview of the history, definition and classification of the term}. \emph{World Applied Sciences Journal, 19}(11), 1659-1673.
 #' 
