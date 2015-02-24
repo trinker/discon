@@ -39,5 +39,6 @@ Collate:
     'dc_equality.R'
     'dc_negator.R'
     'dc_revision.R'
+    'dc_timing.R'
     'dc_typology.R'
     'discon-package.R'

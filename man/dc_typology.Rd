@@ -2,7 +2,7 @@
 % Please edit documentation in R/dc_typology.R
 \name{dc_typology}
 \alias{dc_typology}
-\title{Extract Typology discourse Connectors in Context}
+\title{Extract Typology Discourse Connectors in Context}
 \usage{
 dc_typology(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),

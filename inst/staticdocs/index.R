@@ -9,6 +9,7 @@ sd_section("Discourse Connectors Analysis",
       "dc_equality",
       "dc_negator",
       "dc_revision", 
+      "dc_timing",
       "dc_typology"
   )
 )

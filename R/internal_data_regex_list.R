@@ -32,7 +32,8 @@ regex_list <- list(
         ), binder, ignore.case = TRUE),     
     revision = binder(revise, ignore.case = TRUE),
     negator = binder3(unlist(negators, use.names=FALSE)),
-    negator_sub = negators
+    negator_sub = negators,
+    timing = binder(time_terms, ignore.case = TRUE, right="")
 )
 
 

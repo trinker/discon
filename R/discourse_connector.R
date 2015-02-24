@@ -62,6 +62,29 @@
 #' 
 #' ## Save externally use .doc or .txt
 #' ## print(out2[[2]], file="you_I.doc")
+#' 
+#' ## Key Words in Context
+#' ## Determine top 15 words
+#' topterms <- qdap::freq_terms(
+#'     qdap::pres_debates2012[["dialogue"]], 
+#'     top = 20, 
+#'     at.least = 5, 
+#'     stopwords = c(qdapDictionaries::contractions[[1]], qdapDictionaries::Top200Words)
+#' )
+#' 
+#' ## Marker with top 15 words
+#' out3 <- with(pres_debates2012, discourse_connector(dialogue, person,
+#'     names = c("top15"),
+#'     regex =  list(
+#'         top15 = qdapRegex::pastex(qdapRegex::group(qdapRegex::bind(topterms[[1]])))
+#'     ),
+#'     terms = list(
+#'         top15 = qdap::spaste(topterms[[1]])
+#'     )
+#' ))
+#' out3[[1]]
+#' out3[[2]]
+#' plot(out3)
 discourse_connector <- function(text.var, grouping.var, n.before = 1, tot = FALSE, 
     n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"), 
     name = NULL, ...){

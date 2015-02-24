@@ -38,3 +38,21 @@ negators_terms <- list(
          "shouldn't", "wasn't", "weren't", "won't", "wouldn't")
 )
 
+
+time_terms <- c("after", "all at once", "all of the time", "all the while", 
+    "always", "as a final point", "as long as", "at present", "at the beginning", 
+    "at the end", "at the same time", "at this point", "before", 
+    "by now", "constant", "currently", "directly", "during", "earlier", 
+    "eventually", "finally", "following", "formerly", "frequently", 
+    "from now", "generally", "gradually", "henceforth", "henceforward", 
+    "hitherto", "immediately", "in the end", "in the future", "in the meantime", 
+    "infrequently", "initially", "instantly", "last", "later", "little by little", 
+    "meantime", "meanwhile", "never", "not at all", "not long ago", 
+    "now", "occasionally", "often", "periodically", "presently", 
+    "previously", "prior to", "rarely", "recently", "repeatedly", 
+    "same time", "seldom", "simultaneously", "some of the time", 
+    "sometimes", "soon", "suddenly", "temporarily", "the following", 
+    "then", "today", "tomorrow", "until", "up to now", "usually", 
+    "when", "while", "without exception", "yesterday")
+
+

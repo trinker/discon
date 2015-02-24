@@ -14,20 +14,20 @@ hijack <- function(FUN, ...){
 
 
 
-binder <- function(x, ignore.case = FALSE) {
+binder <- function(x, ignore.case = FALSE, left = "\\b", right = left) {
     if (ignore.case){
         x <- ignore_case(x)
     }
-    qdapRegex::pastex(qdapRegex::group(qdapRegex::bind(x)))
+    qdapRegex::pastex(qdapRegex::group(qdapRegex::bind(x, left = left, right = right)))
 }
-binder2 <- function(x, ignore.case = FALSE) {
-    paste0("(",binder(x, ignore.case = FALSE), ")")
+binder2 <- function(x, ignore.case = FALSE, left = "\\b", right = left) {
+    paste0("(",binder(x, ignore.case = FALSE, left = left, right = right), ")")
 }
 
 
 
 ## Ignore case in regex (i.e., convert `x` to [xX]`
-ignore_case <- function(terms){
+ignore_case <- function(terms, left = "\\b", right = left){
     mapply(function(x, y) {
             gsub("(^[a-zA-Z])", paste0("[", tolower(y), toupper(y), "]"), x)
         }, terms, substring(terms, 1, 1), USE.NAMES = FALSE
