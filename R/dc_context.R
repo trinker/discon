@@ -46,11 +46,11 @@
 #' ## print(out[[3]], file="elaboration_context.doc")
 dc_context <- hijack(discourse_connector, name = "context")
 
-#' \code{dc_context} - Extract context discourse connectors in context typified as 
+#' \code{dc_context_sub} - Extract context discourse connectors in context typified as 
 #' continuation or elaboration.
 #' @export
 #' @rdname dc_context
-#' @return \code{dc_context_sub} - Returns returns a list of 2: 
+#' @return \code{dc_context_sub} - Returns returns a list of 4: 
 #' \item{counts}{A \code{\link[qdap]{termco}} object of context discourse connector counts.} 
 #' \item{none}{A \code{\link[qdap]{trans_context}} object of context discourse connectors in context that are not \emph{continuation} or \emph{elaboration}.}
 #' \item{continuation}{A \code{\link[qdap]{trans_context}} object of continuation context discourse connectors in context.}

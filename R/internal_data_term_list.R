@@ -31,8 +31,9 @@ term_list <- list(
                 elaboration = contextual[-c(1:14)]
             ), qdap::spaste
         ),       
-    revision = list(revision = qdap::spaste(revise))
-    
+    revision = list(revision = qdap::spaste(revise)),
+    negator = list(negators = unlist(negators_terms, use.names=FALSE)),
+    negator_sub = negators_terms
 )
 
 

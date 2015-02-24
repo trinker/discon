@@ -2,7 +2,7 @@
 % Please edit documentation in R/dc_typology.R
 \name{dc_typology}
 \alias{dc_typology}
-\title{Extract Typology Dicourse Connectors in Context}
+\title{Extract Typology discourse Connectors in Context}
 \usage{
 dc_typology(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),
@@ -25,7 +25,7 @@ into turns of talk for that \code{grouping.var}.}
 
 \item{markup}{A character vector of length two indicating the left (element
 1) and right (element 2) boundary markers to use to highlight the typology
-dicourse connectors.  Use \code{c("", "")} to not mark the typology discourse
+discourse connectors.  Use \code{c("", "")} to not mark the typology discourse
 markers.}
 
 \item{name}{A string indicating the name to search for within the internal
@@ -38,11 +38,11 @@ data sets, typically the function's name.  Generally, for internal use.}
 \value{
 Returns returns a list of 3:
 \item{counts}{A \code{\link[qdap]{termco}} object of positive and negative typology discourse marker counts.}
-\item{negative}{A \code{\link[qdap]{trans_context}} object of positive typology dicourse connectors in context.}
-\item{positive}{A \code{\link[qdap]{trans_context}} object of negative typology dicourse connectors in context.}
+\item{negative}{A \code{\link[qdap]{trans_context}} object of positive typology discourse connectors in context.}
+\item{positive}{A \code{\link[qdap]{trans_context}} object of negative typology discourse connectors in context.}
 }
 \description{
-Extract typology dicourse connectors in context.
+Extract typology discourse connectors in context.
 }
 \examples{
 out <- with(pres_debates2012[1:200, ], dc_typology(dialogue, person))

@@ -45,7 +45,7 @@ data sets, typically the function's name.  Generally, for internal use.}
 \item{counts}{A \code{\link[qdap]{termco}} object of causality discourse connector counts.}
 \item{causality}{A \code{\link[qdap]{trans_context}} object of causality discourse connectors in context.}
 
-\code{dc_causality_sub} - Returns returns a list of 2:
+\code{dc_causality_sub} - Returns returns a list of 3:
 \item{counts}{A \code{\link[qdap]{termco}} object of causality discourse connector counts.}
 \item{continuation}{A \code{\link[qdap]{trans_context}} object of continuation causality discourse connectors in context.}
 \item{elaboration}{A \code{\link[qdap]{trans_context}} object of elaboration causality discourse connectors in context.}
@@ -53,7 +53,7 @@ data sets, typically the function's name.  Generally, for internal use.}
 \description{
 \code{dc_causality} - Extract causality discourse connectors in context.
 
-\code{dc_causality} - Extract causality discourse connectors in context typified as
+\code{dc_causality_sub} - Extract causality discourse connectors in context typified as
 continuation or elaboration.
 }
 \examples{

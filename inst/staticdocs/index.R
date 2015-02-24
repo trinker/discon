@@ -7,6 +7,7 @@ sd_section("Discourse Connectors Analysis",
       "dc_causality",
       "dc_context",
       "dc_equality",
+      "dc_negator",
       "dc_revision", 
       "dc_typology"
   )

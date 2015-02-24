@@ -1,6 +1,6 @@
-#' Extract Typology Dicourse Connectors in Context
+#' Extract Typology discourse Connectors in Context
 #'
-#' Extract typology dicourse connectors in context.
+#' Extract typology discourse connectors in context.
 #' 
 #' @param text.var The text variable. 
 #' @param grouping.var The grouping variables.  Also takes a single 
@@ -13,15 +13,15 @@
 #' @param ord.inds logical.  If \code{TRUE} inds is ordered least to greatest.
 #' @param markup A character vector of length two indicating the left (element 
 #' 1) and right (element 2) boundary markers to use to highlight the typology 
-#' dicourse connectors.  Use \code{c("", "")} to not mark the typology discourse 
+#' discourse connectors.  Use \code{c("", "")} to not mark the typology discourse 
 #' markers.
 #' @param name A string indicating the name to search for within the internal 
 #' data sets, typically the function's name.  Generally, for internal use.
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
 #' @return Returns returns a list of 3: 
 #' \item{counts}{A \code{\link[qdap]{termco}} object of positive and negative typology discourse marker counts.} 
-#' \item{negative}{A \code{\link[qdap]{trans_context}} object of positive typology dicourse connectors in context.} 
-#' \item{positive}{A \code{\link[qdap]{trans_context}} object of negative typology dicourse connectors in context.} 
+#' \item{negative}{A \code{\link[qdap]{trans_context}} object of positive typology discourse connectors in context.} 
+#' \item{positive}{A \code{\link[qdap]{trans_context}} object of negative typology discourse connectors in context.} 
 #' @references Ryan, G. W. & Bernard, H. R. (2003). \href{http://goo.gl/KdYxB8}{Techniques to identify themes}. \emph{Field Methods. 15}(1), 85-109. doi: \href{http://fmx.sagepub.com/content/15/1/85}{10.1177/1525822X02239569}
 #' 
 #' @keywords typology category define taxonomy

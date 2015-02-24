@@ -30,7 +30,7 @@ into turns of talk for that \code{grouping.var}.}
 
 \item{markup}{A character vector of length two indicating the left (element
 1) and right (element 2) boundary markers to use to highlight the equality
-diiscourse connectors.  Use \code{c("", "")} to not mark the equality discourse
+discourse connectors.  Use \code{c("", "")} to not mark the equality discourse
 markers.}
 
 \item{name}{A string indicating the name to search for within the internal
@@ -42,19 +42,19 @@ data sets, typically the function's name.  Generally, for internal use.}
 }
 \value{
 \code{dc_equality} - Returns returns a list of 2:
-\item{counts}{A \code{\link[qdap]{termco}} object of equality diiscourse connector counts.}
-\item{equality}{A \code{\link[qdap]{trans_context}} object of equality diiscourse connectors in context.}
+\item{counts}{A \code{\link[qdap]{termco}} object of equality discourse connector counts.}
+\item{equality}{A \code{\link[qdap]{trans_context}} object of equality discourse connectors in context.}
 
-\code{dc_equality_sub} - Returns returns a list of 2:
-\item{counts}{A \code{\link[qdap]{termco}} object of equality diiscourse connector counts.}
-\item{none}{A \code{\link[qdap]{trans_context}} object of equality diiscourse connectors in context that are not \emph{continuation} or \emph{elaboration}.}
-\item{continuation}{A \code{\link[qdap]{trans_context}} object of continuation equality diiscourse connectors in context.}
-\item{elaboration}{A \code{\link[qdap]{trans_context}} object of elaboration equality diiscourse connectors in context.}
+\code{dc_equality_sub} - Returns returns a list of 4:
+\item{counts}{A \code{\link[qdap]{termco}} object of equality discourse connector counts.}
+\item{none}{A \code{\link[qdap]{trans_context}} object of equality discourse connectors in context that are not \emph{continuation} or \emph{elaboration}.}
+\item{continuation}{A \code{\link[qdap]{trans_context}} object of continuation equality discourse connectors in context.}
+\item{elaboration}{A \code{\link[qdap]{trans_context}} object of elaboration equality discourse connectors in context.}
 }
 \description{
-\code{dc_equality} - Extract equality diiscourse connectors in context.
+\code{dc_equality} - Extract equality discourse connectors in context.
 
-\code{dc_equality} - Extract equality diiscourse connectors in context typified as
+\code{dc_equality_sub} - Extract equality discourse connectors in context typified as
 continuation or elaboration.
 }
 \examples{

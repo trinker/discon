@@ -45,7 +45,7 @@ data sets, typically the function's name.  Generally, for internal use.}
 \item{counts}{A \code{\link[qdap]{termco}} object of context discourse connector counts.}
 \item{context}{A \code{\link[qdap]{trans_context}} object of context discourse connectors in context.}
 
-\code{dc_context_sub} - Returns returns a list of 2:
+\code{dc_context_sub} - Returns returns a list of 4:
 \item{counts}{A \code{\link[qdap]{termco}} object of context discourse connector counts.}
 \item{none}{A \code{\link[qdap]{trans_context}} object of context discourse connectors in context that are not \emph{continuation} or \emph{elaboration}.}
 \item{continuation}{A \code{\link[qdap]{trans_context}} object of continuation context discourse connectors in context.}
@@ -54,7 +54,7 @@ data sets, typically the function's name.  Generally, for internal use.}
 \description{
 \code{dc_context} - Extract context discourse connectors in context.
 
-\code{dc_context} - Extract context discourse connectors in context typified as
+\code{dc_context_sub} - Extract context discourse connectors in context typified as
 continuation or elaboration.
 }
 \examples{

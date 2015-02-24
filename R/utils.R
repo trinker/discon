@@ -25,6 +25,7 @@ binder2 <- function(x, ignore.case = FALSE) {
 }
 
 
+
 ## Ignore case in regex (i.e., convert `x` to [xX]`
 ignore_case <- function(terms){
     mapply(function(x, y) {

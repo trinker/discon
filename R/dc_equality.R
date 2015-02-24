@@ -1,6 +1,6 @@
 #' Extract Equality Discourse Connectors in Context
 #'
-#' \code{dc_equality} - Extract equality diiscourse connectors in context.
+#' \code{dc_equality} - Extract equality discourse connectors in context.
 #' 
 #' @param text.var The text variable. 
 #' @param grouping.var The grouping variables.  Also takes a single 
@@ -13,14 +13,14 @@
 #' @param ord.inds logical.  If \code{TRUE} inds is ordered least to greatest.
 #' @param markup A character vector of length two indicating the left (element 
 #' 1) and right (element 2) boundary markers to use to highlight the equality 
-#' diiscourse connectors.  Use \code{c("", "")} to not mark the equality discourse 
+#' discourse connectors.  Use \code{c("", "")} to not mark the equality discourse 
 #' markers.
 #' @param name A string indicating the name to search for within the internal 
 #' data sets, typically the function's name.  Generally, for internal use.
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
 #' @return \code{dc_equality} - Returns returns a list of 2: 
-#' \item{counts}{A \code{\link[qdap]{termco}} object of equality diiscourse connector counts.} 
-#' \item{equality}{A \code{\link[qdap]{trans_context}} object of equality diiscourse connectors in context.}  
+#' \item{counts}{A \code{\link[qdap]{termco}} object of equality discourse connector counts.} 
+#' \item{equality}{A \code{\link[qdap]{trans_context}} object of equality discourse connectors in context.}  
 #' @references Alemany, L. A. (2005). Representing discourse for automatic text summarization via shallow NLP techniques (Unpublished doctoral dissertation). Universitat de Barcelona, Barcelona.
 #' 
 #' \url{http://russell.famaf.unc.edu.ar/~laura/shallowdisc4summ/discmar}
@@ -46,15 +46,15 @@
 #' ## print(out[[3]], file="elaboration_equality.doc")
 dc_equality <- hijack(discourse_connector, name = "equality")
 
-#' \code{dc_equality} - Extract equality diiscourse connectors in context typified as 
+#' \code{dc_equality_sub} - Extract equality discourse connectors in context typified as 
 #' continuation or elaboration.
 #' @export
 #' @rdname dc_equality
-#' @return \code{dc_equality_sub} - Returns returns a list of 2: 
-#' \item{counts}{A \code{\link[qdap]{termco}} object of equality diiscourse connector counts.} 
-#' \item{none}{A \code{\link[qdap]{trans_context}} object of equality diiscourse connectors in context that are not \emph{continuation} or \emph{elaboration}.}
-#' \item{continuation}{A \code{\link[qdap]{trans_context}} object of continuation equality diiscourse connectors in context.}
-#' \item{elaboration}{A \code{\link[qdap]{trans_context}} object of elaboration equality diiscourse connectors in context.}
+#' @return \code{dc_equality_sub} - Returns returns a list of 4: 
+#' \item{counts}{A \code{\link[qdap]{termco}} object of equality discourse connector counts.} 
+#' \item{none}{A \code{\link[qdap]{trans_context}} object of equality discourse connectors in context that are not \emph{continuation} or \emph{elaboration}.}
+#' \item{continuation}{A \code{\link[qdap]{trans_context}} object of continuation equality discourse connectors in context.}
+#' \item{elaboration}{A \code{\link[qdap]{trans_context}} object of elaboration equality discourse connectors in context.}
 dc_equality_sub <- hijack(discourse_connector, name = "equality_sub")
 
 
