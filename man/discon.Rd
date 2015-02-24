@@ -36,7 +36,7 @@ Please see the following resources for additional information:
 \item Alemany, L. A. (2005). \href{http://www.cs.famaf.unc.edu.ar/~laura/shallowdisc4summ/tesi_electronica.pdf}{Representing discourse for automatic text summarization via shallow NLP techniques} (Unpublished doctoral dissertation). Universitat de Barcelona, Barcelona.
 \item Biber, D. (2006). \emph{University language: A corpus-based study of spoken and written registers}. Amsterdam: John Benjamins Publishing Company.
 \item Halliday, M. A. K. & Hasan, R. (1976). \emph{Cohesion in English}. English Language Series. London: Longman.
-\item Kalajahi, S. A. R., Abdullah, A. N., Mukundan, J., & Tannacito, D. J. (2012) \href{http://goo.gl/eS0OwV}{Discourse connectors: An overview of the history, definition and classification of the term}. \emph{World Applied Sciences Journal, 19}(11), 1659-1673.
+\item Kalajahi, S. A. R., Abdullah, A. N., Mukundan, J., & Tannacito, D. J. (2012). \href{http://goo.gl/eS0OwV}{Discourse connectors: An overview of the history, definition and classification of the term}. \emph{World Applied Sciences Journal, 19}(11), 1659-1673.
 \item Ryan, G. W. & Bernard, H. R. (2003). \href{http://goo.gl/KdYxB8}{Techniques to identify themes}. \emph{Field Methods. 15}(1), 85-109. doi: \href{http://fmx.sagepub.com/content/15/1/85}{10.1177/1525822X02239569}
 \item Schiffrin, D. (1987). \emph{Discourse markers}. London: Cambridge University Press.
 \item Schiffrin, D. (2001). \href{http://goo.gl/KbwG9I}{Discourse markers: Language, meaning, and context}. In D. Schiffrin, D., D. Tannen, & H. E. Hamilton, (Eds.) \emph{The handbook of discourse analysis} (pp. 54-75). Malden, MA: Blackwell Publishing.
