@@ -8,12 +8,25 @@
 #' that may aide analysis (using the computer for efficiency and data coverage) 
 #' towards generating themes.
 #' 
-
+#' ``Discourse connectors are devices used to bridge between turns (in speech) 
+#' and sentences, indicating the logical relations among the parts of a the 
+#' logical relations among the parts of a framework for the listener/reader. 
+#' There are two major classes of discourse connectors: discourse markers and 
+#' linking adverbials. Discourse markers \textendash forms like \emph{ok}, 
+#' \emph{well}, and \emph{now} \textendash are restricted primarily to spoken 
+#' discourse. These forms have distinct discourse functions, but it is difficult 
+#' to identify the specific meaning of the word itself. In contrast, linking 
+#' adverbials \textendash forms like \emph{however}, \emph{thus}, 
+#' \emph{therefore}, \emph{for example} (\emph{e.g.}), and \emph{that is} 
+#' (\emph{i.e.}) \textendash are found in both spoken and written registers, and 
+#' they have greater inherent meaning than discourse markers.'' (Beiber, 2006, 
+#' p. 66)
 #' 
 #' Please see the following resources for additional information:
 #' 
 #' \itemize{
 #' \item Alemany, L. A. (2005). \href{http://www.cs.famaf.unc.edu.ar/~laura/shallowdisc4summ/tesi_electronica.pdf}{Representing discourse for automatic text summarization via shallow NLP techniques} (Unpublished doctoral dissertation). Universitat de Barcelona, Barcelona.  
+#' \item Biber, D. (2006).\emph{University language: A corpus-based study of spoken and written registers}. Amsterdam: John Benjamins Publishing Company.
 #' \item Halliday, M. A. K. & Hasan, R. (1976). \emph{Cohesion in English}. English Language Series. London: Longman.
 #' \item Kalajahi, S. A. R., Abdullah, A. N., Mukundan, J., & Tannacito, D. J. (2012) \href{http://goo.gl/eS0OwV}{Discourse connectors: An overview of the history, definition and classification of the term}. \emph{World Applied Sciences Journal, 19}(11), 1659-1673.
 #' \item Ryan, G. W. & Bernard, H. R. (2003). \href{http://goo.gl/KdYxB8}{Techniques to identify themes}. \emph{Field Methods. 15}(1), 85-109. doi: \href{http://fmx.sagepub.com/content/15/1/85}{10.1177/1525822X02239569}
