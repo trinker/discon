@@ -59,8 +59,11 @@
 #' out <- with(pres_debates2012, kwic(dialogue, list(time, person)))
 #' plot(out[[1]])
 #' head(out[[2]])
-#' with(pres_debates2012, plot(keyWords, grouping.var = person, rm.vars = time, 
-#' total.color = NULL))
+#' with(pres_debates2012, plot(out, grouping.var = person, rm.vars = time, 
+#'     total.color = NULL))
+#' 
+#' ## Save externally use .doc or .txt
+#' ## print(out[[2]], file="kwic.doc")
 kwic <- function(text.var, grouping.var, n.before = 1, tot = FALSE, 
     n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"), top = 15,
     at.least = 5, extend = TRUE, ignore.case = FALSE, left = "\\b", right = "",
