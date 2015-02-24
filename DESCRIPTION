@@ -21,7 +21,7 @@ Description: A collection of R tools for analysing discourse connectors in
     text.  Discourse connectors are cohesive devices that can be used to help
     identify themes within a text.  This package provides computational means
     of extracting various elements from the text that contain discourse
-    connectors.  This can aid in qualitative analysis of discourse by
+    connectors.  This can assist in qualitative analysis of discourse by
     identifying categories that may aide analysis (using the computer for
     efficiency and data coverage) towards generating themes.
 License: GPL-2
