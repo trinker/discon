@@ -42,3 +42,4 @@ Collate:
     'dc_timing.R'
     'dc_typology.R'
     'discon-package.R'
+    'kwic.R'
