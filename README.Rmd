@@ -71,6 +71,7 @@ You are welcome to:
 6. `dc_revision`
 6. `dc_timing`
 7. `dc_typology`
+8. `kwic` (Key Words in Context)
 
 \****Note*** *that all `discourse_connector` based functions (incuding functions prefixed with `dc_`) have generic `plot` method that utilizes `qdap::dispersion_plot` to generate a lexical dispersion plot.*
 
@@ -147,7 +148,15 @@ with(pres_debates2012[1:15, ], discourse_connector(dialogue, person,
 ))
 ```
 
+### Key Words in Context
 
+
+```{r, comment=NA, fig.height=2.5, fig.width=11}
+keyWords <- with(pres_debates2012, kwic(dialogue, list(time, person)))
+plot(keyWords[[1]])
+plot(keyWords, rm.vars = pres_debates2012[["time"]], total.color = NULL)
+head(keyWords[[2]])
+```
 
 
 

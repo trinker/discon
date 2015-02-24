@@ -65,12 +65,16 @@ You are welcome to:
 6. `dc_revision`
 6. `dc_timing`
 7. `dc_typology`
+8. `kwic` (Key Words in Context)
 
 \****Note*** *that all `discourse_connector` based functions (incuding functions prefixed with `dc_`) have generic `plot` method that utilizes `qdap::dispersion_plot` to generate a lexical dispersion plot.*
 
 ## Examples
 
 
+```
+## Loading required package: pacman
+```
 
 ### Specific Discourse Connector/Connector Functions
 
@@ -559,7 +563,50 @@ Event 1: [lines 1-3]
             retirees to Medicare. 
 ```
 
+### Key Words in Context
 
+
+
+```r
+keyWords <- with(pres_debates2012, kwic(dialogue, list(time, person)))
+plot(keyWords[[1]])
+```
+
+![plot of chunk unnamed-chunk-8](inst/figure/unnamed-chunk-8-1.png) 
+
+```r
+plot(keyWords, rm.vars = pres_debates2012[["time"]], total.color = NULL)
+```
+
+![plot of chunk unnamed-chunk-8](inst/figure/unnamed-chunk-8-2.png) 
+
+```r
+head(keyWords[[2]])
+```
+
+```
+===================================
+Event 1: [lines 3-5]
+
+    time 1.ROMNEY: What I support is no change for current retirees
+                   and near retirees to Medicare.
+
+ ** time 1.ROMNEY: And the <<president>> supports taking <<dollar>>
+                   seven hundred sixteen billion out of that program.
+
+    time 1.LEHRER: And what about the vouchers? 
+ 
+===================================
+Event 2: [lines 9-11]
+
+    time 1.ROMNEY: They get to choose and they'll have at least two
+                   plans that will be entirely at no cost to them.
+
+ ** time 1.ROMNEY: So they don't have to pay additional money, no
+                   additional <<dollar>> six <<thousand>>.
+
+    time 1.ROMNEY: That's not going to happen. 
+```
 
 
 
