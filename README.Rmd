@@ -99,7 +99,7 @@ plot(causality_1)
 ```{r, comment=NA, fig.height=3, fig.width=4}
 plot(causality_1[[1]], high = "darkgreen")
 causality_1[1]
-head(causality_1[2])
+head(causality_1[[2]], 10)
 ```
 
 <h4 id = "causality2" >Causality: Subgroups</h4>
@@ -109,8 +109,8 @@ causality_2 <- with(pres_debates2012, dc_causality_sub(dialogue, person))
 plot(causality_2, bg.color = "grey60", color = "blue", 
     total.color = "grey40", horiz.color="grey20")
 causality_2[1]
-head(causality_2[2])
-head(causality_2[3])
+head(causality_2[[2]], 10)
+head(causality_2[[3]], 10)
 ```
 
 <h4 id="revision">Revision</h4>
