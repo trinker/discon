@@ -16,16 +16,31 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
+ <a href="https://github.com/trinker/discon" target="_blank">discon</a> 0.1.0  
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
+* The **discmark** package was renamed to  <a href="https://github.com/trinker/discon" target="_blank">discon</a>.  The latter is a more 
+  inclusive term that better defines the scope of the package.
 
 
- <a href="https://github.com/trinker/discmark" target="_blank">discmark</a> 0.0.3   
+ <a href="https://github.com/trinker/discon" target="_blank">discon</a> 0.0.3   
 ----------------------------------------------------------------
 
 **BUG FIXES**
 
 * `discourse_marker` did not retain the correct grouping variable(s) name in the
   `termco` output as well as the `ggplot::ylab` on the `dispersion_plot`.  See 
-  <a href="https://github.com/trinker/discmark/issues/3">issue #3</a> for more.
+  <a href="https://github.com/trinker/discon/issues/3">issue #3</a> for more.
 
 **NEW FEATURES**
 
@@ -34,9 +49,6 @@ And constructed with the following guidelines:
 
 * `dm_equality` & `dm_equality_sub` functions added to search for equality 
   discourse markers.
-
-
-**MINOR FEATURES**
 
 **IMPROVEMENTS**
 
@@ -49,7 +61,7 @@ And constructed with the following guidelines:
 
 
 
- <a href="https://github.com/trinker/discmark" target="_blank">discmark</a> 0.0.2   
+ <a href="https://github.com/trinker/discon" target="_blank">discon</a> 0.0.2   
 ----------------------------------------------------------------
 
 **NEW FEATURES**
@@ -81,9 +93,9 @@ And constructed with the following guidelines:
 * `taxonomy` renamed to `dm_typology`.
 
 
- <a href="https://github.com/trinker/discmark" target="_blank">discmark</a> 0.0.1 
+ <a href="https://github.com/trinker/discon" target="_blank">discon</a> 0.0.1 
 ----------------------------------------------------------------
 
 Initial upload of **dismark**:
 
- <a href="https://github.com/trinker/discmark" target="_blank">discmark</a> is a collection of tools for analysing discourse markers in text. 
+ <a href="https://github.com/trinker/discon" target="_blank">discon</a> is a collection of tools for analysing discourse markers in text. 
