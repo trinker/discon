@@ -565,7 +565,7 @@ Event 1: [lines 1-3]
 
 
 ```r
-keyWords <- with(pres_debates2012, kwic(dialogue, list(time, person)))
+keyWords <- with(pres_debates2012, kwic(dialogue, list(time, person), high = "red"))
 plot(keyWords[[1]])
 ```
 
