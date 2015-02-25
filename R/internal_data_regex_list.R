@@ -34,7 +34,9 @@ regex_list <- list(
     negator = binder3(unlist(negators, use.names=FALSE)),
     negator_sub = negators,
     timing = binder(time_terms, ignore.case = TRUE, right=""),
-    comparison = qdapRegex::pastex(qdapRegex::group(comp_regex))
+    comparison = qdapRegex::pastex(qdapRegex::group(comp_regex)),
+    filled_pause = binder(filled_pause_terms, ignore.case = TRUE),
+    backchannel = binder(backchannel_terms, ignore.case = TRUE)
 )
 
 

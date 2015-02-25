@@ -91,7 +91,7 @@ discmark_helper_special <- function(text.var, grouping.var, n.before = 1, tot,
     group.nms, myargs) {
 
     if (!identical(terms, term_list[["comparison"]])){
-        warning("`dc_comparison` is a modified version of `discourse_connectors`; results may be inccorect")
+        warning("`dc_comparison` is a modified version of `discourse_connectors`; results may be incorrect")
     }
     
     termco_terms <- qdap::mgsub(search_comp, replace_comp, text.var, fixed=FALSE)

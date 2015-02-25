@@ -35,7 +35,9 @@ term_list <- list(
     negator = list(negators = unlist(negators_terms, use.names=FALSE)),
     negator_sub = negators_terms,
     timing = list(timing = time_terms),
-    comparison = list(comparison = com_terms)
+    comparison = list(comparison = com_terms),
+    filled_pause = list(filled_pause = qdap::spaste(filled_pause_terms)),
+    backchannel = list(backchannel = qdap::spaste(backchannel_terms))
 )
 
 

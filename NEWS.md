@@ -28,6 +28,8 @@ And constructed with the following guidelines:
 
 * `dc_comparison` function added to search for comparison discourse connectors.
 
+* `dc_filled_pause` function added to search for filled pause discourse connectors.
+
 * `kwic` functions added to search for  and plot the distribution of 
   *key words in context*.
 

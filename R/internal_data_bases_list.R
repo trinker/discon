@@ -88,3 +88,17 @@ search_comp <- c(
 
 replace_comp <- c("\\1 xxx \\3", "\\1 xxx \\6")
 
+backchannel_terms <- c("ah", "eh", "good", "hm", "hmm", "huh", "I know", "m-hm", "mhm", 
+    "mm", "mm-hm", "mm-hmm", "mmhm", "mmhmm", "mmm", "myeah", "nn-hm", 
+    "nn-hn", "nnhm", "nnhn", "oh", "oh-ok", "oh-okay", "oh ok", "oh okay", 
+    "OK", "okay", "really", "right", "sure", "true", 
+    "uh-huh", "uh-uh", "uhhuh", "ukay", "uu", "yea", "yeah", "yep", 
+    "yes", "yup")
+
+
+filled_pause_terms <- c("ah", "aum", "eh", "er", "huh", "mm", "mmm", "oh", "tsk", "uh", 
+    "uhh", "ukay", "um", "umm", "uu", "uum", "yea", "yeah")
+
+
+
+

@@ -27,9 +27,11 @@ Please see the following resources for additional information:
 - Biber, D. (2006). *University language: A corpus-based study of spoken and written registers*. Amsterdam: John Benjamins Publishing Company.
 - Halliday, M. A. K. & Hasan, R. (1976). *Cohesion in English*. English Language Series. London: Longman.
 - Kalajahi, S. A. R., Abdullah, A. N., Mukundan, J., & Tannacito, D. J. (2012). [Discourse connectors: An overview of the history, definition and classification of the term](http://goo.gl/eS0OwV). *World Applied Sciences Journal, 19*(11), 1659-1673. 
+- Linguistic Data Consortium. (2004) [*Simple metadata annotation specification (MDE)*](http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf). University of Pennsylvania.  Retrieved from [http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf](http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf)
 - Ryan, G. W. & Bernard, H. R. (2003). [Techniques to identify themes](http://goo.gl/KdYxB8). *Field Methods.  15*(1), 85-109. doi:[10.1177/1525822X02239569.](http://fmx.sagepub.com/content/15/1/85)
 - Schiffrin, D. (1987). *Discourse markers*. London: Cambridge University Press.      
 - Schiffrin, D. (2001). [Discourse markers: Language, meaning, and context](http://goo.gl/KbwG9I). In D. Schiffrin, D., D. Tannen, & H. E. Hamilton, (Eds.) *The handbook of discourse analysis* (pp. 54-75). Malden, MA: Blackwell Publishing.
+- Ward, N. (2000, October). [Issues in the Transcription of English Conversational Grunts](http://www.aclweb.org/anthology/W00-1004). *Proceedings of the 1st SIGdial Workshop on Discourse and Dialogue* (pp. 29&mdash;35). Hong Kong: Association for Computational Linguistics.  Retrieved from [http://www.aclweb.org/anthology/W00-1004](http://www.aclweb.org/anthology/W00-1004)
 
 
 ## Installation
@@ -68,11 +70,12 @@ You are welcome to:
 3. `dc_comparison` 
 4. `dc_context` & `dc_context_sub`
 5. `dc_equality` & `dc_equality_sub`
-6. `dc_negator`
-7. `dc_revision`
-8. `dc_timing`
-9. `dc_typology`
-10. `kwic` (Key Words in Context)
+6. `dc_filled_pause`
+7. `dc_negator`
+8. `dc_revision`
+9. `dc_timing`
+10. `dc_typology`
+12. `kwic` (Key Words in Context)
 
 \****Note*** *that all `discourse_connector` based functions (incuding functions prefixed with `dc_`) have generic `plot` method that utilizes `qdap::dispersion_plot` to generate a lexical dispersion plot.*
 

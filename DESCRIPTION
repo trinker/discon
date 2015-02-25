@@ -38,6 +38,7 @@ Collate:
     'dc_comparison.R'
     'dc_context.R'
     'dc_equality.R'
+    'dc_filled_pause.R'
     'dc_negator.R'
     'dc_revision.R'
     'dc_timing.R'
