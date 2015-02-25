@@ -36,7 +36,8 @@ regex_list <- list(
     timing = binder(time_terms, ignore.case = TRUE, right=""),
     comparison = qdapRegex::pastex(qdapRegex::group(comp_regex)),
     filled_pause = binder(filled_pause_terms, ignore.case = TRUE),
-    backchannel = binder(backchannel_terms, ignore.case = TRUE)
+    backchannel = binder(backchannel_terms, ignore.case = TRUE),
+    oh = "\\b[Oo]h\\b"
 )
 
 

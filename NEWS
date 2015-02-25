@@ -30,6 +30,9 @@ NEW FEATURES
 
 * `dc_filled_pause` function added to search for filled pause discourse connectors.
 
+* `dc_oh` function added to search for oh discourse connectors (specifically 
+  discourse marker).
+
 * `kwic` functions added to search for  and plot the distribution of 
   *key words in context*.
 

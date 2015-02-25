@@ -40,6 +40,7 @@ Collate:
     'dc_equality.R'
     'dc_filled_pause.R'
     'dc_negator.R'
+    'dc_oh.R'
     'dc_revision.R'
     'dc_timing.R'
     'dc_typology.R'

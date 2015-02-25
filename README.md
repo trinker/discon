@@ -66,9 +66,10 @@ You are welcome to:
 5. `dc_equality` & `dc_equality_sub`
 6. `dc_filled_pause`
 7. `dc_negator`
-8. `dc_revision`
-9. `dc_timing`
-10. `dc_typology`
+8. `dc_oh`
+9. `dc_revision`
+10. `dc_timing`
+11. `dc_typology`
 12. `kwic` (Key Words in Context)
 
 \****Note*** *that all `discourse_connector` based functions (incuding functions prefixed with `dc_`) have generic `plot` method that utilizes `qdap::dispersion_plot` to generate a lexical dispersion plot.*
@@ -76,6 +77,9 @@ You are welcome to:
 ## Examples
 
 
+```
+## Loading required package: pacman
+```
 
 ### Specific Discourse Connector/Connector Functions
 

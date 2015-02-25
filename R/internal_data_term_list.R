@@ -37,7 +37,8 @@ term_list <- list(
     timing = list(timing = time_terms),
     comparison = list(comparison = com_terms),
     filled_pause = list(filled_pause = qdap::spaste(filled_pause_terms)),
-    backchannel = list(backchannel = qdap::spaste(backchannel_terms))
+    backchannel = list(backchannel = qdap::spaste(backchannel_terms)),
+    oh = list(oh = " oh ")
 )
 
 
