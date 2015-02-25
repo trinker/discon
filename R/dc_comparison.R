@@ -53,7 +53,7 @@ dc_comparison <- function(text.var, grouping.var, n.before = 1, tot = FALSE,
         G <- as.character(substitute(grouping.var))
         group.nms <- G[length(G)]
     }
-    
+
     ## Either grab the regex, names, and terms 
     ## from the internal source or grab elements  
     ## from the ellipsis

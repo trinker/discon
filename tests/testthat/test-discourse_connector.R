@@ -101,6 +101,19 @@ test_that("discourse_connector plots a lexical dispersion plot of class `ggplot`
 })
 
 
+test_that("discourse_connector plots a lexical dispersion when `grouping.var` is supplied",{
+
+    keyWords <- with(pres_debates2012[c(1:100, 2500:2700), ], kwic(dialogue, list(time, person)))
+    
+    m <- with(pres_debates2012[c(1:100, 2500:2700), ], plot(keyWords, 
+        grouping.var = person, rm.vars = time, total.color = NULL, 
+        bg.color = "black", color = "yellow", horiz.color="grey20", plot=FALSE))
+    
+    expect_true(is(m, "ggplot"))
+   
+})
+
+
 test_that("discourse_connector prints as expected",{
 
     out <- with(pres_debates2012[1:5, ], discourse_connector(dialogue, person,
