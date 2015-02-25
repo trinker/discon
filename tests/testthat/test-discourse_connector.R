@@ -110,6 +110,12 @@ test_that("discourse_connector plots a lexical dispersion when `grouping.var` is
         bg.color = "black", color = "yellow", horiz.color="grey20", plot=FALSE))
     
     expect_true(is(m, "ggplot"))
+    
+    m2 <- with(pres_debates2012[c(1:100, 2500:2700), ], plot(keyWords, 
+        grouping.var = list(person, time), rm.vars = time, total.color = NULL, 
+        bg.color = "black", color = "yellow", horiz.color="grey20", plot=FALSE))
+    
+    expect_true(is(m2, "ggplot"))    
    
 })
 
