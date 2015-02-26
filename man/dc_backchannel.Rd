@@ -6,7 +6,7 @@
 \usage{
 dc_backchannel(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),
-  name = "backchannel", fun1, fun2 = NULL, ...)
+  name = "backchannel", fun1, fun2, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

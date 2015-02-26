@@ -6,7 +6,7 @@
 \usage{
 dc_comparison(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),
-  name = "comparison", ...)
+  name = "comparison", fun1, fun2, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -30,6 +30,18 @@ markers.}
 
 \item{name}{A string indicating the name to search for within the internal
 data sets, typically the function's name.  Generally, for internal use.}
+
+\item{fun1}{A function that checks the text variable and returns a logical
+vector.  This allows for additional restrictions to be places upon the text
+beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and
+\code{\link[qdap]{trans_context}}.  This argument in \code{dc_oh_begin} is
+ignored.}
+
+\item{fun2}{A function that checks the grouping variable and returns a logical
+vector.  This allows for additional restrictions to be placed upon the
+grouping variables that can't be addressed by \code{\link[qdap]{termco}} and
+\code{\link[qdap]{trans_context}}.  This argument in \code{dc_oh_begin} is
+ignored.}
 
 \item{\ldots}{Other arguments passed to \code{\link[qdap]{termco}}.}
 }

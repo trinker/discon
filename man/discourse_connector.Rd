@@ -11,7 +11,7 @@ discourse_connector(text.var, grouping.var, n.before = 1, tot = FALSE,
 
 discourse_connector_logical(text.var, grouping.var, n.before = 1,
   tot = FALSE, n.after = n.before, ord.inds = TRUE, markup = c("<<",
-  ">>"), name = NULL, fun1, fun2 = NULL, ...)
+  ">>"), name = NULL, fun1, fun2, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

@@ -30,29 +30,6 @@ test_that("dc_comparison works with grouping variable(s)",{
 })
 
 
-test_that("dc_comparison throws warning when user supplies terms",{
 
-    expect_warning(with(pres_debates2012[1:200, ], dc_comparison(dialogue, person,
-        names = c("I"),
-        regex = "\\bI('[a-z]+)*\\b",
-        terms = list(I = c(" I ", " I'")),
-        markup.regex = "\\b(I('[a-z]+)*)\\b",
-        name = NULL)))
 
-})
-
-test_that("dc_comparison throws warning when user supplies terms and multiple regexes",{
-
-    expect_warning(with(pres_debates2012[1:200, ], dc_comparison(dialogue, person,
-        names = c("I", "you"),
-        regex =  list(
-            I = "I('[a-z]+)*\\b",
-            you = "(\\b[Yy]ou('[a-z]+)*\\b)"
-        ),
-        terms = list(
-            I = c(" I ", " I'"),
-            you = c(" you ", " you'")
-        ),
-        name = NULL)))        
-})
 

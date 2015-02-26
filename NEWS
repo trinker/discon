@@ -22,13 +22,22 @@ discon 0.2.0
 BUG FIXES
 
 NEW FEATURES
+
 * `dc_connective` & `dc_connective_sub` functions added to search for conectives
   ("and", "but", & "or") in context.
 
-
 MINOR FEATURES
 
+* `discourse_connector_logical` now takes a `fun3` and `fun4` argument that 
+  allows the user to operate on `text.var` or just `text.var2`.  These are 
+  undocumented and typically for internal use.  This move is an attempt to make
+  the function more modular, for example `dc_comparison` now takes advantage of 
+  this template.
+
 IMPROVEMENTS
+
+* `dc_comparison` now utilizes `discourse_connector_logical` + the internal 
+  `hijack` rather than a less maintainable separate function.
 
 CHANGES
 

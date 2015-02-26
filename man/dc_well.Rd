@@ -11,7 +11,7 @@ dc_well(text.var, grouping.var, n.before = 1, tot = FALSE,
 
 dc_well_begin(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),
-  name = "well", fun1, fun2 = NULL, ...)
+  name = "well", fun1, fun2, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

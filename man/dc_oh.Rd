@@ -11,7 +11,7 @@ dc_oh(text.var, grouping.var, n.before = 1, tot = FALSE,
 
 dc_oh_begin(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),
-  name = "oh", fun1, fun2 = NULL, ...)
+  name = "oh", fun1, fun2, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}

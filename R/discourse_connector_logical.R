@@ -10,7 +10,7 @@
 #' @rdname discourse_connector
 discourse_connector_logical <- function(text.var, grouping.var, n.before = 1, 
     tot = FALSE, n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"), 
-    name = NULL, fun1, fun2 = NULL, ...){
+    name = NULL, fun1, fun2, ...){
 
     ## Grab the grouping variable name
     if (is.list(grouping.var)) {
@@ -24,11 +24,12 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
         G <- as.character(substitute(grouping.var))
         group.nms <- G[length(G)]
     }
-    
+
     ## Either grab the regex, names, and terms 
     ## from the internal source or grab elements  
     ## from the ellipsis
     myargs <- list(...)
+
     if (!is.null(name)){
         terms <- term_list[[name]]
         regex <- regex_list[[name]]
@@ -39,6 +40,8 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
         }   
         fun1 <- fun_list[[name]][["fun1"]]
         fun2 <- fun_list[[name]][["fun2"]]
+        fun3 <- fun_list[[name]][["fun3"]]        
+        fun4 <- fun_list[[name]][["fun4"]]           
     } else { 
         ## Grab elements from ellipsis &
         ## remove the function control specific 
@@ -48,7 +51,9 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
         terms <- myargs[["terms"]]
         fun1 <- myargs[["fun1"]]
         fun2 <- myargs[["fun2"]] 
-        myargs[c("regex", "names", "terms", "fun1", "fun2")] <- NULL
+        fun3 <- myargs[["fun3"]]
+        fun4 <- myargs[["fun4"]]        
+        myargs[c("regex", "names", "terms", "fun1", "fun2", "fun3", "fun4")] <- NULL
     }
 
     control <- NULL
@@ -56,30 +61,25 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
         control <- myargs[["control"]]
         myargs[["control"]] <- NULL
 
-        f1_formals_match <- names(control) %in% names(formals(fun1)) 
-        if (!is.null(fun1) && any(f1_formals_match)){
-            .FUN <- fun1
-            f1_args <- control[f1_formals_match] 
-            invisible(lapply(seq_along(f1_args), function(i) {
-                formals(.FUN)[[names(f1_args)[i]]] <<- f1_args[[i]]
-            }))
-            fun1 <- .FUN
+        if (!is.null(fun1)){
+            fun1 <- elli(fun1, myargs = control)
         }
 
-        f2_formals_match <- names(control) %in% names(formals(fun2)) 
-        if (!is.null(fun2) && any(f2_formals_match)){
-            .FUN <- fun2
-            f2_args <- control[f2_formals_match] 
-            invisible(lapply(seq_along(f2_args), function(i) {
-                formals(.FUN)[[names(f2_args)[i]]] <<- f2_args[[i]]
-            }))
-            fun2 <- .FUN
+        if (!is.null(fun2)){
+            fun2 <- elli(fun2, myargs = control)
         }
+
+        if (!is.null(fun3)){
+            fun3 <- elli(fun3, myargs = control)
+        }
+        if (!is.null(fun4)){
+            fun4 <- elli(fun4, myargs = control)
+        }        
     }
 
     stopifnot(length(markup) == 2)
 
-    inds2keep <- TRUE
+    inds2keep <- rep(TRUE, length(text.var))
     ## user supplied function to produce logical vector
     if (!is.null(fun1)) {    
         inds2keep <- fun1(text.var)
@@ -104,7 +104,7 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
         return(NULL)
     }
     
-    if (is.null(fun1) & is.null(fun2)){
+    if (all(sapply(list(fun1, fun2, fun3, fun4), is.null))){
         discmark_helper(text.var = text.var, grouping.var = grouping.var, 
             n.before = n.before, tot = tot, n.after = n.after, ord.inds = ord.inds, 
             markup = markup, names = names, terms = terms, regex = regex, 
@@ -113,17 +113,25 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
         discmark_helper_logical(text.var = text.var, grouping.var = grouping.var, 
             n.before = n.before, tot = tot, n.after = n.after, ord.inds = ord.inds, 
             markup = markup, names = names, terms = terms, regex = regex, 
-            group.nms = group.nms, myargs = myargs, inds2keep = inds2keep)
+            group.nms = group.nms, myargs = myargs, inds2keep = inds2keep, 
+            fun3 = fun3, fun4 = fun4)
     }
 
 }
 
 discmark_helper_logical <- function(text.var, grouping.var, n.before = 1, tot, 
     n.after = n.before, ord.inds, markup, names, terms, regex, markup.regex, 
-    group.nms, myargs, inds2keep) {
+    group.nms, myargs, inds2keep, fun3, fun4) {
 
-    ## replace non-space chararacters with 'x' if restricted by `fun` or `fun2`
+    ### Replicate text.var to text.var2 and allow funs 1-3 to act 
+    if (!is.null(fun3)){
+        text.var <- fun3(text.var)
+    }    
     text.var2 <- text.var
+    if (!is.null(fun4)){
+        text.var2 <- fun4(text.var2)
+    }     
+    ## replace non-space chararacters with 'x' if restricted by `fun` or `fun2`
     text.var2[!inds2keep & !is.na(inds2keep)] <- gsub("[^ ]", "x", text.var2[!inds2keep & !is.na(inds2keep)])
 
     ## Counts (termco)

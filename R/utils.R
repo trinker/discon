@@ -12,7 +12,26 @@ hijack <- function(FUN, ...){
     .FUN
 }
 
+## Ellipsis recieving function changing
+elli <- function(fun, myargs, ...){
 
+    if (missing(myargs)) myargs <- list(...)
+
+    formals_match <- names(myargs) %in% names(formals(fun))
+
+    if (any(formals_match)){
+        .FUN <- fun
+        args <- myargs[formals_match] 
+        invisible(lapply(seq_along(args), function(i) {
+            formals(.FUN)[[names(args)[i]]] <<- args[[i]]
+        }))
+        fun <- .FUN
+    } else {
+        
+        return(fun)
+    }
+    fun
+}
 
 binder <- function(x, ignore.case = FALSE, left = "\\b", right = left) {
     if (ignore.case){
