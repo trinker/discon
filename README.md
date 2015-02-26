@@ -82,9 +82,6 @@ You are welcome to:
 ## Examples
 
 
-```
-## Loading required package: pacman
-```
 
 ### Specific Discourse Connector/Connector Functions
 

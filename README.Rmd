@@ -87,7 +87,7 @@ You are welcome to:
 
 ## Examples
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE}
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(discon)
 knitr::opts_chunk$set(fig.path = "inst/figure/")
