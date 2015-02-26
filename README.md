@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/trinker/discon.png?branch=master)](https://travis-ci.org/trinker/discon)
 [![Coverage Status](https://coveralls.io/repos/trinker/discon/badge.png)](https://coveralls.io/r/trinker/discon)
 [![DOI](https://zenodo.org/badge/5398/trinker/discon.svg)](http://dx.doi.org/10.5281/zenodo.15611)
-<a href="https://img.shields.io/badge/Version-0.1.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.1.0-orange.svg" alt="Version"/></a></p>
+<a href="https://img.shields.io/badge/Version-0.2.0-orange.svg"><img src="https://img.shields.io/badge/Version-0.2.0-orange.svg" alt="Version"/></a></p>
 
 
 <img src="inst/discon_logo/r_discon.png" width = "300" alt="discon logo">   
@@ -57,20 +57,25 @@ You are welcome to:
 * send a pull request on: <https://github.com/trinker/discon/>
 * compose a friendly e-mail to: <tyler.rinker@gmail.com>
 
-## List of Functions
+## List of Discourse Connector Functions
 
-1. `discourse_connector`
-2. `dc_causality` & `dc_causality_sub`
-3. `dc_comparison` 
-4. `dc_context` & `dc_context_sub`
-5. `dc_equality` & `dc_equality_sub`
-6. `dc_filled_pause`
-7. `dc_negator`
-8. `dc_oh`
-9. `dc_revision`
-10. `dc_timing`
-11. `dc_typology`
-12. `kwic` (Key Words in Context)
+1. `discourse_connector` & `discourse_connector_logical`
+2. `dc_backchannel`
+3. `dc_causality` & `dc_causality_sub`
+4. `dc_comparison`
+5. `dc_connective` & `dc_connective_sub`
+7. `dc_context` & `dc_context_sub`
+7. `dc_equality` & `dc_equality_sub`
+8. `dc_filled_pause`
+9. `dc_negator`
+10. `dc_oh` & `dc_oh_begin`
+11. `dc_revision`
+12. `dc_timing`
+13. `dc_typology`
+14. `dc_well` & `dc_well_begin`
+15. `kwic` (Key Words in Context)
+
+
 
 \****Note*** *that all `discourse_connector` based functions (incuding functions prefixed with `dc_`) have generic `plot` method that utilizes `qdap::dispersion_plot` to generate a lexical dispersion plot.*
 

@@ -1,6 +1,7 @@
 #' Extract Oh Discourse Connectors in Context
 #'
-#' Extract oh discourse connectors in context.
+#' \code{dc_oh} - Extract oh discourse connectors (a marker Schiffrin (1987)
+#' terms a marker of "information management") in context.
 #' 
 #' @param text.var The text variable. 
 #' @param grouping.var The grouping variables.  Also takes a single 
@@ -40,9 +41,27 @@
 #' ## print(out[[2]], file="oh.doc")
 dc_oh <- hijack(discourse_connector, name = "oh")
 
-
-
-
+#' Extract Oh Discourse Connectors in Context
+#'
+#' \code{dc_oh_begin} - An extension of \code{dc_oh} that requires the "oh" to
+#' come at the begining of the word.  
+#' 
+#' @param fun1 A function that checks the text variable and returns a logical 
+#' vector.  This allows for additional restrictions to be places upon the text
+#' beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and 
+#' \code{\link[qdap]{trans_context}}.  The function in \code{dc_oh_begin}
+#' ensures that each has no more than n words before the "oh".  The defaut number
+#' of words is 0 or less.  This can be changed by supplying an argument to
+#' \code{n} via \code{control}.  For example to set the number of words to 2
+#' use: \code{control = list(n = 2))}.
+#' @param fun2 A function that checks the grouping variable and returns a logical 
+#' vector.  This allows for additional restrictions to be placed upon the 
+#' grouping variables that can't be addressed by \code{\link[qdap]{termco}} and 
+#' \code{\link[qdap]{trans_context}}.  This argument in \code{dc_oh_begin} is 
+#' ignored.
+#' @export
+#' @rdname dc_oh
+dc_oh_begin <- hijack(discourse_connector_logical, name = "oh")
 
 
 

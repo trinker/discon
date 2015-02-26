@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>dc_backchannel. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Backchannel Discourse Connectors in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>dc_backchannel(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"backchannel", fun1, fun2&nbsp;=&nbsp;NULL, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the backchannel
+discourse connectors.  Use <code>c("", "")</code> to not mark the backchannel discourse
+markers.</dd>
+      <dt>name</dt>
+      <dd>A string indicating the name to search for within the internal
+data sets, typically the function's name.  Generally, for internal use.</dd>
+      <dt>fun1</dt>
+      <dd>A function that checks the text variable and returns a logical
+vector.  This allows for additional restrictions to be places upon the text
+beyond the limited (non-regex) capabilities of <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> and
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>.  The function in <code>dc_backchannel</code>
+ensures that each sentence is less than n words in length.  The defaut number
+of words is 3 or less.  This can be changed by supplying an argument to
+<code>max</code> via <code>control</code>.  For example to set the number of words to 5
+use: <code>control = list(max = 2))</code>.</dd>
+      <dt>fun2</dt>
+      <dd>A function that checks the grouping variable and returns a logical
+vector.  This allows for additional restrictions to be placed upon the
+grouping variables that can't be addressed by <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> and
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>.  The function in <code>dc_backchannel</code>
+ensures that the speaker's turn is at max one row (1 sentence if
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/sentSplit'>sentSplit</a></code> has been used).</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Backchannel Discourse Connectors in Context">
+      <h2>Extract Backchannel Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Extract Backchannel Discourse Connectors in Context">
+      <h2>Extract Backchannel Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns returns a list of 2:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of backchannel discourse marker counts.
+backchannelA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of backchannel discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Extract backchannel discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>Backchannels are typically a listener indicating that they are
+listening and yielding the floor to the speaker.  Such utterances are rarely
+less than a few words.  The anonymous function passed to <code>fun1</code> checks
+that a line contains a maximum of three words to be considered.  This can be
+changed by supplying an argument to <code>max</code> via <code>control</code>.  For
+example to set the number of words to 5 use: <code>control = list(max = 2))</code>.
+Additionally, the second function <code>fun2</code> ensures that the speaker's turn
+is at max one row (1 sentence if <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/sentSplit'>sentSplit</a></code> has been used).</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Ward, N. (2000, October). <a href = 'http://www.aclweb.org/anthology/W00-1004'>Issues in the Transcription of English Conversational Grunts</a>. <em>Proceedings of the 1st SIGdial Workshop on Discourse and Dialogue</em> (pp. 29-35). Hong Kong: Association for Computational Linguistics.  Retrieved from <a href = 'http://www.aclweb.org/anthology/W00-1004'>http://www.aclweb.org/anthology/W00-1004</a></p>
+  
+      <p>Linguistic Data Consortium. (2004) <a href = 'http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf'><em>Simple metadata annotation specification (MDE)</em></a>. University of Pennsylvania.  Retrieved from <a href = 'http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf'>http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>out &lt;- with(pres_debates2012[1:2000, ], dc_backchannel(dialogue, person))
+</div>
+<p><img src='dc_backchannel-2.png' alt='' width='400' height='400' /></p>
+<div class='input'>out[1]
+</div>
+<div class='output'>$counts
+     person word.count backchannel
+1     OBAMA      12320     3(.02%)
+2    ROMNEY      12929     4(.03%)
+3   CROWLEY       1672     3(.18%)
+4    LEHRER        765     4(.52%)
+5  QUESTION        583     1(.17%)
+6 SCHIEFFER        505           0
+
+</div>
+<div class='input'>out[2]
+</div>
+<div class='output'>$backchannel
+===================================
+Event 1: [lines 39-41]
+
+    OBAMA:    but but but overall.
+
+ ** LEHRER:   &lt;&lt;OK&gt;&gt;.
+
+    OBAMA:    And so| 
+ 
+===================================
+Event 2: [lines 51-53]
+
+    ROMNEY:   The president said that the government can provide the
+              service at lower cost and without a profit.
+
+ ** LEHRER:   All &lt;&lt;right&gt;&gt;.
+
+    ROMNEY:   If that&#39;s the case, then it will always be the best
+              product that people can purchase. 
+ 
+===================================
+Event 3: [lines 377-379]
+
+    ROMNEY:   The proof of that is that fifty percent of college
+              graduates this year can&#39;t find work.
+
+ ** LEHRER:   All &lt;&lt;right&gt;&gt;.
+
+    ROMNEY:   We know that the path we&#39;re taking is not working. 
+ 
+===================================
+Event 4: [lines 465-467]
+
+    ROMNEY:   What&#39;s happening in the Middle East, there are
+              developments around the world that are of real concern.
+
+ ** LEHRER:   All &lt;&lt;right&gt;&gt;.
+
+    ROMNEY:   And Republicans and Democrats both love America. 
+ 
+===================================
+Event 5: [lines 766-768]
+
+    ROMNEY:   So how much did you cut?
+
+ ** OBAMA:    Not &lt;&lt;true&gt;&gt;.
+
+    ROMNEY:   How much did you cut them by, then? 
+ 
+===================================
+Event 6: [lines 784-786]
+
+    OBAMA:    So if you want to drill on public lands, you use it or
+              you lose it.
+
+ ** ROMNEY:   &lt;&lt;OK&gt;&gt;, |
+
+    OBAMA:    And so what we did was take away those leases. 
+ 
+===================================
+Event 7: [lines 807-809]
+
+    ROMNEY:   That wasn&#39;t the question.
+
+ ** OBAMA:    &lt;&lt;OK&gt;&gt;.
+
+    ROMNEY:   That was a statement. 
+ 
+===================================
+Event 8: [lines 859-861]
+
+    ROMNEY:   They&#39;re real jobs.
+
+ ** CROWLEY:  &lt;&lt;OK&gt;&gt;.
+
+    ROMNEY:   I appreciate wind jobs in Iowa and across our country. 
+ 
+===================================
+Event 9: [lines 863-865]
+
+    ROMNEY:   I&#39;m going to make sure|
+
+ ** CROWLEY:  &lt;&lt;OK&gt;&gt;.
+
+    ROMNEY:   we&#39;re taking advantage of our energy resources. 
+ 
+===================================
+Event 10: [lines 1302-1304]
+
+    ROMNEY:   Lorraine?
+
+ ** QUESTION: &lt;&lt;Yes&gt;&gt;, Lorraine.
+
+    ROMNEY:   Lorraine. 
+ 
+===================================
+Event 11: [lines 1305-1307]
+
+    QUESTION: How you doing?
+
+ ** ROMNEY:   &lt;&lt;Good&gt;&gt;, thanks.
+
+    QUESTION: Mister Romney, what do you plan on doing with
+              immigrants without their green cards that are currently
+              living here as productive members of society? 
+ 
+===================================
+Event 12: [lines 1375-1377]
+
+    CROWLEY:  Let&#39;s speak to, if you could|
+
+ ** ROMNEY:   &lt;&lt;Yes&gt;&gt;.
+
+    CROWLEY:  the idea of self deportation? 
+ 
+===================================
+Event 13: [lines 1460-1462]
+
+    QUESTION: This question actually comes from a brain trust of my
+              friends at Global Telecom Supply in Minneola yesterday.
+
+ ** OBAMA:    &lt;&lt;Ah&gt;&gt;.
+
+    QUESTION: We were sitting around, talking about Libya, and we
+              were reading and became aware of reports that the State
+              Department refused extra security for our embassy in
+              Benghazi, Libya, prior to the attacks that killed four
+              Americans. 
+ 
+===================================
+Event 14: [lines 1524-1526]
+
+    CROWLEY:  Governor, if you want to|
+
+ ** ROMNEY:   &lt;&lt;Yes&gt;&gt;, I I|
+
+    CROWLEY:  quickly to this please. 
+ 
+===================================
+Event 15: [lines 1550-1552]
+
+    OBAMA:    I&#39;m happy to have a longer conversation |
+
+ ** CROWLEY:  &lt;&lt;I know&gt;&gt; you|
+
+    OBAMA:    about foreign policy. 
+
+</div>
+<div class='input'>plot(out)
+</div>
+<p><img src='dc_backchannel-8.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[2]], file=&quot;backchannel.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dc_backchannel</li>
+    </ul>
+    <ul>
+      <li>backchannel</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

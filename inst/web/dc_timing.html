@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>dc_timing. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Timing Discourse Connectors in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>dc_timing(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"timing", ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the timing
+discourse connectors.  Use <code>c("", "")</code> to not mark the timing discourse
+markers.</dd>
+      <dt>name</dt>
+      <dd>A string indicating the name to search for within the internal
+data sets, typically the function's name.  Generally, for internal use.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Timing Discourse Connectors in Context">
+      <h2>Extract Timing Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Extract Timing Discourse Connectors in Context">
+      <h2>Extract Timing Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns returns a list of 2:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of timing discourse marker counts.
+timingA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of timing discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Extract timing discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Kalajahi, S. A. R., Abdullah, A. N., Mukundan, J., & Tannacito, D. J. (2012) <a href = 'http://goo.gl/eS0OwV'>Discourse connectors: An overview of the history, definition and classification of the term</a>. <em>World Applied Sciences Journal, 19</em>(11), 1659-1673.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>out &lt;- with(pres_debates2012[1:200, ], dc_timing(dialogue, person))
+out[1]
+</div>
+<div class='output'>$counts
+  person word.count    timing
+1  OBAMA        943 20(2.12%)
+2 ROMNEY       1349 17(1.26%)
+3 LEHRER        316  7(2.22%)
+
+</div>
+<div class='input'>out[2]
+</div>
+<div class='output'>$timing
+===================================
+Event 1: [lines 25-27]
+
+    ROMNEY: I believe in competition.
+
+ ** OBAMA:  Jim, if I if I can just respond very quickly, first of
+            all, every study has shown that Medicare has lower
+            administrative costs than private insurance does, which
+            is why seniors are &lt;&lt;generally&gt;&gt; pretty happy with it.
+
+    OBAMA:  And private insurers have to make a profit. 
+ 
+===================================
+Event 2: [lines 31-33]
+
+    OBAMA:  And if you are going to save any money through what
+            Governor Romney&#39;s proposing, what has to happen is, is
+            that the money has to come from somewhere.
+
+ ** OBAMA:  And &lt;&lt;when&gt;&gt; you move to a voucher system, you are
+            putting seniors at the mercy of those insurance
+            companies.
+
+    OBAMA:  And over time, if traditional Medicare has decayed or
+            fallen apart, then they&#39;re stuck. 
+ 
+===================================
+Event 3: [lines 32-34]
+
+    OBAMA:  And when you move to a voucher system, you are putting
+            seniors at the mercy of those insurance companies.
+
+ ** OBAMA:  And over time, if traditional Medicare has decayed or
+            fallen apart, &lt;&lt;then&gt;&gt; they&#39;re stuck.
+
+    OBAMA:  And this is the reason why AARP has said that your plan
+            would weaken Medicare substantially. 
+ 
+===================================
+Event 4: [lines 35-37]
+
+    OBAMA:  And that&#39;s why they were supportive of the approach that
+            we took.
+
+ ** OBAMA:  One &lt;&lt;last&gt;&gt; point I want to make.
+
+    OBAMA:  We do have to lower the cost of health care, not just in
+            Medicare and Medicaid| 
+ 
+===================================
+Event 5: [lines 48-50]
+
+    ROMNEY: Let&#39;s get back to Medicare.
+
+ ** LEHRER: &lt;&lt;before&gt;&gt; we leave the economy|
+
+    ROMNEY: Let&#39;s get back to Medicare. 
+ 
+===================================
+Event 6: [lines 52-54]
+
+    LEHRER: All right.
+
+ ** ROMNEY: If that&#39;s the case, &lt;&lt;then&gt;&gt; it will &lt;&lt;always&gt;&gt; be the
+            best product that people can purchase.
+
+    LEHRER: Wait a minute, Governor. 
+ 
+===================================
+Event 7: [lines 62-64]
+
+    LEHRER: All right.
+
+ ** LEHRER: So to finish quickly, briefly, on the economy, what is
+            your view about the level of federal regulation of the
+            economy right &lt;&lt;now&gt;&gt;?
+
+    LEHRER: Is there too much? 
+ 
+===================================
+Event 8: [lines 67-69]
+
+    LEHRER: This is not a new two minute segment to start.
+
+ ** LEHRER: And we&#39;ll go for a few minutes, and &lt;&lt;then&gt;&gt; we&#39;re going
+            to go to health care, OK?
+
+    ROMNEY: Regulation is essential. 
+ 
+===================================
+Event 9: [lines 75-77]
+
+    ROMNEY: Every free economy has good regulation.
+
+ ** ROMNEY: &lt;&lt;At the same time&gt;&gt;, regulation can become excessive.
+
+    LEHRER: Is it excessive now, do you think? 
+ 
+===================================
+Event 10: [lines 76-78]
+
+    ROMNEY: At the same time, regulation can become excessive.
+
+ ** LEHRER: Is it excessive &lt;&lt;now&gt;&gt;, do you think?
+
+    ROMNEY: In some places, yes. 
+ 
+===================================
+Event 11: [lines 81-83]
+
+    ROMNEY: No, it can become out of date.
+
+ ** ROMNEY: And what&#39;s happened with some of the legislation that&#39;s
+            been passed &lt;&lt;during&gt;&gt; the president&#39;s term, you&#39;ve seen
+            regulation become excessive, and it&#39;s hurt it&#39;s hurt the
+            economy.
+
+    ROMNEY: Let me give you an example. 
+ 
+===================================
+Event 12: [lines 105-107]
+
+    OBAMA:  The reason we have been in such a enormous economic
+            crisis was prompted by reckless behavior across the
+            board.
+
+ ** OBAMA:  &lt;&lt;Now&gt;&gt;, it wasn&#39;t just on Wall Street.
+
+    OBAMA:  You had loan officers were that were giving loans and
+            mortgages that really shouldn&#39;t have been given, because
+            the folks didn&#39;t qualify. 
+ 
+===================================
+Event 13: [lines 108-110]
+
+    OBAMA:  You had people who were borrowing money to buy a house
+            that they couldn&#39;t afford.
+
+ ** OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments &lt;&lt;when&gt;&gt; they weren&#39;t.
+
+    OBAMA:  But you also had banks making money hand over fist,
+            churning out products that the bankers themselves didn&#39;t
+            even understand, in order to make big profits, but
+            knowing that it made the entire system vulnerable. 
+ 
+===================================
+Event 14: [lines 115-117]
+
+    OBAMA:  We&#39;ve going to make sure that you&#39;ve got to have a living
+            will so so we can know how you&#39;re going to wind things
+            down if you make a bad bet so we don&#39;t have other
+            taxpayer bailouts.
+
+ ** OBAMA:  &lt;&lt;In the meantime&gt;&gt;, by the way, we also made sure that
+            all the help that we provided those banks was paid back
+            every single dime, with interest.
+
+    OBAMA:  Now, Governor Romney has said he wants to repeal Dodd
+            Frank. 
+ 
+===================================
+Event 15: [lines 116-118]
+
+    OBAMA:  In the meantime, by the way, we also made sure that all
+            the help that we provided those banks was paid back every
+            single dime, with interest.
+
+ ** OBAMA:  &lt;&lt;Now&gt;&gt;, Governor Romney has said he wants to repeal Dodd
+            Frank.
+
+    OBAMA:  And, you know, I appreciate and it appears we&#39;ve got some
+            agreement that a marketplace to work has to have some
+            regulation. 
+ 
+===================================
+Event 16: [lines 120-122]
+
+    OBAMA:  And so the question is: Does anybody out there think that
+            the big problem we had is that there was too much
+            oversight and regulation of Wall Street?
+
+ ** OBAMA:  Because if you do, &lt;&lt;then&gt;&gt; Governor Romney is your
+            candidate.
+
+    OBAMA:  But that&#39;s not what I believe. 
+ 
+===================================
+Event 17: [lines 140-142]
+
+    ROMNEY: It&#39;s hurt the housing market because Dodd Frank didn&#39;t
+            anticipate putting in place the kinds of regulations you
+            have to have.
+
+ ** ROMNEY: It&#39;s not that Dodd Frank &lt;&lt;always&gt;&gt; was wrong with too
+            much regulation.
+
+    ROMNEY: Sometimes they didn&#39;t come out with a clear regulation. 
+ 
+===================================
+Event 18: [lines 141-143]
+
+    ROMNEY: It&#39;s not that Dodd Frank always was wrong with too much
+            regulation.
+
+ ** ROMNEY: &lt;&lt;Sometimes&gt;&gt; they didn&#39;t come out with a clear
+            regulation.
+
+    ROMNEY: I will make sure we don&#39;t hurt the functioning of our of
+            our marketplace and our business, because I want to bring
+            back housing and get good jobs. 
+ 
+===================================
+Event 19: [lines 145-147]
+
+    LEHRER: I think we have another clear difference between the two
+            of you.
+
+ ** LEHRER: &lt;&lt;Now&gt;&gt;, let&#39;s move to health care where I know there is
+            a clear difference, and that has to do with the
+            Affordable Care Act, Obamacare.
+
+    LEHRER: And it&#39;s a two minute new new segment, and that means two
+            minutes each. 
+ 
+===================================
+Event 20: [lines 158-160]
+
+    ROMNEY: And and we&#39;ve got to deal with cost.
+
+ ** ROMNEY: And, unfortunately, &lt;&lt;when&gt;&gt; &lt;&lt;when&gt;&gt; &lt;&lt;when&gt;&gt; you look
+            at Obamacare, the Congressional Budget Office has said it
+            will cost dollar two thousand five hundred a year more
+            than traditional insurance.
+
+    ROMNEY: So it&#39;s adding to cost. 
+ 
+===================================
+Event 21: [lines 160-162]
+
+    ROMNEY: So it&#39;s adding to cost.
+
+ ** ROMNEY: And as a matter of fact, &lt;&lt;when&gt;&gt; the president ran for
+            office, he said that, by this year, he would have brought
+            down the cost of insurance for each family by dollar two
+            thousand five hundred a family.
+
+    ROMNEY: Instead, it&#39;s gone up by that amount. 
+ 
+===================================
+Event 22: [lines 174-176]
+
+    ROMNEY: And the best course for health care is to do what we did
+            in my state: craft a plan at the state level that fits
+            the needs of the state.
+
+ ** ROMNEY: And &lt;&lt;then&gt;&gt; let&#39;s focus on getting the costs down for
+            people, rather than raising it with the dollar two
+            thousand five hundred additional premium.
+
+    LEHRER: Mister President, the argument against repeal? 
+ 
+===================================
+Event 23: [lines 176-178]
+
+    LEHRER: Mister President, the argument against repeal?
+
+ ** OBAMA:  Well, four years ago, &lt;&lt;when&gt;&gt; I was running for office,
+            I was traveling around and having those same
+            conversations that Governor Romney talks about.
+
+    OBAMA:  And it wasn&#39;t just that small businesses were seeing
+            costs skyrocket and they couldn&#39;t get affordable coverage
+            even if they wanted to provide it to their employees. 
+ 
+===================================
+Event 24: [lines 189-191]
+
+    OBAMA:  They can&#39;t impose arbitrary lifetime limits.
+
+ ** OBAMA:  They have to let you keep your kid on their insurance
+            your insurance plan &lt;&lt;until&gt;&gt; you&#39;re twenty six years
+            old.
+
+    OBAMA:  And it also says that you&#39;re going to have to get rebates
+            if insurance companies are spending more on
+            administrative costs and profits than they are on actual
+            care. 
+ 
+===================================
+Event 25: [lines 192-194]
+
+    OBAMA:  Number two, if you don&#39;t have health insurance, we&#39;re
+            essentially setting up a group plan that allows you to
+            benefit from group rates that are typically eighteen
+            percent lower than if you&#39;re out there trying to get
+            insurance on the individual market.
+
+ ** OBAMA:  &lt;&lt;Now&gt;&gt;, the &lt;&lt;last&gt;&gt; point I&#39;d make &lt;&lt;before&gt;&gt;|
+
+    LEHRER: Two minutes two minutes is up, sir. 
+ 
+===================================
+Event 26: [lines 194-196]
+
+    LEHRER: Two minutes two minutes is up, sir.
+
+ ** OBAMA:  No, I think I had five seconds &lt;&lt;before&gt;&gt; you interrupted
+            me, was the irony is that we&#39;ve seen this model work
+            really well in Massachusetts, because Governor Romney did
+            a good thing, working with Democrats in the state to set
+            up what is essentially the identical model and as a
+            consequence people are covered there.
+
+    OBAMA:  It hasn&#39;t destroyed jobs. 
+ 
+===================================
+Event 27: [lines 196-198]
+
+    OBAMA:  It hasn&#39;t destroyed jobs.
+
+ ** OBAMA:  And as a consequence, we &lt;&lt;now&gt;&gt; have a system in which
+            we have the opportunity to start bringing down costs, as
+            opposed to just leaving millions of people out in the
+            cold.
+
+    LEHRER: Your five seconds went away a long time ago. 
+ 
+===================================
+Event 28: [lines 199-200]
+
+    LEHRER: All right, Governor.
+
+ ** LEHRER: Governor, tell tell the president &lt;&lt;directly&gt;&gt; why you
+            think what he just said is wrong about Obamacare? 
+
+</div>
+<div class='input'>plot(out)
+</div>
+<p><img src='dc_timing-6.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[2]], file=&quot;timing.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dc_timing</li>
+    </ul>
+    <ul>
+      <li>time</li><li>timing</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

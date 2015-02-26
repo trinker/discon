@@ -36,8 +36,6 @@ markers.}
 \item{name}{A string indicating the name to search for within the internal
 data sets, typically the function's name.  Generally, for internal use.}
 
-\item{inds}{A list of integer indices to print context for.}
-
 \item{\ldots}{Other arguments passed to \code{\link[qdap]{termco}}.}
 }
 \value{

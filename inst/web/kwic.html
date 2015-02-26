@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>kwic. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Key Words in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>kwic(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), top&nbsp;=&nbsp;15, at.least&nbsp;=&nbsp;5, extend&nbsp;=&nbsp;TRUE, ignore.case&nbsp;=&nbsp;FALSE, left&nbsp;=&nbsp;"\\b", right&nbsp;=&nbsp;"", names&nbsp;=&nbsp;c("KeyWords"), elim.old&nbsp;=&nbsp;FALSE, stopwords&nbsp;=&nbsp;c("going", qdapDictionaries::contractions[[1]], qdapDictionaries::Top200Words), ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the
+key words.  Use <code>c("", "")</code> to not mark the discourse
+connectors.</dd>
+      <dt>top</dt>
+      <dd>Top number of terms to show.</dd>
+      <dt>at.least</dt>
+      <dd>An integer indicating at least how many letters a word
+must be to be included in the output.</dd>
+      <dt>extend</dt>
+      <dd>logical.  If <code>TRUE</code> the <code>top</code> argument is extended to
+any word that has the same frequency as the <code>top</code> word.</dd>
+      <dt>ignore.case</dt>
+      <dd>logical.  If <code>TRUE</code> leading character's case is
+ignored.</dd>
+      <dt>left</dt>
+      <dd>The left boundary (regular expression) to put on the left side of
+words.  Default is
+<a href = 'http://www.regular-expressions.info/wordboundaries.html'>word boundary</a>
+(i.e., <code>\\b</code>) that cuts off at non-word characters.</dd>
+      <dt>right</dt>
+      <dd>The right boundary (regular expression) to put on the right side
+of words.  Default is no boundary and will locate words within words.  For
+example the expression <code>"\\blast"</code> will find "last" and "lastly" but not
+"blast".  To capture precisely key words use <code>right = "\\b"</code> or
+<code>right = left</code>.</dd>
+      <dt>names</dt>
+      <dd>A string indicating the name of the key words in the collective
+group name for the key words for use in the <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> and
+generic <code>plot</code> (<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/dispersion_plot'>dispersion_plot</a></code>) functions.</dd>
+      <dt>elim.old</dt>
+      <dd>logical.  If <code>TRUE</code> eliminates the columns that are
+combined together by the named match.list.</dd>
+      <dt>stopwords</dt>
+      <dd>A character vector of words to remove from the text.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Key Words in Context">
+      <h2>Extract Key Words in Context</h2>
+      
+    </div>
+
+    <div class="Extract Key Words in Context">
+      <h2>Extract Key Words in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns returns a list of 2-3:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of discourse connector counts.
+Context 1A <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of the key words in context.  Note the name of this object is supplied by <code>names</code> element one.
+Context 2...nAn optional (not returned if <code>regex</code> is of length one) <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of the key words in context.  Note the name of this (these) object(s) is supplied by <code>names</code> element 2...n.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Extract key words in context (kwic) utilizing <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/freq_terms'>freq_terms</a></code>.</p>
+  
+    </div>
+
+    <div class="Details">
+      <h2>Details</h2>
+      
+      <p>While <code>kwic</code> does not analyze discourse connectors, it is useful
+in identifying themes (and distribution across time) and builds upon the
+modular use of functions in the pkgdiscon package.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Ryan, G. W. & Bernard, H. R. (2003). <a href = 'http://goo.gl/KdYxB8'>Techniques to identify themes</a>. <em>Field Methods. 15</em>(1), 85-109. doi: <a href = 'http://fmx.sagepub.com/content/15/1/85'>10.1177/1525822X02239569</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>out &lt;- with(pres_debates2012, kwic(dialogue, list(time, person)))
+plot(out[[1]])
+</div>
+<p><img src='kwic-2.png' alt='' width='400' height='400' /></p>
+<div class='input'>head(out[[2]])
+</div>
+<div class='output'>===================================
+Event 1: [lines 3-5]
+
+    time 1.ROMNEY: What I support is no change for current retirees
+                   and near retirees to Medicare.
+
+ ** time 1.ROMNEY: And the &lt;&lt;president&gt;&gt; supports taking &lt;&lt;dollar&gt;&gt;
+                   seven hundred sixteen billion out of that program.
+
+    time 1.LEHRER: And what about the vouchers? 
+ 
+===================================
+Event 2: [lines 9-11]
+
+    time 1.ROMNEY: They get to choose and they&#39;ll have at least two
+                   plans that will be entirely at no cost to them.
+
+ ** time 1.ROMNEY: So they don&#39;t have to pay additional money, no
+                   additional &lt;&lt;dollar&gt;&gt; six &lt;&lt;thousand&gt;&gt;.
+
+    time 1.ROMNEY: That&#39;s not going to happen. 
+</div>
+<div class='input'>with(pres_debates2012, plot(out, grouping.var = person, rm.vars = time,
+    total.color = NULL))
+</div>
+<p><img src='kwic-6.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[2]], file=&quot;kwic.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>kwic</li>
+    </ul>
+    <ul>
+      <li>frequent</li><li>key</li><li>kwic</li><li>words</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/freq_terms'>freq_terms</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

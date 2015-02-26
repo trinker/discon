@@ -6,7 +6,6 @@
 #' @param text.var The text variable. 
 #' @param grouping.var The grouping variables.  Also takes a single 
 #' grouping variable or a list of 1 or more grouping variables.
-#' @param inds A list of integer indices to print context for.
 #' @param n.before The number of rows before the indexed occurrence.
 #' @param tot logical.  If \code{TRUE} condenses sub-units (e.g., sentences) 
 #' into turns of talk for that \code{grouping.var}.
@@ -31,7 +30,7 @@
 #' @seealso \code{\link[qdap]{termco}},
 #' \code{\link[qdap]{trans_context}}
 #' @rdname discourse_connector
-#' @include utils.R internal_data_bases_list.R internal_data_regex_list.R internal_data_term_list.R
+#' @include utils.R is.isolate.R is.first_in_set.R is.within_n_preceding_words.R internal_data_bases_list.R internal_data_regex_list.R internal_data_term_list.R internal_functions_list.R
 #' @examples
 #' ## Marker with one type (just: "I")
 #' out1 <- with(pres_debates2012[1:200, ], discourse_connector(dialogue, person,
@@ -158,6 +157,12 @@ discmark_helper <- function(text.var, grouping.var, n.before = 1, tot,
     ## Create marked transcript excerpts 
     out2 <- lapply(regex, function(x){
         inds <- grep(x, text.var) 
+        
+        ## make sure there are matches for the regex
+        if (identical(inds, integer(0))) {
+            message(sprintf("The following regex did not return any indices:\n\n%s", x))
+            return(NULL)
+        }        
         out1 <- qdap::trans_context(text.var = text.var, grouping.var = grouping.var, 
             inds = inds, n.before = n.before, tot = tot, n.after = n.after, 
             ord.inds = ord.inds)

@@ -37,7 +37,14 @@ regex_list <- list(
     comparison = qdapRegex::pastex(qdapRegex::group(comp_regex)),
     filled_pause = binder(filled_pause_terms, ignore.case = TRUE),
     backchannel = binder(backchannel_terms, ignore.case = TRUE),
-    oh = "\\b[Oo]h\\b"
+    oh = "\\b[Oo]h\\b",
+    well = "\\b[Ww]ell\\b",
+    connective = "(\\b(([Aa]nd)|([Bb]ut)|([Oo]r))\\b)",
+    connective_sub = list(
+        and = "\\b[Aa]nd\\b",
+        but = "\\b[Bb]ut\\b",
+        or = "\\b[Oo]r\\b"
+    )    
 )
 
 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>is.isolate. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Check if Element Is Isolated</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>is.isolate(x)</div>
+<div>is.repeat(x)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>A vector of elements.</dd>
+    </dl>
+    
+    <div class="Check if Element Is Isolated">
+      <h2>Check if Element Is Isolated</h2>
+      
+    </div>
+
+    <div class="Check if Element Is Isolated">
+      <h2>Check if Element Is Isolated</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a logical vector equal in length to x.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>is.isolate</code> - Logical check of each element in a vector to determine if
+an element is isolated, that is not repeated.</p>
+  
+      <p><code>is.repeat</code> - The (semantical) "inverse" to <code>is.isolate</code>.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>set.seed(3)
+(x &lt;- sample(1:3, 9, TRUE))
+</div>
+<div class='output'>[1] 1 3 2 1 2 2 1 1 2
+</div>
+<div class='input'>is.isolate(x)
+</div>
+<div class='output'>[1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE
+</div>
+<div class='input'>is.repeat(x)
+</div>
+<div class='output'>[1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>is.isolate</li><li>is.repeat</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

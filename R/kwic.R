@@ -5,7 +5,6 @@
 #' @param text.var The text variable. 
 #' @param grouping.var The grouping variables.  Also takes a single 
 #' grouping variable or a list of 1 or more grouping variables.
-#' @param inds A list of integer indices to print context for.
 #' @param n.before The number of rows before the indexed occurrence.
 #' @param tot logical.  If \code{TRUE} condenses sub-units (e.g., sentences) 
 #' into turns of talk for that \code{grouping.var}.

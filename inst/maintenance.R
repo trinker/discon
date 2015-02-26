@@ -47,7 +47,9 @@ path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- file.path(R_USER, "GitHub/discon/inst/extra_statdoc/readme.R")
 library(acc.roxygen2); library(qdap);
-extras <- c("dc_causality_sub", "dc_context_sub", "dc_equality_sub")
+extras <- c("dc_causality_sub", "dc_context_sub", "dc_equality_sub",
+    "discourse_connector_logical", "dc_oh_begin", "dc_well_begin", 
+    "is.repeat", "is.last_in_set")
 ## drops <- qcv()
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 

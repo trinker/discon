@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>dc_filled_pause. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Filled Pause Discourse Connectors in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>dc_filled_pause(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"filled_pause", ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the filled pause
+discourse connectors.  Use <code>c("", "")</code> to not mark the filled pause discourse
+markers.</dd>
+      <dt>name</dt>
+      <dd>A string indicating the name to search for within the internal
+data sets, typically the function's name.  Generally, for internal use.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Filled Pause Discourse Connectors in Context">
+      <h2>Extract Filled Pause Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Extract Filled Pause Discourse Connectors in Context">
+      <h2>Extract Filled Pause Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns returns a list of 2:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of filled pause discourse marker counts.
+filled_pauseA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of filled pause discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Extract filled pause discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Ward, N. (2000, October). <a href = 'http://www.aclweb.org/anthology/W00-1004'>Issues in the Transcription of English Conversational Grunts</a>. <em>Proceedings of the 1st SIGdial Workshop on Discourse and Dialogue</em> (pp. 29-35). Hong Kong: Association for Computational Linguistics.  Retrieved from <a href = 'http://www.aclweb.org/anthology/W00-1004'>http://www.aclweb.org/anthology/W00-1004</a></p>
+  
+      <p>Linguistic Data Consortium. (2004) <a href = 'http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf'><em>Simple metadata annotation specification (MDE)</em></a>. University of Pennsylvania.  Retrieved from <a href = 'http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf'>http://www.itl.nist.gov/iad/mig/tests/rt/2004-fall/docs/SimpleMDE_V6.2-draft.pdf</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>out &lt;- with(pres_debates2012[1:2000, ], dc_filled_pause(dialogue, person))
+out[1]
+</div>
+<div class='output'>$counts
+     person word.count filled_pause
+1     OBAMA      12317      1(.01%)
+2    ROMNEY      12926      4(.03%)
+3   CROWLEY       1670            0
+4    LEHRER        765      4(.52%)
+5  QUESTION        583      2(.34%)
+6 SCHIEFFER        505            0
+
+</div>
+<div class='input'>out[2]
+</div>
+<div class='output'>$filled_pause
+===================================
+Event 1: [lines 44-46]
+
+    OBAMA:    Is that a is that a separate topic?
+
+ ** LEHRER:   &lt;&lt;Yeah&gt;&gt;, we&#39;re going to &lt;&lt;yeah&gt;&gt;, I want to get to it.
+
+    OBAMA:    I&#39;m sorry. 
+ 
+===================================
+Event 2: [lines 330-332]
+
+    OBAMA:    Well, I definitely think there are differences.
+
+ ** LEHRER:   And do you &lt;&lt;yeah&gt;&gt;.
+
+    OBAMA:    The first role of the federal government is to keep the
+              American people safe. 
+ 
+===================================
+Event 3: [lines 448-450]
+
+    OBAMA:    You&#39;ve done a great job.
+
+ ** LEHRER:   &lt;&lt;Oh&gt;&gt;, well, no.
+
+    LEHRER:   But the fact is government the role of government and
+              governing, we&#39;ve lost a pod in other words. 
+ 
+===================================
+Event 4: [lines 602-604]
+
+    ROMNEY:   Thanks Jeremy.
+
+ ** ROMNEY:   &lt;&lt;Yeah&gt;&gt;, you bet.
+
+    CROWLEY:  Mister President? 
+ 
+===================================
+Event 5: [lines 876-878]
+
+    QUESTION: Governor Romney, you have stated that if you&#39;re elected
+              president, you would plan to reduce the tax rates for
+              all the tax brackets and that you would work with the
+              Congress to eliminate some deductions in order to make
+              up for the loss in revenue.
+
+ ** QUESTION: Concerning the these various deductions, the mortgage
+              deductions, the charitable deductions, the child tax
+              credit and also the &lt;&lt;oh&gt;&gt;, what&#39;s that other credit?
+
+    QUESTION: I forgot. 
+ 
+===================================
+Event 6: [lines 879-881]
+
+    OBAMA:    You&#39;re doing great.
+
+ ** QUESTION: &lt;&lt;Oh&gt;&gt;, I remember.
+
+    QUESTION: The education credits, which are important to me,
+              because I have children in college. 
+ 
+===================================
+Event 7: [lines 1279-1281]
+
+    ROMNEY:   You might say, Well, you got an example of one that
+              worked better?
+
+ ** ROMNEY:   &lt;&lt;Yeah&gt;&gt;, in the Reagan recession where unemployment
+              hit ten.
+
+    ROMNEY:   eight percent, between that period the end of that
+              recession and the equivalent of time to today, Ronald
+              Reagan&#39;s recovery created twice as many jobs as this
+              president&#39;s recovery. 
+ 
+===================================
+Event 8: [lines 1460-1462]
+
+    QUESTION: This question actually comes from a brain trust of my
+              friends at Global Telecom Supply in Minneola yesterday.
+
+ ** OBAMA:    &lt;&lt;Ah&gt;&gt;.
+
+    QUESTION: We were sitting around, talking about Libya, and we
+              were reading and became aware of reports that the State
+              Department refused extra security for our embassy in
+              Benghazi, Libya, prior to the attacks that killed four
+              Americans. 
+ 
+===================================
+Event 9: [lines 1584-1586]
+
+    CROWLEY:  Governor Romney, the question is about assault weapons,
+              AK forty sevens.
+
+ ** ROMNEY:   &lt;&lt;Yeah&gt;&gt;, I&#39;m not in favor of new pieces of legislation
+              on on guns and taking guns away or making certain guns
+              illegal.
+
+    OBAMA:    because I do believe that if our young people have
+              opportunity, then they&#39;re less likely to engage in
+              these kind of violent acts. 
+ 
+===================================
+Event 10: [lines 1929-1931]
+
+    ROMNEY:   Number two, with regards to Iraq, you and I agreed I
+              believe that there should be a status of forces
+              agreement.
+
+ ** ROMNEY:   &lt;&lt;Oh&gt;&gt; you didn&#39;t?
+
+    ROMNEY:   You didn&#39;t want a status of| 
+
+</div>
+<div class='input'>plot(out)
+</div>
+<p><img src='dc_filled_pause-6.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[2]], file=&quot;filled_pause.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dc_filled_pause</li>
+    </ul>
+    <ul>
+      <li>filled</li><li>pause</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

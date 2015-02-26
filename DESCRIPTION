@@ -1,7 +1,7 @@
 Package: discon
 Type: Package
 Title: Discourse Connectors Analysis
-Version: 0.1.0
+Version: 0.2.0
 Date: 2015-02-19
 Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com",
     role = c("aut", "cre")))
@@ -30,12 +30,19 @@ BugReports: http://github.com/trinker/discon/issues
 Roxygen: list(wrap = FALSE)
 Collate:
     'utils.R'
+    'is.isolate.R'
+    'discourse_connector_logical.R'
+    'is.within_n_preceding_words.R'
+    'is.first_in_set.R'
+    'internal_functions_list.R'
     'internal_data_bases_list.R'
     'internal_data_term_list.R'
     'internal_data_regex_list.R'
     'discourse_connector.R'
+    'dc_backchannel.R'
     'dc_causality.R'
     'dc_comparison.R'
+    'dc_connective.R'
     'dc_context.R'
     'dc_equality.R'
     'dc_filled_pause.R'
@@ -44,5 +51,6 @@ Collate:
     'dc_revision.R'
     'dc_timing.R'
     'dc_typology.R'
+    'dc_well.R'
     'discon-package.R'
     'kwic.R'

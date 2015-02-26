@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>dc_negator. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Negator Discourse Connectors in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>dc_negator(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"negator", ...)</div>
+<div>dc_negator_sub(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"negator_sub", ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the negator
+discourse connectors.  Use <code>c("", "")</code> to not mark the negator discourse
+markers.</dd>
+      <dt>name</dt>
+      <dd>A string indicating the name to search for within the internal
+data sets, typically the function's name.  Generally, for internal use.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Negator Discourse Connectors in Context">
+      <h2>Extract Negator Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Extract Negator Discourse Connectors in Context">
+      <h2>Extract Negator Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p><code>dc_negator</code> - Returns returns a list of 2:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of negator discourse connector counts.
+negative_wordsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of negative words (e.g., not, no, none, never) discourse connectors in context.</p>
+  
+      <p><code>dc_negator_sub</code> - Returns returns a list of 4:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of negator discourse connector counts.
+negative_wordsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of negative words (e.g., not, no, none, never) discourse connectors in context.
+negative_prefixA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of negative prefix (e.g., dis-, il-, im-, ir-, non-, un-) discourse connectors in context.  Note that in- and a- prefixes are ignored as these letters begin many non-negator words as well.
+negative_contractionsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of negative contractions discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>dc_negator</code> - Extract negator discourse connectors in context.</p>
+  
+      <p><code>dc_negator_sub</code> - Extract negator discourse connectors in context typified as
+words, prefix, or contractions (not type).</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Ryan, G. W. & Bernard, H. R. (2003). <a href = 'http://goo.gl/KdYxB8'>Techniques to identify themes</a>. <em>Field Methods. 15</em>(1), 85-109. doi: <a href = 'http://fmx.sagepub.com/content/15/1/85'>10.1177/1525822X02239569</a></p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>with(pres_debates2012[1:200, ], dc_negator(dialogue, person))
+</div>
+<div class='output'>$counts
+  person word.count  negators
+1  OBAMA        943 26(2.76%)
+2 ROMNEY       1349 38(2.82%)
+3 LEHRER        316   3(.95%)
+
+$negator
+===================================
+Event 1: [lines 2-4]
+
+    LEHRER: But what do you support the voucher system, Governor?
+
+ ** ROMNEY: What I support is &lt;&lt;no&gt;&gt; change for current retirees and
+            near retirees to Medicare.
+
+    ROMNEY: And the president supports taking dollar seven hundred
+            sixteen billion out of that program. 
+ 
+===================================
+Event 2: [lines 8-10]
+
+    ROMNEY: Their choice.
+
+ ** ROMNEY: They get to choose and they&#39;ll have at least two plans
+            that will be entirely at &lt;&lt;no&gt;&gt; cost to them.
+
+    ROMNEY: So they don&#39;t have to pay additional money, no additional
+            dollar six thousand. 
+ 
+===================================
+Event 3: [lines 9-11]
+
+    ROMNEY: They get to choose and they&#39;ll have at least two plans
+            that will be entirely at no cost to them.
+
+ ** ROMNEY: So they &lt;&lt;don&#39;t&gt;&gt; have to pay additional money, &lt;&lt;no&gt;&gt;
+            additional dollar six thousand.
+
+    ROMNEY: That&#39;s not going to happen. 
+ 
+===================================
+Event 4: [lines 10-12]
+
+    ROMNEY: So they don&#39;t have to pay additional money, no additional
+            dollar six thousand.
+
+ ** ROMNEY: That&#39;s &lt;&lt;not&gt;&gt; going to happen.
+
+    ROMNEY: They&#39;ll have at least two plans. 
+ 
+===================================
+Event 5: [lines 14-16]
+
+    ROMNEY: I know my own view is I&#39;d rather have a private plan.
+
+ ** ROMNEY: I&#39;d just assume &lt;&lt;not&gt;&gt; have the government telling me
+            what kind of health care I get.
+
+    ROMNEY: I&#39;d rather be able to have an insurance company. 
+ 
+===================================
+Event 6: [lines 16-18]
+
+    ROMNEY: I&#39;d rather be able to have an insurance company.
+
+ ** ROMNEY: If I &lt;&lt;don&#39;t&gt;&gt; like them, I can get rid of them and find
+            a different insurance company.
+
+    ROMNEY: But people make their own choice. 
+ 
+===================================
+Event 7: [lines 22-24]
+
+    ROMNEY: That&#39;s the plan that I&#39;ve put forward.
+
+ ** ROMNEY: And, by the way the idea came &lt;&lt;not&gt;&gt; even from Paul Ryan
+            or or Senator Wyden, who&#39;s the co author of the bill with
+            with Paul Ryan in the Senate, but also it came from Bill
+            Bill Clinton&#39;s chief of staff.
+
+    ROMNEY: This is an idea that&#39;s been around a long time, which is
+            saying, hey, let&#39;s see if we can&#39;t get competition into
+            the Medicare world so that people can get the choice of
+            different plans at lower cost, better quality. 
+ 
+===================================
+Event 8: [lines 23-25]
+
+    ROMNEY: And, by the way the idea came not even from Paul Ryan or
+            or Senator Wyden, who&#39;s the co author of the bill with
+            with Paul Ryan in the Senate, but also it came from Bill
+            Bill Clinton&#39;s chief of staff.
+
+ ** ROMNEY: This is an idea that&#39;s been around a long time, which is
+            saying, hey, let&#39;s see if we &lt;&lt;can&#39;t&gt;&gt; get competition
+            into the Medicare world so that people can get the choice
+            of different plans at lower cost, better quality.
+
+    ROMNEY: I believe in competition. 
+ 
+===================================
+Event 9: [lines 36-38]
+
+    OBAMA:  One last point I want to make.
+
+ ** OBAMA:  We do have to lower the cost of health care, &lt;&lt;not&gt;&gt; just
+            in Medicare and Medicaid|
+
+    LEHRER: Talk about that in a minute. 
+ 
+===================================
+Event 10: [lines 66-68]
+
+    LEHRER: Beginning with you.
+
+ ** LEHRER: This is &lt;&lt;not&gt;&gt; a new two minute segment to start.
+
+    LEHRER: And we&#39;ll go for a few minutes, and then we&#39;re going to
+            go to health care, OK? 
+ 
+===================================
+Event 11: [lines 69-71]
+
+    ROMNEY: Regulation is essential.
+
+ ** ROMNEY: You &lt;&lt;can&#39;t&gt;&gt; have a free market work if you &lt;&lt;don&#39;t&gt;&gt;
+            have regulation.
+
+    ROMNEY: As a businessperson, I had to have I need to know the
+            regulations. 
+ 
+===================================
+Event 12: [lines 72-74]
+
+    ROMNEY: I needed them there.
+
+ ** ROMNEY: You &lt;&lt;couldn&#39;t&gt;&gt; have people opening up banks in their in
+            their garage and making loans.
+
+    ROMNEY: I mean, you have to have regulations so that you can have
+            an economy work. 
+ 
+===================================
+Event 13: [lines 78-80]
+
+    ROMNEY: In some places, yes.
+
+ ** ROMNEY: Other places, &lt;&lt;no&gt;&gt;.
+
+    LEHRER: Like where? 
+ 
+===================================
+Event 14: [lines 80-82]
+
+    LEHRER: Like where?
+
+ ** ROMNEY: &lt;&lt;No&gt;&gt;, it can become out of date.
+
+    ROMNEY: And what&#39;s happened with some of the legislation that&#39;s
+            been passed during the president&#39;s term, you&#39;ve seen
+            regulation become excessive, and it&#39;s hurt it&#39;s hurt the
+            economy. 
+ 
+===================================
+Event 15: [lines 84-86]
+
+    ROMNEY: Dodd Frank was passed.
+
+ ** ROMNEY: And it includes within it a number of provisions that I
+            think has some &lt;&lt;unintended&gt;&gt; consequences that are
+            harmful to the economy.
+
+    ROMNEY: One is it designates a number of banks as too big to
+            fail, and they&#39;re effectively guaranteed by the federal
+            government. 
+ 
+===================================
+Event 16: [lines 94-96]
+
+    ROMNEY: Well, I would repeal and replace it.
+
+ ** ROMNEY: We&#39;re &lt;&lt;not&gt;&gt; going to get rid of all regulation.
+
+    ROMNEY: You have to have regulation. 
+ 
+===================================
+Event 17: [lines 101-103]
+
+    ROMNEY: Let&#39;s talk|
+
+ ** LEHRER: &lt;&lt;No&gt;&gt;, let&#39;s &lt;&lt;not&gt;&gt;.
+
+    LEHRER: Let&#39;s let him respond let&#39;s let him respond to this
+            specific on Dodd Frank and what the governor just said. 
+ 
+===================================
+Event 18: [lines 105-107]
+
+    OBAMA:  The reason we have been in such a enormous economic
+            crisis was prompted by reckless behavior across the
+            board.
+
+ ** OBAMA:  Now, it &lt;&lt;wasn&#39;t&gt;&gt; just on Wall Street.
+
+    OBAMA:  You had loan officers were that were giving loans and
+            mortgages that really shouldn&#39;t have been given, because
+            the folks didn&#39;t qualify. 
+ 
+===================================
+Event 19: [lines 106-108]
+
+    OBAMA:  Now, it wasn&#39;t just on Wall Street.
+
+ ** OBAMA:  You had loan officers were that were giving loans and
+            mortgages that really shouldn&#39;t have been given, because
+            the folks &lt;&lt;didn&#39;t&gt;&gt; qualify.
+
+    OBAMA:  You had people who were borrowing money to buy a house
+            that they couldn&#39;t afford. 
+ 
+===================================
+Event 20: [lines 107-109]
+
+    OBAMA:  You had loan officers were that were giving loans and
+            mortgages that really shouldn&#39;t have been given, because
+            the folks didn&#39;t qualify.
+
+ ** OBAMA:  You had people who were borrowing money to buy a house
+            that they &lt;&lt;couldn&#39;t&gt;&gt; afford.
+
+    OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they weren&#39;t. 
+ 
+===================================
+Event 21: [lines 108-110]
+
+    OBAMA:  You had people who were borrowing money to buy a house
+            that they couldn&#39;t afford.
+
+ ** OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they &lt;&lt;weren&#39;t&gt;&gt;.
+
+    OBAMA:  But you also had banks making money hand over fist,
+            churning out products that the bankers themselves didn&#39;t
+            even understand, in order to make big profits, but
+            knowing that it made the entire system vulnerable. 
+ 
+===================================
+Event 22: [lines 109-111]
+
+    OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they weren&#39;t.
+
+ ** OBAMA:  But you also had banks making money hand over fist,
+            churning out products that the bankers themselves
+            &lt;&lt;didn&#39;t&gt;&gt; even &lt;&lt;understand&gt;&gt;, in order to make big
+            profits, but knowing that it made the entire system
+            vulnerable.
+
+    OBAMA:  So what did we do? 
+ 
+===================================
+Event 23: [lines 113-115]
+
+    OBAMA:  We said you&#39;ve got banks, you&#39;ve got to raise your
+            capital requirements.
+
+ ** OBAMA:  You &lt;&lt;can&#39;t&gt;&gt; engage in some of this risky behavior that
+            is putting Main Street at risk.
+
+    OBAMA:  We&#39;ve going to make sure that you&#39;ve got to have a living
+            will so so we can know how you&#39;re going to wind things
+            down if you make a bad bet so we don&#39;t have other
+            taxpayer bailouts. 
+ 
+===================================
+Event 24: [lines 114-116]
+
+    OBAMA:  You can&#39;t engage in some of this risky behavior that is
+            putting Main Street at risk.
+
+ ** OBAMA:  We&#39;ve going to make sure that you&#39;ve got to have a living
+            will so so we can know how you&#39;re going to wind things
+            down if you make a bad bet so we &lt;&lt;don&#39;t&gt;&gt; have other
+            taxpayer bailouts.
+
+    OBAMA:  In the meantime, by the way, we also made sure that all
+            the help that we provided those banks was paid back every
+            single dime, with interest. 
+ 
+===================================
+Event 25: [lines 121-123]
+
+    OBAMA:  Because if you do, then Governor Romney is your
+            candidate.
+
+ ** OBAMA:  But that&#39;s &lt;&lt;not&gt;&gt; what I believe.
+
+    ROMNEY: Sorry, but that&#39;s just not that&#39;s just not the facts. 
+ 
+===================================
+Event 26: [lines 122-124]
+
+    OBAMA:  But that&#39;s not what I believe.
+
+ ** ROMNEY: Sorry, but that&#39;s just &lt;&lt;not&gt;&gt; that&#39;s just &lt;&lt;not&gt;&gt; the
+            facts.
+
+    ROMNEY: Look, we have to have regulation on Wall Street. 
+ 
+===================================
+Event 27: [lines 125-127]
+
+    ROMNEY: That&#39;s why I&#39;d have regulation.
+
+ ** ROMNEY: But I &lt;&lt;wouldn&#39;t&gt;&gt; designate five banks as too big to
+            fail and give them a blank check.
+
+    ROMNEY: That&#39;s one of the unintended consequences of Dodd Frank. 
+ 
+===================================
+Event 28: [lines 126-128]
+
+    ROMNEY: But I wouldn&#39;t designate five banks as too big to fail
+            and give them a blank check.
+
+ ** ROMNEY: That&#39;s one of the &lt;&lt;unintended&gt;&gt; consequences of Dodd
+            Frank.
+
+    ROMNEY: It wasn&#39;t thought through properly. 
+ 
+===================================
+Event 29: [lines 127-129]
+
+    ROMNEY: That&#39;s one of the unintended consequences of Dodd Frank.
+
+ ** ROMNEY: It &lt;&lt;wasn&#39;t&gt;&gt; thought through properly.
+
+    ROMNEY: We need to get rid of that provision because it&#39;s killing
+            regional and small banks. 
+ 
+===================================
+Event 30: [lines 131-133]
+
+    ROMNEY: Let me mention another regulation in Dodd Frank.
+
+ ** ROMNEY: You say we were giving mortgages to people who
+            &lt;&lt;weren&#39;t&gt;&gt; qualified.
+
+    ROMNEY: That&#39;s exactly right. 
+ 
+===================================
+Event 31: [lines 134-136]
+
+    ROMNEY: It&#39;s one of the reasons for the great financial calamity
+            we had.
+
+ ** ROMNEY: And so Dodd Frank correctly says we need to have
+            qualified mortgages, and if you give a mortgage that&#39;s
+            &lt;&lt;not&gt;&gt; qualified, there are big penalties, except they
+            &lt;&lt;didn&#39;t&gt;&gt; ever go on and define what a qualified
+            mortgage was.
+
+    ROMNEY: It&#39;s been two years. 
+ 
+===================================
+Event 32: [lines 136-138]
+
+    ROMNEY: It&#39;s been two years.
+
+ ** ROMNEY: We &lt;&lt;don&#39;t&gt;&gt; know what a qualified mortgage is yet.
+
+    ROMNEY: So banks are reluctant to make loans, mortgages. 
+ 
+===================================
+Event 33: [lines 139-141]
+
+    ROMNEY: Try and get a mortgage these days.
+
+ ** ROMNEY: It&#39;s hurt the housing market because Dodd Frank
+            &lt;&lt;didn&#39;t&gt;&gt; anticipate putting in place the kinds of
+            regulations you have to have.
+
+    ROMNEY: It&#39;s not that Dodd Frank always was wrong with too much
+            regulation. 
+ 
+===================================
+Event 34: [lines 140-142]
+
+    ROMNEY: It&#39;s hurt the housing market because Dodd Frank didn&#39;t
+            anticipate putting in place the kinds of regulations you
+            have to have.
+
+ ** ROMNEY: It&#39;s &lt;&lt;not&gt;&gt; that Dodd Frank always was wrong with too
+            much regulation.
+
+    ROMNEY: Sometimes they didn&#39;t come out with a clear regulation. 
+ 
+===================================
+Event 35: [lines 141-143]
+
+    ROMNEY: It&#39;s not that Dodd Frank always was wrong with too much
+            regulation.
+
+ ** ROMNEY: Sometimes they &lt;&lt;didn&#39;t&gt;&gt; come out with a clear
+            regulation.
+
+    ROMNEY: I will make sure we don&#39;t hurt the functioning of our of
+            our marketplace and our business, because I want to bring
+            back housing and get good jobs. 
+ 
+===================================
+Event 36: [lines 142-144]
+
+    ROMNEY: Sometimes they didn&#39;t come out with a clear regulation.
+
+ ** ROMNEY: I will make sure we &lt;&lt;don&#39;t&gt;&gt; hurt the functioning of our
+            of our marketplace and our business, because I want to
+            bring back housing and get good jobs.
+
+    LEHRER: All right. 
+ 
+===================================
+Event 37: [lines 154-156]
+
+    ROMNEY: You know, I was in New Hampshire.
+
+ ** ROMNEY: A woman came to me and she said, look, I &lt;&lt;can&#39;t&gt;&gt; afford
+            insurance for myself or my son.
+
+    ROMNEY: I met a couple in Appleton, Wisconsin, and they said,
+            we&#39;re thinking of dropping our insurance, we can&#39;t afford
+            it. 
+ 
+===================================
+Event 38: [lines 155-157]
+
+    ROMNEY: A woman came to me and she said, look, I can&#39;t afford
+            insurance for myself or my son.
+
+ ** ROMNEY: I met a couple in Appleton, Wisconsin, and they said,
+            we&#39;re thinking of dropping our insurance, we &lt;&lt;can&#39;t&gt;&gt;
+            afford it.
+
+    ROMNEY: And the number of small businesses I&#39;ve gone to that are
+            saying they&#39;re dropping insurance because they can&#39;t
+            afford it, the cost of health care is just prohibitive. 
+ 
+===================================
+Event 39: [lines 156-158]
+
+    ROMNEY: I met a couple in Appleton, Wisconsin, and they said,
+            we&#39;re thinking of dropping our insurance, we can&#39;t afford
+            it.
+
+ ** ROMNEY: And the number of small businesses I&#39;ve gone to that are
+            saying they&#39;re dropping insurance because they &lt;&lt;can&#39;t&gt;&gt;
+            afford it, the cost of health care is just prohibitive.
+
+    ROMNEY: And and we&#39;ve got to deal with cost. 
+ 
+===================================
+Event 40: [lines 158-160]
+
+    ROMNEY: And and we&#39;ve got to deal with cost.
+
+ ** ROMNEY: And, &lt;&lt;unfortunately&gt;&gt;, when when when you look at
+            Obamacare, the Congressional Budget Office has said it
+            will cost dollar two thousand five hundred a year more
+            than traditional insurance.
+
+    ROMNEY: So it&#39;s adding to cost. 
+ 
+===================================
+Event 41: [lines 164-166]
+
+    ROMNEY: Expensive things hurt families.
+
+ ** ROMNEY: So that&#39;s one reason I &lt;&lt;don&#39;t&gt;&gt; want it.
+
+    ROMNEY: Second reason, it cuts dollar seven hundred sixteen
+            billion from Medicare to pay for it. 
+ 
+===================================
+Event 42: [lines 167-169]
+
+    ROMNEY: I want to put that money back in Medicare for our
+            seniors.
+
+ ** ROMNEY: Number three, it puts in place an &lt;&lt;unelected&gt;&gt; board
+            that&#39;s going to tell people ultimately what kind of
+            treatments they can have.
+
+    ROMNEY: I don&#39;t like that idea. 
+ 
+===================================
+Event 43: [lines 168-170]
+
+    ROMNEY: Number three, it puts in place an unelected board that&#39;s
+            going to tell people ultimately what kind of treatments
+            they can have.
+
+ ** ROMNEY: I &lt;&lt;don&#39;t&gt;&gt; like that idea.
+
+    ROMNEY: Fourth, there was a survey done of small businesses
+            across the country, said, what&#39;s been the effect of
+            Obamacare on your hiring plans? 
+ 
+===================================
+Event 44: [lines 171-173]
+
+    ROMNEY: And three quarters of them said it makes us less likely
+            to hire people.
+
+ ** ROMNEY: I just &lt;&lt;don&#39;t&gt;&gt; know how the president could have come
+            into office, facing twenty three million people out of
+            work, rising &lt;&lt;unemployment&gt;&gt;, an economic crisis at the
+            at the kitchen table, and spend his energy and passion
+            for two years fighting for Obamacare instead of fighting
+            for jobs for the American people.
+
+    ROMNEY: It has killed jobs. 
+ 
+===================================
+Event 45: [lines 177-179]
+
+    OBAMA:  Well, four years ago, when I was running for office, I
+            was traveling around and having those same conversations
+            that Governor Romney talks about.
+
+ ** OBAMA:  And it &lt;&lt;wasn&#39;t&gt;&gt; just that small businesses were seeing
+            costs skyrocket and they &lt;&lt;couldn&#39;t&gt;&gt; get affordable
+            coverage even if they wanted to provide it to their
+            employees.
+
+    OBAMA:  It wasn&#39;t just that this was the biggest driver of our
+            federal deficit, our overall health care costs, but it
+            was families who were worried about going bankrupt if
+            they got sick, millions of families, all across the
+            country. 
+ 
+===================================
+Event 46: [lines 178-180]
+
+    OBAMA:  And it wasn&#39;t just that small businesses were seeing
+            costs skyrocket and they couldn&#39;t get affordable coverage
+            even if they wanted to provide it to their employees.
+
+ ** OBAMA:  It &lt;&lt;wasn&#39;t&gt;&gt; just that this was the biggest driver of
+            our federal deficit, our overall health care costs, but
+            it was families who were worried about going bankrupt if
+            they got sick, millions of families, all across the
+            country.
+
+    OBAMA:  If they had a pre existing condition, they might not be
+            able to get coverage at all. 
+ 
+===================================
+Event 47: [lines 179-181]
+
+    OBAMA:  It wasn&#39;t just that this was the biggest driver of our
+            federal deficit, our overall health care costs, but it
+            was families who were worried about going bankrupt if
+            they got sick, millions of families, all across the
+            country.
+
+ ** OBAMA:  If they had a pre existing condition, they might &lt;&lt;not&gt;&gt;
+            be able to get coverage at all.
+
+    OBAMA:  If they did have coverage, insurance companies might
+            impose an arbitrary limit. 
+ 
+===================================
+Event 48: [lines 180-182]
+
+    OBAMA:  If they had a pre existing condition, they might not be
+            able to get coverage at all.
+
+ ** OBAMA:  If they did have coverage, insurance companies might
+            &lt;&lt;impose&gt;&gt; an arbitrary limit.
+
+    OBAMA:  And so as a consequence, they&#39;re paying their premiums,
+            somebody gets really sick, lo and behold, they don&#39;t have
+            enough money to pay the bills, because the insurance
+            companies say that they&#39;ve hit the limit. 
+ 
+===================================
+Event 49: [lines 181-183]
+
+    OBAMA:  If they did have coverage, insurance companies might
+            impose an arbitrary limit.
+
+ ** OBAMA:  And so as a consequence, they&#39;re paying their premiums,
+            somebody gets really sick, lo and behold, they &lt;&lt;don&#39;t&gt;&gt;
+            have enough money to pay the bills, because the insurance
+            companies say that they&#39;ve hit the limit.
+
+    OBAMA:  So we did work on this, alongside working on jobs,
+            because this is part of making sure that middle class
+            families are secure in this country. 
+ 
+===================================
+Event 50: [lines 184-186]
+
+    OBAMA:  And let me tell you exactly what Obamacare did.
+
+ ** OBAMA:  Number one, if you&#39;ve got health insurance, it
+            &lt;&lt;doesn&#39;t&gt;&gt; mean a government takeover.
+
+    OBAMA:  You keep your own insurance. 
+ 
+===================================
+Event 51: [lines 187-189]
+
+    OBAMA:  You keep your own doctor.
+
+ ** OBAMA:  But it does say insurance companies &lt;&lt;can&#39;t&gt;&gt; jerk you
+            around.
+
+    OBAMA:  They can&#39;t impose arbitrary lifetime limits. 
+ 
+===================================
+Event 52: [lines 188-190]
+
+    OBAMA:  But it does say insurance companies can&#39;t jerk you
+            around.
+
+ ** OBAMA:  They &lt;&lt;can&#39;t&gt;&gt; &lt;&lt;impose&gt;&gt; arbitrary lifetime limits.
+
+    OBAMA:  They have to let you keep your kid on their insurance
+            your insurance plan until you&#39;re twenty six years old. 
+ 
+===================================
+Event 53: [lines 189-191]
+
+    OBAMA:  They can&#39;t impose arbitrary lifetime limits.
+
+ ** OBAMA:  They have to let you keep your kid on their insurance
+            your insurance plan &lt;&lt;until&gt;&gt; you&#39;re twenty six years
+            old.
+
+    OBAMA:  And it also says that you&#39;re going to have to get rebates
+            if insurance companies are spending more on
+            administrative costs and profits than they are on actual
+            care. 
+ 
+===================================
+Event 54: [lines 191-193]
+
+    OBAMA:  And it also says that you&#39;re going to have to get rebates
+            if insurance companies are spending more on
+            administrative costs and profits than they are on actual
+            care.
+
+ ** OBAMA:  Number two, if you &lt;&lt;don&#39;t&gt;&gt; have health insurance, we&#39;re
+            essentially setting up a group plan that allows you to
+            benefit from group rates that are typically eighteen
+            percent lower than if you&#39;re out there trying to get
+            insurance on the individual market.
+
+    OBAMA:  Now, the last point I&#39;d make before| 
+ 
+===================================
+Event 55: [lines 194-196]
+
+    LEHRER: Two minutes two minutes is up, sir.
+
+ ** OBAMA:  &lt;&lt;No&gt;&gt;, I think I had five seconds before you interrupted
+            me, was the &lt;&lt;irony&gt;&gt; is that we&#39;ve seen this model work
+            really well in Massachusetts, because Governor Romney did
+            a good thing, working with Democrats in the state to set
+            up what is essentially the identical model and as a
+            consequence people are covered there.
+
+    OBAMA:  It hasn&#39;t destroyed jobs. 
+ 
+===================================
+Event 56: [lines 195-197]
+
+    OBAMA:  No, I think I had five seconds before you interrupted me,
+            was the irony is that we&#39;ve seen this model work really
+            well in Massachusetts, because Governor Romney did a good
+            thing, working with Democrats in the state to set up what
+            is essentially the identical model and as a consequence
+            people are covered there.
+
+ ** OBAMA:  It &lt;&lt;hasn&#39;t&gt;&gt; destroyed jobs.
+
+    OBAMA:  And as a consequence, we now have a system in which we
+            have the opportunity to start bringing down costs, as
+            opposed to just leaving millions of people out in the
+            cold. 
+
+</div>
+<div class='input'>
+out &lt;- with(pres_debates2012[1:200, ], dc_negator_sub(dialogue, person))
+out[1]
+</div>
+<div class='output'>$counts
+  person word.count negative_words negative_prefix negative_contractions
+1  OBAMA        943        4(.42%)         5(.53%)             17(1.80%)
+2 ROMNEY       1349       13(.96%)         5(.37%)             20(1.48%)
+3 LEHRER        316        3(.95%)               0                     0
+
+</div>
+<div class='input'>out[2]
+</div>
+<div class='output'>$negative_words
+===================================
+Event 1: [lines 2-4]
+
+    LEHRER: But what do you support the voucher system, Governor?
+
+ ** ROMNEY: What I support is &lt;&lt;no&gt;&gt; change for current retirees and
+            near retirees to Medicare.
+
+    ROMNEY: And the president supports taking dollar seven hundred
+            sixteen billion out of that program. 
+ 
+===================================
+Event 2: [lines 8-10]
+
+    ROMNEY: Their choice.
+
+ ** ROMNEY: They get to choose and they&#39;ll have at least two plans
+            that will be entirely at &lt;&lt;no&gt;&gt; cost to them.
+
+    ROMNEY: So they don&#39;t have to pay additional money, no additional
+            dollar six thousand. 
+ 
+===================================
+Event 3: [lines 9-11]
+
+    ROMNEY: They get to choose and they&#39;ll have at least two plans
+            that will be entirely at no cost to them.
+
+ ** ROMNEY: So they don&#39;t have to pay additional money, &lt;&lt;no&gt;&gt;
+            additional dollar six thousand.
+
+    ROMNEY: That&#39;s not going to happen. 
+ 
+===================================
+Event 4: [lines 10-12]
+
+    ROMNEY: So they don&#39;t have to pay additional money, no additional
+            dollar six thousand.
+
+ ** ROMNEY: That&#39;s &lt;&lt;not&gt;&gt; going to happen.
+
+    ROMNEY: They&#39;ll have at least two plans. 
+ 
+===================================
+Event 5: [lines 14-16]
+
+    ROMNEY: I know my own view is I&#39;d rather have a private plan.
+
+ ** ROMNEY: I&#39;d just assume &lt;&lt;not&gt;&gt; have the government telling me
+            what kind of health care I get.
+
+    ROMNEY: I&#39;d rather be able to have an insurance company. 
+ 
+===================================
+Event 6: [lines 22-24]
+
+    ROMNEY: That&#39;s the plan that I&#39;ve put forward.
+
+ ** ROMNEY: And, by the way the idea came &lt;&lt;not&gt;&gt; even from Paul Ryan
+            or or Senator Wyden, who&#39;s the co author of the bill with
+            with Paul Ryan in the Senate, but also it came from Bill
+            Bill Clinton&#39;s chief of staff.
+
+    ROMNEY: This is an idea that&#39;s been around a long time, which is
+            saying, hey, let&#39;s see if we can&#39;t get competition into
+            the Medicare world so that people can get the choice of
+            different plans at lower cost, better quality. 
+ 
+===================================
+Event 7: [lines 36-38]
+
+    OBAMA:  One last point I want to make.
+
+ ** OBAMA:  We do have to lower the cost of health care, &lt;&lt;not&gt;&gt; just
+            in Medicare and Medicaid|
+
+    LEHRER: Talk about that in a minute. 
+ 
+===================================
+Event 8: [lines 66-68]
+
+    LEHRER: Beginning with you.
+
+ ** LEHRER: This is &lt;&lt;not&gt;&gt; a new two minute segment to start.
+
+    LEHRER: And we&#39;ll go for a few minutes, and then we&#39;re going to
+            go to health care, OK? 
+ 
+===================================
+Event 9: [lines 78-80]
+
+    ROMNEY: In some places, yes.
+
+ ** ROMNEY: Other places, &lt;&lt;no&gt;&gt;.
+
+    LEHRER: Like where? 
+ 
+===================================
+Event 10: [lines 80-82]
+
+    LEHRER: Like where?
+
+ ** ROMNEY: &lt;&lt;No&gt;&gt;, it can become out of date.
+
+    ROMNEY: And what&#39;s happened with some of the legislation that&#39;s
+            been passed during the president&#39;s term, you&#39;ve seen
+            regulation become excessive, and it&#39;s hurt it&#39;s hurt the
+            economy. 
+ 
+===================================
+Event 11: [lines 94-96]
+
+    ROMNEY: Well, I would repeal and replace it.
+
+ ** ROMNEY: We&#39;re &lt;&lt;not&gt;&gt; going to get rid of all regulation.
+
+    ROMNEY: You have to have regulation. 
+ 
+===================================
+Event 12: [lines 101-103]
+
+    ROMNEY: Let&#39;s talk|
+
+ ** LEHRER: &lt;&lt;No&gt;&gt;, let&#39;s &lt;&lt;not&gt;&gt;.
+
+    LEHRER: Let&#39;s let him respond let&#39;s let him respond to this
+            specific on Dodd Frank and what the governor just said. 
+ 
+===================================
+Event 13: [lines 121-123]
+
+    OBAMA:  Because if you do, then Governor Romney is your
+            candidate.
+
+ ** OBAMA:  But that&#39;s &lt;&lt;not&gt;&gt; what I believe.
+
+    ROMNEY: Sorry, but that&#39;s just not that&#39;s just not the facts. 
+ 
+===================================
+Event 14: [lines 122-124]
+
+    OBAMA:  But that&#39;s not what I believe.
+
+ ** ROMNEY: Sorry, but that&#39;s just &lt;&lt;not&gt;&gt; that&#39;s just &lt;&lt;not&gt;&gt; the
+            facts.
+
+    ROMNEY: Look, we have to have regulation on Wall Street. 
+ 
+===================================
+Event 15: [lines 134-136]
+
+    ROMNEY: It&#39;s one of the reasons for the great financial calamity
+            we had.
+
+ ** ROMNEY: And so Dodd Frank correctly says we need to have
+            qualified mortgages, and if you give a mortgage that&#39;s
+            &lt;&lt;not&gt;&gt; qualified, there are big penalties, except they
+            didn&#39;t ever go on and define what a qualified mortgage
+            was.
+
+    ROMNEY: It&#39;s been two years. 
+ 
+===================================
+Event 16: [lines 140-142]
+
+    ROMNEY: It&#39;s hurt the housing market because Dodd Frank didn&#39;t
+            anticipate putting in place the kinds of regulations you
+            have to have.
+
+ ** ROMNEY: It&#39;s &lt;&lt;not&gt;&gt; that Dodd Frank always was wrong with too
+            much regulation.
+
+    ROMNEY: Sometimes they didn&#39;t come out with a clear regulation. 
+ 
+===================================
+Event 17: [lines 179-181]
+
+    OBAMA:  It wasn&#39;t just that this was the biggest driver of our
+            federal deficit, our overall health care costs, but it
+            was families who were worried about going bankrupt if
+            they got sick, millions of families, all across the
+            country.
+
+ ** OBAMA:  If they had a pre existing condition, they might &lt;&lt;not&gt;&gt;
+            be able to get coverage at all.
+
+    OBAMA:  If they did have coverage, insurance companies might
+            impose an arbitrary limit. 
+ 
+===================================
+Event 18: [lines 194-196]
+
+    LEHRER: Two minutes two minutes is up, sir.
+
+ ** OBAMA:  &lt;&lt;No&gt;&gt;, I think I had five seconds before you interrupted
+            me, was the irony is that we&#39;ve seen this model work
+            really well in Massachusetts, because Governor Romney did
+            a good thing, working with Democrats in the state to set
+            up what is essentially the identical model and as a
+            consequence people are covered there.
+
+    OBAMA:  It hasn&#39;t destroyed jobs. 
+
+</div>
+<div class='input'>out[3]
+</div>
+<div class='output'>$negative_prefix
+===================================
+Event 1: [lines 84-86]
+
+    ROMNEY: Dodd Frank was passed.
+
+ ** ROMNEY: And it includes within it a number of provisions that I
+            think has some &lt;&lt;unintended&gt;&gt; consequences that are
+            harmful to the economy.
+
+    ROMNEY: One is it designates a number of banks as too big to
+            fail, and they&#39;re effectively guaranteed by the federal
+            government. 
+ 
+===================================
+Event 2: [lines 109-111]
+
+    OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they weren&#39;t.
+
+ ** OBAMA:  But you also had banks making money hand over fist,
+            churning out products that the bankers themselves didn&#39;t
+            even &lt;&lt;understand&gt;&gt;, in order to make big profits, but
+            knowing that it made the entire system vulnerable.
+
+    OBAMA:  So what did we do? 
+ 
+===================================
+Event 3: [lines 126-128]
+
+    ROMNEY: But I wouldn&#39;t designate five banks as too big to fail
+            and give them a blank check.
+
+ ** ROMNEY: That&#39;s one of the &lt;&lt;unintended&gt;&gt; consequences of Dodd
+            Frank.
+
+    ROMNEY: It wasn&#39;t thought through properly. 
+ 
+===================================
+Event 4: [lines 158-160]
+
+    ROMNEY: And and we&#39;ve got to deal with cost.
+
+ ** ROMNEY: And, &lt;&lt;unfortunately&gt;&gt;, when when when you look at
+            Obamacare, the Congressional Budget Office has said it
+            will cost dollar two thousand five hundred a year more
+            than traditional insurance.
+
+    ROMNEY: So it&#39;s adding to cost. 
+ 
+===================================
+Event 5: [lines 167-169]
+
+    ROMNEY: I want to put that money back in Medicare for our
+            seniors.
+
+ ** ROMNEY: Number three, it puts in place an &lt;&lt;unelected&gt;&gt; board
+            that&#39;s going to tell people ultimately what kind of
+            treatments they can have.
+
+    ROMNEY: I don&#39;t like that idea. 
+ 
+===================================
+Event 6: [lines 171-173]
+
+    ROMNEY: And three quarters of them said it makes us less likely
+            to hire people.
+
+ ** ROMNEY: I just don&#39;t know how the president could have come into
+            office, facing twenty three million people out of work,
+            rising &lt;&lt;unemployment&gt;&gt;, an economic crisis at the at the
+            kitchen table, and spend his energy and passion for two
+            years fighting for Obamacare instead of fighting for jobs
+            for the American people.
+
+    ROMNEY: It has killed jobs. 
+ 
+===================================
+Event 7: [lines 180-182]
+
+    OBAMA:  If they had a pre existing condition, they might not be
+            able to get coverage at all.
+
+ ** OBAMA:  If they did have coverage, insurance companies might
+            &lt;&lt;impose&gt;&gt; an arbitrary limit.
+
+    OBAMA:  And so as a consequence, they&#39;re paying their premiums,
+            somebody gets really sick, lo and behold, they don&#39;t have
+            enough money to pay the bills, because the insurance
+            companies say that they&#39;ve hit the limit. 
+ 
+===================================
+Event 8: [lines 188-190]
+
+    OBAMA:  But it does say insurance companies can&#39;t jerk you
+            around.
+
+ ** OBAMA:  They can&#39;t &lt;&lt;impose&gt;&gt; arbitrary lifetime limits.
+
+    OBAMA:  They have to let you keep your kid on their insurance
+            your insurance plan until you&#39;re twenty six years old. 
+ 
+===================================
+Event 9: [lines 189-191]
+
+    OBAMA:  They can&#39;t impose arbitrary lifetime limits.
+
+ ** OBAMA:  They have to let you keep your kid on their insurance
+            your insurance plan &lt;&lt;until&gt;&gt; you&#39;re twenty six years
+            old.
+
+    OBAMA:  And it also says that you&#39;re going to have to get rebates
+            if insurance companies are spending more on
+            administrative costs and profits than they are on actual
+            care. 
+ 
+===================================
+Event 10: [lines 194-196]
+
+    LEHRER: Two minutes two minutes is up, sir.
+
+ ** OBAMA:  No, I think I had five seconds before you interrupted me,
+            was the &lt;&lt;irony&gt;&gt; is that we&#39;ve seen this model work
+            really well in Massachusetts, because Governor Romney did
+            a good thing, working with Democrats in the state to set
+            up what is essentially the identical model and as a
+            consequence people are covered there.
+
+    OBAMA:  It hasn&#39;t destroyed jobs. 
+
+</div>
+<div class='input'>out[4]
+</div>
+<div class='output'>$negative_contractions
+===================================
+Event 1: [lines 9-11]
+
+    ROMNEY: They get to choose and they&#39;ll have at least two plans
+            that will be entirely at no cost to them.
+
+ ** ROMNEY: So they &lt;&lt;don&#39;t&gt;&gt; have to pay additional money, no
+            additional dollar six thousand.
+
+    ROMNEY: That&#39;s not going to happen. 
+ 
+===================================
+Event 2: [lines 16-18]
+
+    ROMNEY: I&#39;d rather be able to have an insurance company.
+
+ ** ROMNEY: If I &lt;&lt;don&#39;t&gt;&gt; like them, I can get rid of them and find
+            a different insurance company.
+
+    ROMNEY: But people make their own choice. 
+ 
+===================================
+Event 3: [lines 23-25]
+
+    ROMNEY: And, by the way the idea came not even from Paul Ryan or
+            or Senator Wyden, who&#39;s the co author of the bill with
+            with Paul Ryan in the Senate, but also it came from Bill
+            Bill Clinton&#39;s chief of staff.
+
+ ** ROMNEY: This is an idea that&#39;s been around a long time, which is
+            saying, hey, let&#39;s see if we &lt;&lt;can&#39;t&gt;&gt; get competition
+            into the Medicare world so that people can get the choice
+            of different plans at lower cost, better quality.
+
+    ROMNEY: I believe in competition. 
+ 
+===================================
+Event 4: [lines 69-71]
+
+    ROMNEY: Regulation is essential.
+
+ ** ROMNEY: You &lt;&lt;can&#39;t&gt;&gt; have a free market work if you &lt;&lt;don&#39;t&gt;&gt;
+            have regulation.
+
+    ROMNEY: As a businessperson, I had to have I need to know the
+            regulations. 
+ 
+===================================
+Event 5: [lines 72-74]
+
+    ROMNEY: I needed them there.
+
+ ** ROMNEY: You &lt;&lt;couldn&#39;t&gt;&gt; have people opening up banks in their in
+            their garage and making loans.
+
+    ROMNEY: I mean, you have to have regulations so that you can have
+            an economy work. 
+ 
+===================================
+Event 6: [lines 105-107]
+
+    OBAMA:  The reason we have been in such a enormous economic
+            crisis was prompted by reckless behavior across the
+            board.
+
+ ** OBAMA:  Now, it &lt;&lt;wasn&#39;t&gt;&gt; just on Wall Street.
+
+    OBAMA:  You had loan officers were that were giving loans and
+            mortgages that really shouldn&#39;t have been given, because
+            the folks didn&#39;t qualify. 
+ 
+===================================
+Event 7: [lines 106-108]
+
+    OBAMA:  Now, it wasn&#39;t just on Wall Street.
+
+ ** OBAMA:  You had loan officers were that were giving loans and
+            mortgages that really shouldn&#39;t have been given, because
+            the folks &lt;&lt;didn&#39;t&gt;&gt; qualify.
+
+    OBAMA:  You had people who were borrowing money to buy a house
+            that they couldn&#39;t afford. 
+ 
+===================================
+Event 8: [lines 107-109]
+
+    OBAMA:  You had loan officers were that were giving loans and
+            mortgages that really shouldn&#39;t have been given, because
+            the folks didn&#39;t qualify.
+
+ ** OBAMA:  You had people who were borrowing money to buy a house
+            that they &lt;&lt;couldn&#39;t&gt;&gt; afford.
+
+    OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they weren&#39;t. 
+ 
+===================================
+Event 9: [lines 108-110]
+
+    OBAMA:  You had people who were borrowing money to buy a house
+            that they couldn&#39;t afford.
+
+ ** OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they &lt;&lt;weren&#39;t&gt;&gt;.
+
+    OBAMA:  But you also had banks making money hand over fist,
+            churning out products that the bankers themselves didn&#39;t
+            even understand, in order to make big profits, but
+            knowing that it made the entire system vulnerable. 
+ 
+===================================
+Event 10: [lines 109-111]
+
+    OBAMA:  You had credit agencies that were stamping these as Aone
+            great investments when they weren&#39;t.
+
+ ** OBAMA:  But you also had banks making money hand over fist,
+            churning out products that the bankers themselves
+            &lt;&lt;didn&#39;t&gt;&gt; even understand, in order to make big profits,
+            but knowing that it made the entire system vulnerable.
+
+    OBAMA:  So what did we do? 
+ 
+===================================
+Event 11: [lines 113-115]
+
+    OBAMA:  We said you&#39;ve got banks, you&#39;ve got to raise your
+            capital requirements.
+
+ ** OBAMA:  You &lt;&lt;can&#39;t&gt;&gt; engage in some of this risky behavior that
+            is putting Main Street at risk.
+
+    OBAMA:  We&#39;ve going to make sure that you&#39;ve got to have a living
+            will so so we can know how you&#39;re going to wind things
+            down if you make a bad bet so we don&#39;t have other
+            taxpayer bailouts. 
+ 
+===================================
+Event 12: [lines 114-116]
+
+    OBAMA:  You can&#39;t engage in some of this risky behavior that is
+            putting Main Street at risk.
+
+ ** OBAMA:  We&#39;ve going to make sure that you&#39;ve got to have a living
+            will so so we can know how you&#39;re going to wind things
+            down if you make a bad bet so we &lt;&lt;don&#39;t&gt;&gt; have other
+            taxpayer bailouts.
+
+    OBAMA:  In the meantime, by the way, we also made sure that all
+            the help that we provided those banks was paid back every
+            single dime, with interest. 
+ 
+===================================
+Event 13: [lines 125-127]
+
+    ROMNEY: That&#39;s why I&#39;d have regulation.
+
+ ** ROMNEY: But I &lt;&lt;wouldn&#39;t&gt;&gt; designate five banks as too big to
+            fail and give them a blank check.
+
+    ROMNEY: That&#39;s one of the unintended consequences of Dodd Frank. 
+ 
+===================================
+Event 14: [lines 127-129]
+
+    ROMNEY: That&#39;s one of the unintended consequences of Dodd Frank.
+
+ ** ROMNEY: It &lt;&lt;wasn&#39;t&gt;&gt; thought through properly.
+
+    ROMNEY: We need to get rid of that provision because it&#39;s killing
+            regional and small banks. 
+ 
+===================================
+Event 15: [lines 131-133]
+
+    ROMNEY: Let me mention another regulation in Dodd Frank.
+
+ ** ROMNEY: You say we were giving mortgages to people who
+            &lt;&lt;weren&#39;t&gt;&gt; qualified.
+
+    ROMNEY: That&#39;s exactly right. 
+ 
+===================================
+Event 16: [lines 134-136]
+
+    ROMNEY: It&#39;s one of the reasons for the great financial calamity
+            we had.
+
+ ** ROMNEY: And so Dodd Frank correctly says we need to have
+            qualified mortgages, and if you give a mortgage that&#39;s
+            not qualified, there are big penalties, except they
+            &lt;&lt;didn&#39;t&gt;&gt; ever go on and define what a qualified
+            mortgage was.
+
+    ROMNEY: It&#39;s been two years. 
+ 
+===================================
+Event 17: [lines 136-138]
+
+    ROMNEY: It&#39;s been two years.
+
+ ** ROMNEY: We &lt;&lt;don&#39;t&gt;&gt; know what a qualified mortgage is yet.
+
+    ROMNEY: So banks are reluctant to make loans, mortgages. 
+ 
+===================================
+Event 18: [lines 139-141]
+
+    ROMNEY: Try and get a mortgage these days.
+
+ ** ROMNEY: It&#39;s hurt the housing market because Dodd Frank
+            &lt;&lt;didn&#39;t&gt;&gt; anticipate putting in place the kinds of
+            regulations you have to have.
+
+    ROMNEY: It&#39;s not that Dodd Frank always was wrong with too much
+            regulation. 
+ 
+===================================
+Event 19: [lines 141-143]
+
+    ROMNEY: It&#39;s not that Dodd Frank always was wrong with too much
+            regulation.
+
+ ** ROMNEY: Sometimes they &lt;&lt;didn&#39;t&gt;&gt; come out with a clear
+            regulation.
+
+    ROMNEY: I will make sure we don&#39;t hurt the functioning of our of
+            our marketplace and our business, because I want to bring
+            back housing and get good jobs. 
+ 
+===================================
+Event 20: [lines 142-144]
+
+    ROMNEY: Sometimes they didn&#39;t come out with a clear regulation.
+
+ ** ROMNEY: I will make sure we &lt;&lt;don&#39;t&gt;&gt; hurt the functioning of our
+            of our marketplace and our business, because I want to
+            bring back housing and get good jobs.
+
+    LEHRER: All right. 
+ 
+===================================
+Event 21: [lines 154-156]
+
+    ROMNEY: You know, I was in New Hampshire.
+
+ ** ROMNEY: A woman came to me and she said, look, I &lt;&lt;can&#39;t&gt;&gt; afford
+            insurance for myself or my son.
+
+    ROMNEY: I met a couple in Appleton, Wisconsin, and they said,
+            we&#39;re thinking of dropping our insurance, we can&#39;t afford
+            it. 
+ 
+===================================
+Event 22: [lines 155-157]
+
+    ROMNEY: A woman came to me and she said, look, I can&#39;t afford
+            insurance for myself or my son.
+
+ ** ROMNEY: I met a couple in Appleton, Wisconsin, and they said,
+            we&#39;re thinking of dropping our insurance, we &lt;&lt;can&#39;t&gt;&gt;
+            afford it.
+
+    ROMNEY: And the number of small businesses I&#39;ve gone to that are
+            saying they&#39;re dropping insurance because they can&#39;t
+            afford it, the cost of health care is just prohibitive. 
+ 
+===================================
+Event 23: [lines 156-158]
+
+    ROMNEY: I met a couple in Appleton, Wisconsin, and they said,
+            we&#39;re thinking of dropping our insurance, we can&#39;t afford
+            it.
+
+ ** ROMNEY: And the number of small businesses I&#39;ve gone to that are
+            saying they&#39;re dropping insurance because they &lt;&lt;can&#39;t&gt;&gt;
+            afford it, the cost of health care is just prohibitive.
+
+    ROMNEY: And and we&#39;ve got to deal with cost. 
+ 
+===================================
+Event 24: [lines 164-166]
+
+    ROMNEY: Expensive things hurt families.
+
+ ** ROMNEY: So that&#39;s one reason I &lt;&lt;don&#39;t&gt;&gt; want it.
+
+    ROMNEY: Second reason, it cuts dollar seven hundred sixteen
+            billion from Medicare to pay for it. 
+ 
+===================================
+Event 25: [lines 168-170]
+
+    ROMNEY: Number three, it puts in place an unelected board that&#39;s
+            going to tell people ultimately what kind of treatments
+            they can have.
+
+ ** ROMNEY: I &lt;&lt;don&#39;t&gt;&gt; like that idea.
+
+    ROMNEY: Fourth, there was a survey done of small businesses
+            across the country, said, what&#39;s been the effect of
+            Obamacare on your hiring plans? 
+ 
+===================================
+Event 26: [lines 171-173]
+
+    ROMNEY: And three quarters of them said it makes us less likely
+            to hire people.
+
+ ** ROMNEY: I just &lt;&lt;don&#39;t&gt;&gt; know how the president could have come
+            into office, facing twenty three million people out of
+            work, rising unemployment, an economic crisis at the at
+            the kitchen table, and spend his energy and passion for
+            two years fighting for Obamacare instead of fighting for
+            jobs for the American people.
+
+    ROMNEY: It has killed jobs. 
+ 
+===================================
+Event 27: [lines 177-179]
+
+    OBAMA:  Well, four years ago, when I was running for office, I
+            was traveling around and having those same conversations
+            that Governor Romney talks about.
+
+ ** OBAMA:  And it &lt;&lt;wasn&#39;t&gt;&gt; just that small businesses were seeing
+            costs skyrocket and they &lt;&lt;couldn&#39;t&gt;&gt; get affordable
+            coverage even if they wanted to provide it to their
+            employees.
+
+    OBAMA:  It wasn&#39;t just that this was the biggest driver of our
+            federal deficit, our overall health care costs, but it
+            was families who were worried about going bankrupt if
+            they got sick, millions of families, all across the
+            country. 
+ 
+===================================
+Event 28: [lines 178-180]
+
+    OBAMA:  And it wasn&#39;t just that small businesses were seeing
+            costs skyrocket and they couldn&#39;t get affordable coverage
+            even if they wanted to provide it to their employees.
+
+ ** OBAMA:  It &lt;&lt;wasn&#39;t&gt;&gt; just that this was the biggest driver of
+            our federal deficit, our overall health care costs, but
+            it was families who were worried about going bankrupt if
+            they got sick, millions of families, all across the
+            country.
+
+    OBAMA:  If they had a pre existing condition, they might not be
+            able to get coverage at all. 
+ 
+===================================
+Event 29: [lines 181-183]
+
+    OBAMA:  If they did have coverage, insurance companies might
+            impose an arbitrary limit.
+
+ ** OBAMA:  And so as a consequence, they&#39;re paying their premiums,
+            somebody gets really sick, lo and behold, they &lt;&lt;don&#39;t&gt;&gt;
+            have enough money to pay the bills, because the insurance
+            companies say that they&#39;ve hit the limit.
+
+    OBAMA:  So we did work on this, alongside working on jobs,
+            because this is part of making sure that middle class
+            families are secure in this country. 
+ 
+===================================
+Event 30: [lines 184-186]
+
+    OBAMA:  And let me tell you exactly what Obamacare did.
+
+ ** OBAMA:  Number one, if you&#39;ve got health insurance, it
+            &lt;&lt;doesn&#39;t&gt;&gt; mean a government takeover.
+
+    OBAMA:  You keep your own insurance. 
+ 
+===================================
+Event 31: [lines 187-189]
+
+    OBAMA:  You keep your own doctor.
+
+ ** OBAMA:  But it does say insurance companies &lt;&lt;can&#39;t&gt;&gt; jerk you
+            around.
+
+    OBAMA:  They can&#39;t impose arbitrary lifetime limits. 
+ 
+===================================
+Event 32: [lines 188-190]
+
+    OBAMA:  But it does say insurance companies can&#39;t jerk you
+            around.
+
+ ** OBAMA:  They &lt;&lt;can&#39;t&gt;&gt; impose arbitrary lifetime limits.
+
+    OBAMA:  They have to let you keep your kid on their insurance
+            your insurance plan until you&#39;re twenty six years old. 
+ 
+===================================
+Event 33: [lines 191-193]
+
+    OBAMA:  And it also says that you&#39;re going to have to get rebates
+            if insurance companies are spending more on
+            administrative costs and profits than they are on actual
+            care.
+
+ ** OBAMA:  Number two, if you &lt;&lt;don&#39;t&gt;&gt; have health insurance, we&#39;re
+            essentially setting up a group plan that allows you to
+            benefit from group rates that are typically eighteen
+            percent lower than if you&#39;re out there trying to get
+            insurance on the individual market.
+
+    OBAMA:  Now, the last point I&#39;d make before| 
+ 
+===================================
+Event 34: [lines 195-197]
+
+    OBAMA:  No, I think I had five seconds before you interrupted me,
+            was the irony is that we&#39;ve seen this model work really
+            well in Massachusetts, because Governor Romney did a good
+            thing, working with Democrats in the state to set up what
+            is essentially the identical model and as a consequence
+            people are covered there.
+
+ ** OBAMA:  It &lt;&lt;hasn&#39;t&gt;&gt; destroyed jobs.
+
+    OBAMA:  And as a consequence, we now have a system in which we
+            have the opportunity to start bringing down costs, as
+            opposed to just leaving millions of people out in the
+            cold. 
+
+</div>
+<div class='input'>plot(out)
+</div>
+<p><img src='dc_negator-12.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[3]], file=&quot;negator_prefix.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dc_negator</li><li>dc_negator_sub</li>
+    </ul>
+    <ul>
+      <li>negative</li><li>negator</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

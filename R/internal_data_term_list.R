@@ -38,7 +38,14 @@ term_list <- list(
     comparison = list(comparison = com_terms),
     filled_pause = list(filled_pause = qdap::spaste(filled_pause_terms)),
     backchannel = list(backchannel = qdap::spaste(backchannel_terms)),
-    oh = list(oh = " oh ")
+    oh = list(oh = " oh "),
+    well = list(well = " well "),
+    connective = list(connectives = c(" and ", " but ", " or ")),
+    connective_sub = list(
+        and = " and ",
+        but = " but ",
+        or = " or "
+    )
 )
 
 

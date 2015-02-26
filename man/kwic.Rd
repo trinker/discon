@@ -62,8 +62,6 @@ combined together by the named match.list.}
 
 \item{stopwords}{A character vector of words to remove from the text.}
 
-\item{inds}{A list of integer indices to print context for.}
-
 \item{\ldots}{Other arguments passed to \code{\link[qdap]{termco}}.}
 }
 \value{

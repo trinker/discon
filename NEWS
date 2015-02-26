@@ -16,10 +16,31 @@ And constructed with the following guidelines:
   (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
+discon 0.2.0  
+----------------------------------------------------------------
+
+BUG FIXES
+
+NEW FEATURES
+* `dc_connective` & `dc_connective_sub` functions added to search for conectives
+  ("and", "but", & "or") in context.
+
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
+
+
 discon 0.1.0  
 ----------------------------------------------------------------
 
 BUG FIXES
+
+* `dicourse_connector` woud error if a regex did not match any indices.  It now
+  returns `NULL` and gives a message indicating what regex did not match any 
+  indices.
 
 NEW FEATURES
 
@@ -30,13 +51,37 @@ NEW FEATURES
 
 * `dc_filled_pause` function added to search for filled pause discourse connectors.
 
-* `dc_oh` function added to search for oh discourse connectors (specifically 
-  discourse marker).
+* `dc_oh` function added to search for oh discourse connectors (more specifically 
+  discourse marker).  The `dc_oh_begin` function adds the assertion that the "oh"
+  usage is at the beginning of a line (this is a sentence if `qdap::sentSplit` has
+  been used).
+
+* `dc_well` function added to search for oh discourse connectors (more specifically 
+  discourse marker).  The `dc_well_begin` function adds the assertion that the "well"
+  usage is at the beginning of a line (this is a sentence if `dap::sentSplit` has
+  been used).
+
+* `dc_backchannel` function added to search for backchannel discourse connectors. 
 
 * `kwic` functions added to search for  and plot the distribution of 
   *key words in context*.
 
-MINOR FEATURES
+* `discourse_connector_logical` added that allows the extension of 
+  `discourse_connector` to enable logical checks of the elements of the 
+  `text.var` and/or the `grouping.var`.  The ease of use for `qdap::termco` and 
+  `qdap::dispersion_plot` makes them less flexible than a pure regular expression 
+  approach.  `discourse_connector_logical` returns much of this flexibility
+  back to the `discourse_connector` base function.  An example use would be to
+  assert that the word "oh"/"Oh" occurs at the beginning of a line or a turn of
+  talk.  The user can pass functions to assert this.
+
+* Logical testing functions added to complement the `discourse_connector_logical`
+  function.  `is.first_in_set` (and `is.last_in_set` as the semantical inverse), 
+  `is.isolate` (and `is.repeat` as the semantical inverse), and 
+  `is.within_n_preceding_words` added to assert that elements in discourse or 
+  group variables are patterned win a particular way.  These functions are useful
+  as a `discourse_connector_logical` complement or as stand alone discourse 
+  analysis tools.
 
 IMPROVEMENTS
 
@@ -85,9 +130,9 @@ discon 0.0.2
 NEW FEATURES
 
 * `discourse_connector` template added to make the package more modular and 
-  consistent.  `discoure_connector` also becomes a generic class transfered to all 
+  consistent.  `discoure_connector` also becomes a generic class transferred to all 
   `dc_` prefixed discourse connector functions.  The accompanying plot method 
-  allows for a lexical dispersion plot, a visual methd of seeing distribution of 
+  allows for a lexical dispersion plot, a visual method of seeing distribution of 
   terms across time.
 
 * `dc_causality` & `dc_causality_sub` functions added to search for causal discourse 

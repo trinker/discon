@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>dc_well. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Extract Well Discourse Connectors in Context</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>dc_well(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"well", ...)</div>
+<div>dc_well_begin(text.var, grouping.var, n.before&nbsp;=&nbsp;1, tot&nbsp;=&nbsp;FALSE, n.after&nbsp;=&nbsp;n.before, ord.inds&nbsp;=&nbsp;TRUE, markup&nbsp;=&nbsp;c("<<", ">>"), name&nbsp;=&nbsp;"well", fun1, fun2&nbsp;=&nbsp;NULL, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>text.var</dt>
+      <dd>The text variable.</dd>
+      <dt>grouping.var</dt>
+      <dd>The grouping variables.  Also takes a single
+grouping variable or a list of 1 or more grouping variables.</dd>
+      <dt>n.before</dt>
+      <dd>The number of rows before the indexed occurrence.</dd>
+      <dt>tot</dt>
+      <dd>logical.  If <code>TRUE</code> condenses sub-units (e.g., sentences)
+into turns of talk for that <code>grouping.var</code>.</dd>
+      <dt>n.after</dt>
+      <dd>The number of rows after the indexed occurrence.</dd>
+      <dt>ord.inds</dt>
+      <dd>logical.  If <code>TRUE</code> inds is ordered least to greatest.</dd>
+      <dt>markup</dt>
+      <dd>A character vector of length two indicating the left (element
+1) and right (element 2) boundary markers to use to highlight the well
+discourse connectors.  Use <code>c("", "")</code> to not mark the well discourse
+markers.</dd>
+      <dt>name</dt>
+      <dd>A string indicating the name to search for within the internal
+data sets, typically the function's name.  Generally, for internal use.</dd>
+      <dt>fun1</dt>
+      <dd>A function that checks the text variable and returns a logical
+vector.  This allows for additional restrictions to be places upon the text
+beyond the limited (non-regex) capabilities of <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> and
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>.  The function in <code>dc_well_begin</code>
+ensures that each has no more than n words before the "well".  The defaut number
+of words is 0 or less.  This can be changed by supplying an argument to
+<code>n</code> via <code>control</code>.  For example to set the number of words to 2
+use: <code>control = list(n = 2))</code>.</dd>
+      <dt>fun2</dt>
+      <dd>A function that checks the grouping variable and returns a logical
+vector.  This allows for additional restrictions to be placed upon the
+grouping variables that can't be addressed by <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> and
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>.  This argument in <code>dc_well_begin</code>
+is a function (<code>is.first_in_set</code>) that checks to ensure
+that the occurrence of well is the first sentence in that group
+(<code>grouping.var</code>) turn of talk.  The arguments sent to
+<code>is.first_in_set</code> (<code>regex.term</code> & <code>n</code>) can be
+changed via setting <code>regex.term</code> & <code>n</code> withing a list supplied to
+<code>control</code>.  For example to set the number of words to 2
+use: <code>control = list(n = 2))</code>.  To change both:
+<code>control = list(n = 1, regex.term = "Well"))</code></dd>
+      <dt>inds</dt>
+      <dd>A list of integer indices to print context for.</dd>
+      <dt>...</dt>
+      <dd>Other arguments passed to <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>.</dd>
+    </dl>
+    
+    <div class="Extract Well Discourse Connectors in Context">
+      <h2>Extract Well Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Extract Well Discourse Connectors in Context">
+      <h2>Extract Well Discourse Connectors in Context</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns returns a list of 2:
+countsA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code> object of well discourse marker counts.
+wellA <code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code> object of well discourse connectors in context.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>dc_well</code> - Extract well discourse connectors (a marker Schiffrin (1987)
+terms a marker of response) in context.</p>
+  
+      <p><code>dc_well_begin</code> - An extension of <code>dc_well</code> that requires the "well" to
+come at the begining of the word.</p>
+  
+    </div>
+
+    <div class="References">
+      <h2>References</h2>
+      
+      <p>Schiffrin, D. (1987). <em>Discourse markers</em>.  (pp. 102-127). London: Cambridge University Press.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>out &lt;- with(pres_debates2012[1:1000, ], dc_well(dialogue, person))
+out[1]
+</div>
+<div class='output'>$counts
+    person word.count     well
+1    OBAMA       6258 11(.18%)
+2   ROMNEY       6733 15(.22%)
+3  CROWLEY        713        0
+4   LEHRER        765  2(.26%)
+5 QUESTION        201        0
+
+</div>
+<div class='input'>out[2]
+</div>
+<div class='output'>$well
+===================================
+Event 1: [lines 93-95]
+
+    LEHRER:  Do you want to repeal Dodd Frank?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, I would repeal and replace it.
+
+    ROMNEY:  We&#39;re not going to get rid of all regulation. 
+ 
+===================================
+Event 2: [lines 98-100]
+
+    ROMNEY:  You need transparency, you need to have leverage limits
+             for|
+
+ ** LEHRER:  &lt;&lt;Well&gt;&gt;, here&#39;s a specific|
+
+    ROMNEY:  But let&#39;s let&#39;s mention let me mention the other one. 
+ 
+===================================
+Event 3: [lines 152-154]
+
+    ROMNEY:  I sure do.
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, in part, it comes, again, from my experience.
+
+    ROMNEY:  You know, I was in New Hampshire. 
+ 
+===================================
+Event 4: [lines 176-178]
+
+    LEHRER:  Mister President, the argument against repeal?
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, four years ago, when I was running for office,
+             I was traveling around and having those same
+             conversations that Governor Romney talks about.
+
+    OBAMA:   And it wasn&#39;t just that small businesses were seeing
+             costs skyrocket and they couldn&#39;t get affordable
+             coverage even if they wanted to provide it to their
+             employees. 
+ 
+===================================
+Event 5: [lines 194-196]
+
+    LEHRER:  Two minutes two minutes is up, sir.
+
+ ** OBAMA:   No, I think I had five seconds before you interrupted
+             me, was the irony is that we&#39;ve seen this model work
+             really &lt;&lt;well&gt;&gt; in Massachusetts, because Governor
+             Romney did a good thing, working with Democrats in the
+             state to set up what is essentially the identical model
+             and as a consequence people are covered there.
+
+    OBAMA:   It hasn&#39;t destroyed jobs. 
+ 
+===================================
+Event 6: [lines 200-202]
+
+    LEHRER:  Governor, tell tell the president directly why you think
+             what he just said is wrong about Obamacare?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, I did with my first statement.
+
+    ROMNEY:  First of all, I like the way we did it in Massachusetts. 
+ 
+===================================
+Event 7: [lines 251-253]
+
+    LEHRER:  Let&#39;s let the governor explain what you would do|
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;|
+
+    LEHRER:  if Obamacare is repealed. 
+ 
+===================================
+Event 8: [lines 254-256]
+
+    LEHRER:  How would you replace it?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, actually it&#39;s it&#39;s it&#39;s a lengthy description.
+
+    ROMNEY:  But, number one, preexisting conditions are covered
+             under my plan. 
+ 
+===================================
+Event 9: [lines 270-272]
+
+    ROMNEY:  We instead need to put insurance plans, providers,
+             hospitals, doctors on target such that they have an
+             incentive, as you say, performance pay, for doing an
+             excellent job, for keeping costs down, and that&#39;s
+             happening.
+
+ ** ROMNEY:  Innermountain Healthcare does it superbly &lt;&lt;well&gt;&gt;, Mayo
+             Clinic is doing it superbly &lt;&lt;well&gt;&gt;, Cleveland Clinic,
+             others.
+
+    ROMNEY:  But the right answer is not to have the federal
+             government take over health care and start mandating to
+             the providers across America, telling a patient and a
+             doctor what kind of treatment they can have. 
+ 
+===================================
+Event 10: [lines 277-279]
+
+    OBAMA:   But let&#39;s go back to what Governor Romney indicated,
+             that under his plan, he would be able to cover people
+             with preexisting conditions.
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, actually Governor, that isn&#39;t what your plan
+             does.
+
+    OBAMA:   What your plan does is to duplicate what&#39;s already the
+             law, which says if you are out of health insurance for
+             three months, then you can end up getting continuous
+             coverage and an insurance company can&#39;t deny you if
+             you&#39;ve if it&#39;s been under ninety days. 
+ 
+===================================
+Event 11: [lines 329-331]
+
+    LEHRER:  Do you believe, both of you but you had the first two
+             minutes on this, Mister President do you believe there&#39;s
+             a fundamental difference between the two of you as to
+             how you view the mission of the federal government?
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, I definitely think there are differences.
+
+    LEHRER:  And do you yeah. 
+ 
+===================================
+Event 12: [lines 353-355]
+
+    LEHRER:  Your view?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, first, I love great schools.
+
+    ROMNEY:  Massachusetts, our schools are ranked number one of all
+             fifty states. 
+ 
+===================================
+Event 13: [lines 384-386]
+
+    LEHRER:  Does the federal government have a responsibility to
+             improve the quality of public education in America?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, the primary responsibility for education is
+             is, of course, at the state and local level.
+
+    ROMNEY:  But the federal government also can play a very
+             important role. 
+ 
+===================================
+Event 14: [lines 392-394]
+
+    LEHRER:  How do you see the federal government&#39;s responsibility
+             to, as I say, to improve the quality of public education
+             in this country?
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, as I&#39;ve indicated, I think that it has a
+             significant role to play.
+
+    OBAMA:   Through our Race to the Top program, we&#39;ve worked with
+             Republican and Democratic governors to initiate major
+             reforms, and they&#39;re having an impact right now. 
+ 
+===================================
+Event 15: [lines 448-450]
+
+    OBAMA:   You&#39;ve done a great job.
+
+ ** LEHRER:  Oh, &lt;&lt;well&gt;&gt;, no.
+
+    LEHRER:  But the fact is government the role of government and
+             governing, we&#39;ve lost a pod in other words. 
+ 
+===================================
+Event 16: [lines 460-462]
+
+    LEHRER:  But what would you do as president?
+
+ ** ROMNEY:  We as president, I will sit on day one actually, the day
+             after I get elected I&#39;ll sit down with leaders the
+             Democratic leaders, as &lt;&lt;well&gt;&gt; as Republican leaders,
+             and continue as we did in my state we met every Monday
+             for a couple hours, talked about the issues and the
+             challenges in the in the in our state in that case.
+
+    ROMNEY:  We have to work on a collaborative basis, not because
+             we&#39;re going to compromise our principle, but because
+             there&#39;s common ground. 
+ 
+===================================
+Event 17: [lines 471-473]
+
+    LEHRER:  Mister President?
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, first of all, I think Governor Romney&#39;s going
+             to have a busy first day, because he&#39;s also going to
+             repeal Obamacare, which will not be very popular among
+             Democrats as you&#39;re sitting down with them.
+
+    OBAMA:   But, look, my philosophy has been, I will take ideas
+             from anybody, Democrat or Republican, as long as they&#39;re
+             advancing the cause of making middle class families
+             stronger and giving ladders of opportunity to the middle
+             class. 
+ 
+===================================
+Event 18: [lines 491-493]
+
+    LEHRER:  Governor Romney, you won the toss and you elected to go
+             last, so you have a closing two minutes, Mister
+             President.
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, Jim, I want to thank you, and I want to thank
+             Governor Romney, because I think was a terrific debate,
+             and I very much appreciate it.
+
+    OBAMA:   And I want to thank the University of Denver. 
+ 
+===================================
+Event 19: [lines 625-627]
+
+    OBAMA:   And let&#39;s take the money that we&#39;ve been spending on war
+             over the last decade to rebuild America, roads, bridges
+             schools.
+
+ ** OBAMA:   We do those things, not only is your future going to be
+             bright but America&#39;s future is going to bright as
+             &lt;&lt;well&gt;&gt;.
+
+    CROWLEY: Let me ask you for more immediate answer and begin with
+             Mister Romney just quickly what what can you do? 
+ 
+===================================
+Event 20: [lines 630-632]
+
+    CROWLEY: What about those long term unemployed who need a job
+             right now?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt; what you&#39;re seeing in this country is twenty
+             three million people struggling to find a job.
+
+    ROMNEY:  And a lot of them, as you say, Candy, have been out of
+             work for a long, long, long time. 
+ 
+===================================
+Event 21: [lines 647-649]
+
+    ROMNEY:  And I know he keeps saying, you want to take Detroit
+             bankrupt.
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, the president took Detroit bankrupt.
+
+    ROMNEY:  You took General Motors bankrupt. 
+ 
+===================================
+Event 22: [lines 711-713]
+
+    CROWLEY: Governor, on the subject of gas prices?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt;, let&#39;s look at the president&#39;s policies, all
+             right, as opposed to the rhetoric, because we&#39;ve had
+             four years of policies being played out.
+
+    ROMNEY:  And the president&#39;s right in terms of the additional oil
+             production, but none of it came on federal land. 
+ 
+===================================
+Event 23: [lines 717-719]
+
+    ROMNEY:  So where&#39;d the increase come from?
+
+ ** ROMNEY:  &lt;&lt;Well&gt;&gt; a lot of it came from the Bakken Range in North
+             Dakota.
+
+    ROMNEY:  What was his participation there? 
+ 
+===================================
+Event 24: [lines 733-735]
+
+    ROMNEY:  That&#39;s not the right course for America.
+
+ ** ROMNEY:  Let&#39;s take advantage of the energy resources we have, as
+             &lt;&lt;well&gt;&gt; as the energy ources for the future.
+
+    ROMNEY:  And if we do that, if we do what I&#39;m planning on doing,
+             which is getting us energy independent, North America
+             energy independence within eight years, you&#39;re going to
+             see manufacturing jobs come back. 
+ 
+===================================
+Event 25: [lines 803-805]
+
+    ROMNEY:  I&#39;m still speaking.
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt; |
+
+    ROMNEY:  And the answer is I don&#39;t believe people think that&#39;s
+             the case| 
+ 
+===================================
+Event 26: [lines 825-827]
+
+    CROWLEY: Is that true?
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, think about what the governor think about what
+             the governor just said.
+
+    OBAMA:   He said when I took office, the price of gasoline was
+             dollar one. 
+ 
+===================================
+Event 27: [lines 941-943]
+
+    OBAMA:   Not only that, he said, I think that&#39;s what grows the
+             economy.
+
+ ** OBAMA:   &lt;&lt;Well&gt;&gt;, I fundamentally disagree with that.
+
+    OBAMA:   I think what grows the economy is when you get that tax
+             credit that we put in place for your kids going to
+             college. 
+
+</div>
+<div class='input'>plot(out)
+</div>
+<p><img src='dc_well-6.png' alt='' width='400' height='400' /></p>
+<div class='input'>
+## Save externally use .doc or .txt
+## print(out[[2]], file=&quot;well.doc&quot;)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>dc_well</li><li>dc_well_begin</li>
+    </ul>
+    <ul>
+      <li>well</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/termco'>termco</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/qdap/docs/trans_context'>trans_context</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

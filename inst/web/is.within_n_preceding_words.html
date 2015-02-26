@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>is.within_n_preceding_words. discon 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">discon 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Check if Element Is Within N Preceding Words</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>is.within_n_preceding_words(x, regex.term, n&nbsp;=&nbsp;0)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>x</dt>
+      <dd>A vector of elements.</dd>
+      <dt>regex.term</dt>
+      <dd>A regular expression that represents a word or term.</dd>
+      <dt>n</dt>
+      <dd>A max number of words (defined as <code>([a-zA-Z-]+,*\s+)</code>) that
+<code>regex.term</code> must occur before.</dd>
+    </dl>
+    
+    <div class="Check if Element Is Within N Preceding Words">
+      <h2>Check if Element Is Within N Preceding Words</h2>
+      
+    </div>
+
+    <div class="Check if Element Is Within N Preceding Words">
+      <h2>Check if Element Is Within N Preceding Words</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a logical vector equal in length to x.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Logical check of each element in a vector to determine if
+an element occurs within n preceding words.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>x &lt;- c(
+    &quot;I like dogs and cats&quot;,
+    &quot;I do not like robots though&quot;,
+    &quot;Like I care.&quot;
+)
+
+is.within_n_preceding_words(x, &quot;I&quot;, 0)
+</div>
+<div class='output'>[1]  TRUE  TRUE FALSE
+</div>
+<div class='input'>is.within_n_preceding_words(x, &quot;I&quot;, 1)
+</div>
+<div class='output'>[1] TRUE TRUE TRUE
+</div>
+<div class='input'>is.within_n_preceding_words(x, &quot;like&quot;, 4)
+</div>
+<div class='output'>[1]  TRUE  TRUE FALSE
+</div>
+<div class='input'>is.within_n_preceding_words(x, &quot;[Ll]ike&quot;, 4)
+</div>
+<div class='output'>[1] TRUE TRUE TRUE
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>is.within_n_preceding_words</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
