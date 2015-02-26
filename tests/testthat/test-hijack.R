@@ -1,6 +1,6 @@
 context("Checking hijack")
 
-test_that("hijack is replacing hijacks",{
+test_that("hijack is taking over formals",{
 
     mean2 <- function(x, na.rm = FALSE, ...){
         mean(x, ..., na.rm = na.rm)
