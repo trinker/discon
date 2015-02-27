@@ -4,10 +4,10 @@
 #' from the text.  Typically, these functions are used internally but are 
 #' documented here:
 #' \itemize{
-#' \item \bold{fun1} - A function that checks the text variable and returns a logical vector.  This allows for additional restrictions to be placed upon the text beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
-#' \item \bold{fun2} - A function that checks the grouping variable and returns a logical vector.  This allows for additional restrictions to be placed upon the grouping variables that can't be addressed by \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
-#' \item \bold{fun3} - A function that alters the text variable for the creation of transcripts sections (see \code{\link[qdap]{trans_context}}) & graphic visualizations of the data (including the generic pot method).
-#' \item \bold{fun4} - A function that alters the text variable for the creation of graphic visualizations of the data only (including the generic pot method).
+#' \item \code{fun1} - A function that checks the text variable and returns a logical vector.  This allows for additional restrictions to be placed upon the text beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
+#' \item \code{fun2} - A function that checks the grouping variable and returns a logical vector.  This allows for additional restrictions to be placed upon the grouping variables that can't be addressed by \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
+#' \item \code{fun3} - A function that alters the text variable for the creation of transcripts sections (see \code{\link[qdap]{trans_context}}) & graphic visualizations of the data (including the generic pot method).
+#' \item \code{fun4} - A function that alters the text variable for the creation of graphic visualizations of the data only (including the generic pot method).
 #' }
 #' @export
 #' @rdname discourse_connector
@@ -82,6 +82,14 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
 
     stopifnot(length(markup) == 2)
 
+    missing.args <- sapply(list(regex, terms, names), is.null)
+    if (any(missing.args)){
+        stop(sprintf("please supply the following arguments: %s\n\n%s",
+            paste(c("`regex = ??`", "`terms = ??`", "`names = ??`")[missing.args], collapse=", "),
+            "See section Functions: in `?discourse_connectors_logical` for details."
+        ))
+    }
+    
     inds2keep <- rep(TRUE, length(text.var))
     ## user supplied function to produce logical vector
     if (!is.null(fun1)) {    
@@ -106,7 +114,7 @@ discourse_connector_logical <- function(text.var, grouping.var, n.before = 1,
         message("No elemements in `grouping.var` meet the criteria of `fun1` & `fun2`.")
         return(NULL)
     }
-    
+   
     if (all(sapply(list(fun1, fun2, fun3, fun4), is.null))){
         discmark_helper(text.var = text.var, grouping.var = grouping.var, 
             n.before = n.before, tot = tot, n.after = n.after, ord.inds = ord.inds, 

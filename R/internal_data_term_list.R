@@ -45,7 +45,8 @@ term_list <- list(
         and = " and ",
         but = " but ",
         or = " or "
-    )
+    ),
+    test.discon = list(ae = c("a", "e"))
 )
 
 

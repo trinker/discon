@@ -48,6 +48,21 @@ Returns returns a list of 2-3:
 Extract discourse connectors in context.  This is the flexible default template
 for modular use in specific discourse connector functions.
 }
+\section{Arguments2}{
+ \code{discourse_connector} & \code{discourse_connector_logical}
+require 3 arguments (passed to ellipsis or internally through the \code{name}
+argument) that are responsible for checking for terms and naming them
+in output.  Typically \code{regex} and \code{terms} are searching for the
+same thing but expressed as a regular expression of a simplified
+\code{\link[qdap]{termco}} approach to terms searching.  Generally, these
+arguments are used internally but are documented here:
+\itemize{
+\item \code{regex} - A list of strings of or single string regular expression(s) used to search for expressions in the transcript excerpts and mark them up.
+\item \code{terms} - A list of terms to search for in \code{\link[qdap]{termco}} and \code{\link[qdap]{dispersion plot}}.
+\item \code{names} - A vector of names that corresponds to the number of regular expressions searched for.
+}
+}
+
 \section{Functions}{
  \code{discourse_connector_logical} can take 4 different
 functions (as arguments passed to ellipsis) that perform logical checks or
@@ -55,10 +70,10 @@ alter text variables before transcript sectioning & graphics are generated
 from the text.  Typically, these functions are used internally but are
 documented here:
 \itemize{
-\item \bold{fun1} - A function that checks the text variable and returns a logical vector.  This allows for additional restrictions to be placed upon the text beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
-\item \bold{fun2} - A function that checks the grouping variable and returns a logical vector.  This allows for additional restrictions to be placed upon the grouping variables that can't be addressed by \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
-\item \bold{fun3} - A function that alters the text variable for the creation of transcripts sections (see \code{\link[qdap]{trans_context}}) & graphic visualizations of the data (including the generic pot method).
-\item \bold{fun4} - A function that alters the text variable for the creation of graphic visualizations of the data only (including the generic pot method).
+\item \code{fun1} - A function that checks the text variable and returns a logical vector.  This allows for additional restrictions to be placed upon the text beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
+\item \code{fun2} - A function that checks the grouping variable and returns a logical vector.  This allows for additional restrictions to be placed upon the grouping variables that can't be addressed by \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
+\item \code{fun3} - A function that alters the text variable for the creation of transcripts sections (see \code{\link[qdap]{trans_context}}) & graphic visualizations of the data (including the generic pot method).
+\item \code{fun4} - A function that alters the text variable for the creation of graphic visualizations of the data only (including the generic pot method).
 }
 }
 \examples{

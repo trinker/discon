@@ -44,7 +44,8 @@ regex_list <- list(
         and = "\\b[Aa]nd\\b",
         but = "\\b[Bb]ut\\b",
         or = "\\b[Oo]r\\b"
-    )    
+    ),
+    test.discon = "[AaEe]"
 )
 
 

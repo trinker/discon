@@ -18,6 +18,18 @@
 #' @param name A string indicating the name to search for within the internal 
 #' data sets, typically the function's name.  Generally, for internal use.
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
+#' @section Arguments2: \code{discourse_connector} & \code{discourse_connector_logical}
+#' require 3 arguments (passed to ellipsis or internally through the \code{name} 
+#' argument) that are responsible for checking for terms and naming them
+#' in output.  Typically \code{regex} and \code{terms} are searching for the 
+#' same thing but expressed as a regular expression of a simplified 
+#' \code{\link[qdap]{termco}} approach to terms searching.  Generally, these 
+#' arguments are used internally but are documented here:
+#' \itemize{
+#' \item \code{regex} - A list of strings of or single string regular expression(s) used to search for expressions in the transcript excerpts and mark them up.
+#' \item \code{terms} - A list of terms to search for in \code{\link[qdap]{termco}} and \code{\link[qdap]{dispersion plot}}.
+#' \item \code{names} - A vector of names that corresponds to the number of regular expressions searched for.
+#' }
 #' @return Returns returns a list of 2-3: 
 #' \item{counts}{A \code{\link[qdap]{termco}} object of discourse connector counts.} 
 #' \item{Context 1}{A \code{\link[qdap]{trans_context}} object of the discourse connectors in context.  Note the name of this object is supplied by \code{names} element one.} 
@@ -124,6 +136,14 @@ discourse_connector <- function(text.var, grouping.var, n.before = 1, tot = FALS
     }
 
     stopifnot(length(markup) == 2)
+    
+    missing.args <- sapply(list(regex, terms, names), is.null)
+    if (any(missing.args)){
+        stop(sprintf("please supply the following arguments: %s\n\n%s",
+            paste(c("`regex = ??`", "`terms = ??`", "`names = ??`")[missing.args], collapse=", "),
+            "See section Functions: in `?discourse_connectors` for details."
+        ))
+    }
     
     discmark_helper(text.var = text.var, grouping.var = grouping.var, 
         n.before = n.before, tot = tot, n.after = n.after, ord.inds = ord.inds, 

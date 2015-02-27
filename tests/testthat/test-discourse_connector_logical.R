@@ -171,7 +171,7 @@ test_that("discourse_connector_logical works when fun1 (logical text check) is p
         terms = list(I = c(" I ", " I'"))
     ))
     
-    is_less_than(nrow(out[[2]]), nrow(no_fun[[2]]))
+    expect_less_than(nrow(out[[2]]), nrow(no_fun[[2]]))
     
 })
 
@@ -190,6 +190,92 @@ test_that("discourse_connector_logical works when fun1 (logical group var. check
         terms = list(I = c(" I ", " I'"))
     ))
     
-    is_less_than(nrow(out[[2]]), nrow(no_fun[[2]]))
+    expect_less_than(nrow(out[[2]]), nrow(no_fun[[2]]))
     
 })
+
+test_that("discourse_connector_logical alow fun1-fun4 and control list to be passed",{
+
+    out1 <- with(pres_debates2012[1:300, ], 
+        discourse_connector(dialogue, list(time, person), name = "test.discon")
+    )
+    o1len <- nrow(out1[[2]])
+    
+    out2 <- with(pres_debates2012[1:300, ], 
+        discourse_connector_logical(dialogue, list(time, person), name = "test.discon", 
+            control = list(n=3))
+    )
+    o2len <- nrow(out2[[2]])
+    expect_less_than(o2len, o1len)
+    
+    out3 <- with(pres_debates2012[1:300, ], 
+        discourse_connector_logical(dialogue, list(time, person), name = "test.discon", 
+            control = list(n=3, prop.true = .1))
+    )
+    o3len <- nrow(out3[[2]])
+    expect_less_than(o3len, o1len)
+    expect_less_than(o3len, o2len)
+    
+    out4 <- with(pres_debates2012[1:300, ], 
+        discourse_connector_logical(dialogue, list(time, person), name = "test.discon", 
+            control = list(n=3, a = "ee"))
+    )
+    o4len <- nrow(out4[[2]])
+    expect_more_than(o4len, o2len)
+
+    out5 <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v"
+        )
+    )
+    o5len <- nrow(out5[[2]])
+
+    
+    out6 <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun1 = function(x, prop.true = .5 ) {
+                set.seed(10)
+                sample(c(TRUE, FALSE), length(x), TRUE, c(prop.true, 1 - prop.true))
+            }
+        )
+    )
+    o6len <- nrow(out6[[2]])
+    expect_less_than(o6len, o5len)
+    
+    out7 <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun2 = function(x, prop.true = .4 ) {
+                set.seed(10)
+                sample(c(TRUE, FALSE), length(x), TRUE, c(prop.true, 1 - prop.true))
+            }
+        )
+    )
+    o7len <- nrow(out7[[2]])
+    expect_less_than(o7len, o5len)
+    
+    out8 <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun3 = function(x, a = "") {gsub("[aeiouy]", a, x)}
+        )
+    )  
+    o8len <- nrow(out8[[2]])
+    expect_less_than(o8len, o5len)
+    
+    out9 <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),  
+            fun4 = function(x, b = "<<test>>") {gsub("s", b, x)},
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v" 
+        )
+    )
+    o9len <- nrow(out9[[2]])
+    expect_equal(o9len, o5len)    
+})
+
