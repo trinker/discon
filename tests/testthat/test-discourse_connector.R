@@ -80,6 +80,21 @@ test_that("discourse_connector returns a list of counts, double `qdap_context` o
     expect_equal(sapply(out2, class), cls2)
 })
 
+
+test_that("discourse_connector returns NULL if episode/text/connector not found",{
+
+    out_null <- suppressMessages(with(pres_debates2012[1:20, ], discourse_connector(dialogue, person,
+        names = c("I"),
+        regex = "\\bI('[a-z]+)*XXX\\b",
+        terms = list(I = c(" IXXX ", " I'XXX")),
+        markup.regex = "\\b(I('[a-z]+)*)\\bXXX"
+    )))
+
+    expect_true(sum(out_null[[1]][[1]][, 3]) == 0)
+    expect_true(is.null(out_null[[2]]))
+    
+})
+
 test_that("discourse_connector plots a lexical dispersion plot of class `ggplot`",{
 
     out <- with(pres_debates2012[1:200, ], discourse_connector(dialogue, person,
