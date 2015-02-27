@@ -16,17 +16,16 @@
 #' markers.
 #' @param name A string indicating the name to search for within the internal 
 #' data sets, typically the function's name.  Generally, for internal use.
-#' @param fun1 A function that checks the text variable and returns a logical 
-#' vector.  This allows for additional restrictions to be places upon the text
-#' beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and 
-#' \code{\link[qdap]{trans_context}}.  This argument in \code{dc_oh_begin} is 
-#' ignored.
-#' @param fun2 A function that checks the grouping variable and returns a logical 
-#' vector.  This allows for additional restrictions to be placed upon the 
-#' grouping variables that can't be addressed by \code{\link[qdap]{termco}} and 
-#' \code{\link[qdap]{trans_context}}.  This argument in \code{dc_oh_begin} is 
-#' ignored.
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
+#' @details Kalajahi, Abdullah, Mukundan, & Tannacito (2012, p. 1667) provide a 
+#' list of conenctors that indicate comparisons among things.  This list has been 
+#' adapted to include the following search terms (ellipsis indicates arbitrary 
+#' word/prefix):\cr \cr
+#' "...'s like", "also", "as if", "as though", "as ... as", "equal to", 
+#' "in relation to", "in the same way", "is like", "less ... than", 
+#' "matching", "more ... than", "of little difference", "parallel to", 
+#' "...re like", "resembling", "same as", "similar to", "similarly", 
+#' "unlike", "was like".
 #' @return Returns returns a list of 2: 
 #' \item{counts}{A \code{\link[qdap]{termco}} object of comparison discourse marker counts.} 
 #' \item{comparison}{A \code{\link[qdap]{trans_context}} object of comparison discourse connectors in context.} 

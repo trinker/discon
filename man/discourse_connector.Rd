@@ -11,7 +11,7 @@ discourse_connector(text.var, grouping.var, n.before = 1, tot = FALSE,
 
 discourse_connector_logical(text.var, grouping.var, n.before = 1,
   tot = FALSE, n.after = n.before, ord.inds = TRUE, markup = c("<<",
-  ">>"), name = NULL, fun1, fun2, ...)
+  ">>"), name = NULL, ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -36,16 +36,6 @@ connectors.}
 \item{name}{A string indicating the name to search for within the internal
 data sets, typically the function's name.  Generally, for internal use.}
 
-\item{fun1}{A function that checks the text variable and returns a logical
-vector.  This allows for additional restrictions to be placed upon the text
-beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and
-\code{\link[qdap]{trans_context}}.}
-
-\item{fun2}{A function that checks the grouping variable and returns a logical
-vector.  This allows for additional restrictions to be placed upon the
-grouping variables that can't be addressed by \code{\link[qdap]{termco}} and
-\code{\link[qdap]{trans_context}}.}
-
 \item{\ldots}{Other arguments passed to \code{\link[qdap]{termco}}.}
 }
 \value{
@@ -57,6 +47,19 @@ Returns returns a list of 2-3:
 \description{
 Extract discourse connectors in context.  This is the flexible default template
 for modular use in specific discourse connector functions.
+}
+\section{Functions}{
+ \code{discourse_connector_logical} can take 4 different
+functions (as arguments passed to ellipsis) that perform logical checks or
+alter text variables before transcript sectioning & graphics are generated
+from the text.  Typically, these functions are used internally but are
+documented here:
+\itemize{
+\item \bold{fun1} - A function that checks the text variable and returns a logical vector.  This allows for additional restrictions to be placed upon the text beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
+\item \bold{fun2} - A function that checks the grouping variable and returns a logical vector.  This allows for additional restrictions to be placed upon the grouping variables that can't be addressed by \code{\link[qdap]{termco}} and \code{\link[qdap]{trans_context}}.
+\item \bold{fun3} - A function that alters the text variable for the creation of transcripts sections (see \code{\link[qdap]{trans_context}}) & graphic visualizations of the data (including the generic pot method).
+\item \bold{fun4} - A function that alters the text variable for the creation of graphic visualizations of the data only (including the generic pot method).
+}
 }
 \examples{
 ## Marker with one type (just: "I")

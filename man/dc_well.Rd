@@ -11,7 +11,7 @@ dc_well(text.var, grouping.var, n.before = 1, tot = FALSE,
 
 dc_well_begin(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),
-  name = "well", fun1, fun2, ...)
+  name = "well", ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -35,28 +35,6 @@ markers.}
 
 \item{name}{A string indicating the name to search for within the internal
 data sets, typically the function's name.  Generally, for internal use.}
-
-\item{fun1}{A function that checks the text variable and returns a logical
-vector.  This allows for additional restrictions to be places upon the text
-beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and
-\code{\link[qdap]{trans_context}}.  The function in \code{dc_well_begin}
-ensures that each has no more than n words before the "well".  The defaut number
-of words is 0 or less.  This can be changed by supplying an argument to
-\code{n} via \code{control}.  For example to set the number of words to 2
-use: \code{control = list(n = 2))}.}
-
-\item{fun2}{A function that checks the grouping variable and returns a logical
-vector.  This allows for additional restrictions to be placed upon the
-grouping variables that can't be addressed by \code{\link[qdap]{termco}} and
-\code{\link[qdap]{trans_context}}.  This argument in \code{dc_well_begin}
-is a function (\code{\link[discon]{is.first_in_set}}) that checks to ensure
-that the occurrence of well is the first sentence in that group
-(\code{grouping.var}) turn of talk.  The arguments sent to
-\code{\link[discon]{is.first_in_set}} (\code{regex.term} & \code{n}) can be
-changed via setting \code{regex.term} & \code{n} withing a list supplied to
-\code{control}.  For example to set the number of words to 2
-use: \code{control = list(n = 2))}.  To change both:
-\code{control = list(n = 1, regex.term = "Well"))}}
 
 \item{inds}{A list of integer indices to print context for.}
 
@@ -87,7 +65,19 @@ for elaboration.  Well may be used in a contingent answer as well.  For
 example: \cr \cr
 \emph{John: Do you like Chinese?} \cr
 \emph{Sean: Yes.} \cr
-\emph{John: \bold{Well} there's a new place called...} \cr \cr
+\emph{John: \bold{Well} there's a new place called...}
+
+An internal function in \code{dc_well_begin} ensures that each has no more
+than n words before the "well".  The defaut number of words is 0 or less.
+This can be changed by supplying an \code{n} argument to
+\code{\link[discon]{is.within_n_preceding_words}} via \code{control}.  For
+example to set the number of words to 2, use: \code{control = list(n = 2))}.
+The user could change both arguments via: \cr
+\code{control = list(n = 1, regex.term = "Well"))}
+
+Additionally, another internal function, \code{\link[discon]{is.first_in_set}}
+checks to ensure that the occurrence of well is the first sentence in that
+group (\code{grouping.var}) turn of talk.
 }
 \examples{
 out <- with(pres_debates2012[1:1000, ], dc_well(dialogue, person))

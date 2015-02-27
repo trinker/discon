@@ -11,7 +11,7 @@ dc_oh(text.var, grouping.var, n.before = 1, tot = FALSE,
 
 dc_oh_begin(text.var, grouping.var, n.before = 1, tot = FALSE,
   n.after = n.before, ord.inds = TRUE, markup = c("<<", ">>"),
-  name = "oh", fun1, fun2, ...)
+  name = "oh", ...)
 }
 \arguments{
 \item{text.var}{The text variable.}
@@ -36,21 +36,6 @@ markers.}
 \item{name}{A string indicating the name to search for within the internal
 data sets, typically the function's name.  Generally, for internal use.}
 
-\item{fun1}{A function that checks the text variable and returns a logical
-vector.  This allows for additional restrictions to be places upon the text
-beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and
-\code{\link[qdap]{trans_context}}.  The function in \code{dc_oh_begin}
-ensures that each has no more than n words before the "oh".  The defaut number
-of words is 0 or less.  This can be changed by supplying an argument to
-\code{n} via \code{control}.  For example to set the number of words to 2
-use: \code{control = list(n = 2))}.}
-
-\item{fun2}{A function that checks the grouping variable and returns a logical
-vector.  This allows for additional restrictions to be placed upon the
-grouping variables that can't be addressed by \code{\link[qdap]{termco}} and
-\code{\link[qdap]{trans_context}}.  This argument in \code{dc_oh_begin} is
-ignored.}
-
 \item{inds}{A list of integer indices to print context for.}
 
 \item{\ldots}{Other arguments passed to \code{\link[qdap]{termco}}.}
@@ -73,6 +58,11 @@ Schiffrin (1987) considers broad functions of the use of "oh" in (a) ``repairs''
 (b) ``question/answer/acknowledgement sequences'', (c) to ``mark a shift in
 the speaker's orientation to information'', and (d) to shift ``subjective
 orientation'' (pp. 74-98).
+
+An internal function in \code{dc_oh_begin} ensures that each line has no more
+than n words before the "oh".  The defaut number of words is 0 or less.  This
+can be changed by supplying an argument to \code{n} via \code{control}.  For
+example to set the number of words to 2, use: \code{control = list(n = 2))}.
 }
 \examples{
 out <- with(pres_debates2012[1:1000, ], dc_oh(dialogue, person))

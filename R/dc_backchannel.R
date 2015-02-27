@@ -16,29 +16,17 @@
 #' markers.
 #' @param name A string indicating the name to search for within the internal 
 #' data sets, typically the function's name.  Generally, for internal use.
-#' @param fun1 A function that checks the text variable and returns a logical 
-#' vector.  This allows for additional restrictions to be places upon the text
-#' beyond the limited (non-regex) capabilities of \code{\link[qdap]{termco}} and 
-#' \code{\link[qdap]{trans_context}}.  The function in \code{dc_backchannel}
-#' ensures that each sentence is less than n words in length.  The defaut number
-#' of words is 3 or less.  This can be changed by supplying an argument to
-#' \code{max} via \code{control}.  For example to set the number of words to 5
-#' use: \code{control = list(max = 2))}.
-#' @param fun2 A function that checks the grouping variable and returns a logical 
-#' vector.  This allows for additional restrictions to be placed upon the 
-#' grouping variables that can't be addressed by \code{\link[qdap]{termco}} and 
-#' \code{\link[qdap]{trans_context}}.  The function in \code{dc_backchannel}
-#' ensures that the speaker's turn is at max one row (1 sentence if 
-#' \code{\link[qdap]{sentSplit}} has been used).
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
 #' @details Backchannels are typically a listener indicating that they are 
 #' listening and yielding the floor to the speaker.  Such utterances are rarely 
-#' less than a few words.  The anonymous function passed to \code{fun1} checks 
-#' that a line contains a maximum of three words to be considered.  This can be 
-#' changed by supplying an argument to \code{max} via \code{control}.  For 
-#' example to set the number of words to 5 use: \code{control = list(max = 2))}. 
-#' Additionally, the second function \code{fun2} ensures that the speaker's turn 
-#' is at max one row (1 sentence if \code{\link[qdap]{sentSplit}} has been used).
+#' less than a few words.  
+#' 
+#' An internal function checks that a line contains a 
+#' maximum of three words to be considered.  This can be changed by supplying an 
+#' argument to \code{max} via \code{control}.  For example to set the number of 
+#' words to 5, use: \code{control = list(max = 2))}. Additionally, a second 
+#' internal function ensures that the speaker's turn is at max one row (1 
+#' sentence if \code{\link[qdap]{sentSplit}} has been used).
 #' @return Returns returns a list of 2: 
 #' \item{counts}{A \code{\link[qdap]{termco}} object of backchannel discourse marker counts.} 
 #' \item{backchannel}{A \code{\link[qdap]{trans_context}} object of backchannel discourse connectors in context.} 

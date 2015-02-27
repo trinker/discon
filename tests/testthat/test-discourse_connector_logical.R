@@ -155,3 +155,41 @@ test_that("discourse_connector_logical returns NULL if episode/text/connector no
     
 })
 
+
+test_that("discourse_connector_logical works when fun1 (logical text check) is passed",{
+
+    out <- with(pres_debates2012[1:20, ], discourse_connector_logical(dialogue, person,
+        names = c("I"),
+        regex = "\\bI('[a-z]+)*\\b",
+        terms = list(I = c(" I ", " I'")),
+        fun1 = function(x) { nchar(x) < 83 }
+    ))
+
+    no_fun <- with(pres_debates2012[1:20, ], discourse_connector_logical(dialogue, person,
+        names = c("I"),
+        regex = "\\bI('[a-z]+)*\\b",
+        terms = list(I = c(" I ", " I'"))
+    ))
+    
+    is_less_than(nrow(out[[2]]), nrow(no_fun[[2]]))
+    
+})
+
+test_that("discourse_connector_logical works when fun1 (logical group var. check) is passed",{
+
+    out <- with(pres_debates2012[1:100, ], discourse_connector_logical(dialogue, person,
+        names = c("I"),
+        regex = "\\bI('[a-z]+)*\\b",
+        terms = list(I = c(" I ", " I'")),
+        fun2 = is.isolate
+    ))
+
+    no_fun <- with(pres_debates2012[1:100, ], discourse_connector_logical(dialogue, person,
+        names = c("I"),
+        regex = "\\bI('[a-z]+)*\\b",
+        terms = list(I = c(" I ", " I'"))
+    ))
+    
+    is_less_than(nrow(out[[2]]), nrow(no_fun[[2]]))
+    
+})
