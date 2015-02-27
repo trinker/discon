@@ -17,13 +17,14 @@ Suggests:
     qdapDictionaries (>= 1.0.2),
     qdapTools (>= 1.0.1)
 LazyData: TRUE
-Description: A collection of R tools for analysing discourse connectors in
-    text.  Discourse connectors are cohesive devices that can be used to help
-    identify themes within a text.  This package provides computational means
-    of extracting various elements from the text that contain discourse
-    connectors.  This can assist in qualitative analysis of discourse by
-    identifying categories that may aide analysis (using the computer for
-    efficiency and data coverage) towards generating themes.
+Description: A collection of R tools to enhance analysis of discourse
+    connectors in text.  Discourse connectors are cohesive devices that can be
+    used to help identify themes within a text.  This package provides
+    computational means of extracting and visualizing various elements from the
+    text that contain discourse connectors.  This can assist in qualitative
+    analysis of discourse by identifying categories that may aide analysis
+    (using the computer for efficiency and data coverage) towards generating
+    themes.
 License: GPL-2
 URL: http://trinker.github.com/discon/
 BugReports: http://github.com/trinker/discon/issues

@@ -7,13 +7,13 @@
 \alias{package-discon}
 \title{discon: Tools for analysing discourse markers in text}
 \description{
-\pkg{discon} is a collection of R tools for analysing discourse connectors in
-text.  Discourse connectors are cohesive devices that can be used to help
-identify themes within a text.  This package provides computational means of
-extracting various elements from the text that contain discourse connectors.
-This can assist in qualitative analysis of discourse by identifying categories
-that may aide analysis (using the computer for efficiency and data coverage)
-towards generating themes.
+\pkg{discon} is a collection of R tools to enhance analysis of discourse
+connectors in text.  Discourse connectors are cohesive devices that can be
+used to help identify themes within a text.  This package provides
+computational means of extracting and visualizing various elements from the
+text that contain discourse connectors.  This can assist in qualitative
+analysis of discourse by identifying categories that may aide analysis (using
+the computer for efficiency and data coverage) towards generating themes.
 }
 \details{
 ``Discourse connectors are devices used to bridge between turns (in speech)
