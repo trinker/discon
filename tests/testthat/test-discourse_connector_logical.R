@@ -194,7 +194,7 @@ test_that("discourse_connector_logical works when fun1 (logical group var. check
     
 })
 
-test_that("discourse_connector_logical alow fun1-fun4 and control list to be passed",{
+test_that("discourse_connector_logical allow fun1-fun4 and control list to be passed",{
 
     out1 <- with(pres_debates2012[1:300, ], 
         discourse_connector(dialogue, list(time, person), name = "test.discon")
@@ -279,3 +279,25 @@ test_that("discourse_connector_logical alow fun1-fun4 and control list to be pas
     expect_equal(o9len, o5len)    
 })
 
+test_that("discourse_connector_logical throws error if messing names, regex or terms",{
+
+    expect_error(with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),  
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")) 
+        )
+    ))
+    
+    expect_error(with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),  
+            terms = list(ae = c("a", "e")), names = "v" 
+        )
+    ))
+    
+    expect_error(with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),  
+            regex = "[AaEe]",  names = "v" 
+        )
+    ))    
+    
+})

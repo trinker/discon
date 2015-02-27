@@ -142,3 +142,28 @@ test_that("discourse_connector prints as expected",{
     expect_true(is.character(capture.output(out)))
 })
 
+
+
+test_that("discourse_connector throws error if messing names, regex or terms",{
+
+    expect_error(with(pres_debates2012[1:10, ], 
+        discourse_connector(dialogue, list(time, person),  
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")) 
+        )
+    ))
+    
+    expect_error(with(pres_debates2012[1:10, ], 
+        discourse_connector(dialogue, list(time, person),  
+            terms = list(ae = c("a", "e")), names = "v" 
+        )
+    ))
+    
+    expect_error(with(pres_debates2012[1:10, ], 
+        discourse_connector(dialogue, list(time, person),  
+            regex = "[AaEe]",  names = "v" 
+        )
+    ))    
+    
+})
+
