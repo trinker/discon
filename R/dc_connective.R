@@ -19,6 +19,14 @@
 #' @param name A string indicating the name to search for within the internal 
 #' data sets, typically the function's name.  Generally, for internal use.
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
+#' @details Schiffrin (1987) describes the funtion of these three coordinating 
+#' conjunctions:
+#' \itemize{
+#' \item \bold{and} has two roles: it ``coordinates idea units and it continues a speaker's actions'' (p. 128).  The speaker may use to ``maintain the status quo'' (p. 181).
+#' \item \bold{but} is used to contrast ideas or actions; in the second form "but" can replace "however" and "anyway" though they can't repace one another (p. 164).  The speaker may use "but" to return to an idea or ``prior state'' (p. 181).
+#' \item \bold{or} is used to provide ideas or options.
+#' }
+#' While "and" and "but" are more speaker centered, "or" is more hearer centered.
 #' @return \code{dc_connective} - Returns returns a list of 2: 
 #' \item{counts}{A \code{\link[qdap]{termco}} object of connective discourse connector counts.} 
 #' \item{connective}{A \code{\link[qdap]{trans_context}} object of connective discourse connectors in context.}  

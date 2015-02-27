@@ -19,6 +19,11 @@
 #' @param name A string indicating the name to search for within the internal 
 #' data sets, typically the function's name.  Generally, for internal use.
 #' @param \ldots Other arguments passed to \code{\link[qdap]{termco}}.
+#' @details "Oh" is seen as an ``exclamation or interjection'' (p. 73).  
+#' Schiffrin (1987) considers broad functions of the use of "oh" in (a) ``repairs'',
+#' (b) ``question/answer/acknowledgement sequences'', (c) to ``mark a shift in 
+#' the speaker's orientation to information'', and (d) to shift ``subjective 
+#' orientation'' (pp. 74-98).
 #' @return Returns returns a list of 2: 
 #' \item{counts}{A \code{\link[qdap]{termco}} object of oh discourse marker counts.} 
 #' \item{oh}{A \code{\link[qdap]{trans_context}} object of oh discourse connectors in context.} 

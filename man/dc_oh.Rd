@@ -67,6 +67,13 @@ terms a marker of "information management") in context.
 \code{dc_oh_begin} - An extension of \code{dc_oh} that requires the "oh" to
 come at the begining of the word.
 }
+\details{
+"Oh" is seen as an ``exclamation or interjection'' (p. 73).
+Schiffrin (1987) considers broad functions of the use of "oh" in (a) ``repairs'',
+(b) ``question/answer/acknowledgement sequences'', (c) to ``mark a shift in
+the speaker's orientation to information'', and (d) to shift ``subjective
+orientation'' (pp. 74-98).
+}
 \examples{
 out <- with(pres_debates2012[1:1000, ], dc_oh(dialogue, person))
 out[1]

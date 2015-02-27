@@ -74,6 +74,21 @@ terms a marker of response) in context.
 \code{dc_well_begin} - An extension of \code{dc_well} that requires the "well" to
 come at the begining of the word.
 }
+\details{
+Broadly "well" is a ``marker of response'' (Schiffrin, 1987, p. 102).
+Interesty, "wel" is often used in response to a question as a means of
+providing an answer outside of the expected answer of the question asker.  For
+example, \emph{Are you hungry?}  Here the questioner expcts a yes no answer.
+A responder may retort, \emph{Well I am but I don't want fish.}  The response
+provides information that the respondant knows to be beyond the expected
+response.  Following these types of responses may lead to additional
+information the respondant wihes to convey but has not been given the floor
+for elaboration.  Well may be used in a contingent answer as well.  For
+example: \cr \cr
+\emph{John: Do you like Chinese?} \cr
+\emph{Sean: Yes.} \cr
+\emph{John: \bold{Well} there's a new place called...} \cr \cr
+}
 \examples{
 out <- with(pres_debates2012[1:1000, ], dc_well(dialogue, person))
 out[1]

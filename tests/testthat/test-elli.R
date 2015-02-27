@@ -10,6 +10,8 @@ test_that("elli is overtakes formals",{
     }
     
     expect_equal(fun(list(a=1, b=2), use.names= FALSE), 1:2)
+    
+    expect_equal(fun(list(a=1, b=2), boo= FALSE), unlist2(list(a=1, b=2), use.names= TRUE))
 
 })
 
