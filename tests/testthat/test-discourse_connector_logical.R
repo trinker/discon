@@ -1,10 +1,10 @@
-context("Checking discourse_connector")
+context("Checking discourse_connector_logical")
 
 library("qdap")
 
-test_that("discourse_connector returns a list of counts, negatives and positives of the correct classes",{
+test_that("discourse_connector_logical returns a list of counts, negatives and positives of the correct classes",{
 
-    out <- with(pres_debates2012[1:200, ], discourse_connector(dialogue, person, name = "typology"))
+    out <- with(pres_debates2012[1:200, ], discourse_connector_logical(dialogue, person, name = "typology"))
 
     cls <- structure(list(counts = "termco", positive = c("qdap_context", 
         "data.frame"), negative = c("qdap_context", "data.frame")), .Names = c("counts", 
@@ -16,21 +16,21 @@ test_that("discourse_connector returns a list of counts, negatives and positives
     expect_equal(sapply(out, class), cls)
 })
 
-test_that("discourse_connector returns for multiple grouping variables",{
+test_that("discourse_connector_logical returns for multiple grouping variables",{
 
     out_tim_person <- with(pres_debates2012[1:200, ], 
-        discourse_connector(dialogue, list(time, person), name = "typology")
+        discourse_connector_logical(dialogue, list(time, person), name = "typology")
     )
 
     expect_equal(names(out_tim_person[["counts"]][[1]])[1], "time&person")
 })
 
-test_that("discourse_connector returns a list of counts, single `qdap_context` of the correct classes when `name` not supplied",{
+test_that("discourse_connector_logical returns a list of counts, single `qdap_context` of the correct classes when `name` not supplied",{
 
-    out <- with(pres_debates2012[1:200, ], discourse_connector(dialogue, person,
+    out <- with(pres_debates2012[1:200, ], discourse_connector_logical(dialogue, person,
         names = c("I"),
         regex = "\\bI('[a-z]+)*\\b",
-        terms = list(I = c(" I ", " I'"))
+        terms = list(I = c(" I ", " I'")),
     ))
 
     cls <- structure(
@@ -48,9 +48,9 @@ test_that("discourse_connector returns a list of counts, single `qdap_context` o
 })
 
 
-test_that("discourse_connector returns a list of counts, double `qdap_context` of the correct classes when `name` not supplied",{
+test_that("discourse_connector_logical returns a list of counts, double `qdap_context` of the correct classes when `name` not supplied",{
 
-    out2 <- with(pres_debates2012[1:200, ], discourse_connector(dialogue, person,
+    out2 <- with(pres_debates2012[1:200, ], discourse_connector_logical(dialogue, person,
         names = c("I", "you"),
         regex =  list(
             I = "\\bI('[a-z]+)*\\b",
@@ -79,9 +79,9 @@ test_that("discourse_connector returns a list of counts, double `qdap_context` o
 })
 
 
-test_that("discourse_connector returns NULL if episode/text/connector not found",{
+test_that("discourse_connector_logical returns NULL if episode/text/connector not found",{
 
-    out_null <- suppressMessages(with(pres_debates2012[1:20, ], discourse_connector(dialogue, person,
+    out_null <- suppressMessages(with(pres_debates2012[1:20, ], discourse_connector_logical(dialogue, person,
         names = c("I"),
         regex = "\\bI('[a-z]+)*XXX\\b",
         terms = list(I = c(" IXXX ", " I'XXX"))
@@ -92,9 +92,9 @@ test_that("discourse_connector returns NULL if episode/text/connector not found"
     
 })
 
-test_that("discourse_connector plots a lexical dispersion plot of class `ggplot`",{
+test_that("discourse_connector_logical plots a lexical dispersion plot of class `ggplot`",{
 
-    out <- with(pres_debates2012[1:200, ], discourse_connector(dialogue, person,
+    out <- with(pres_debates2012[1:200, ], discourse_connector_logical(dialogue, person,
         names = c("I"),
         regex = "\\bI('[a-z]+)*\\b",
         terms = list(I = c(" I ", " I'"))
@@ -112,7 +112,7 @@ test_that("discourse_connector plots a lexical dispersion plot of class `ggplot`
 })
 
 
-test_that("discourse_connector plots a lexical dispersion when `grouping.var` is supplied",{
+test_that("discourse_connector_logical plots a lexical dispersion when `grouping.var` is supplied",{
 
     keyWords <- with(pres_debates2012[c(1:100, 2500:2700), ], kwic(dialogue, list(time, person)))
     
@@ -131,9 +131,9 @@ test_that("discourse_connector plots a lexical dispersion when `grouping.var` is
 })
 
 
-test_that("discourse_connector prints as expected",{
+test_that("discourse_connector_logical prints as expected",{
 
-    out <- with(pres_debates2012[1:5, ], discourse_connector(dialogue, person,
+    out <- with(pres_debates2012[1:5, ], discourse_connector_logical(dialogue, person,
         names = c("I"),
         regex = "\\bI('[a-z]+)*\\b",
         terms = list(I = c(" I ", " I'"))
