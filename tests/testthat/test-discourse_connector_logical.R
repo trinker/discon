@@ -142,3 +142,16 @@ test_that("discourse_connector_logical prints as expected",{
     expect_true(is.character(capture.output(out)))
 })
 
+test_that("discourse_connector_logical returns NULL if episode/text/connector not found",{
+
+    out_null <- suppressMessages(with(pres_debates2012[1:20, ], discourse_connector_logical(dialogue, person,
+        names = c("I"),
+        regex = "\\bI('[a-z]+)*XXX\\b",
+        terms = list(I = c(" IXXX ", " I'XXX"))
+    )))
+
+    expect_true(sum(out_null[[1]][[1]][, 3]) == 0)
+    expect_true(is.null(out_null[[2]]))
+    
+})
+
