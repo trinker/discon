@@ -301,3 +301,103 @@ test_that("discourse_connector_logical throws error if messing names, regex or t
     ))    
     
 })
+
+
+
+test_that("discourse_connector_logical gives null if fun1-fun2 causes no data to be usable",{
+
+    expect_message(with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun1 = function(x) {
+                rep(FALSE, length(x))
+            }
+        )
+    ))
+    expect_message(outA <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun1 = function(x) {
+                rep(FALSE, length(x))
+            }
+        )
+    ))
+    expect_null(outA)
+    
+
+    expect_message(outB <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun2 = function(x) {
+                rep(FALSE, length(x))
+            }
+        )
+    ))
+    expect_null(outB)  
+    
+    expect_message(with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun1 = function(x) {
+                out <- rep(TRUE, length(x))
+                out[1:3] <- FALSE
+                out
+            },
+            fun2 = function(x) {
+                out <- rep(FALSE, length(x))
+                out[1:3] <- TRUE
+                out
+            }           
+        )
+    ))
+    expect_false(is.null(suppressMessages(with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun1 = function(x) {
+                out <- rep(TRUE, length(x))
+                out[1:3] <- FALSE
+                out
+            }        
+        )
+    ))))  
+    expect_false(is.null(suppressMessages(with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun2 = function(x) {
+                out <- rep(FALSE, length(x))
+                out[1:3] <- TRUE
+                out
+            }           
+        )
+    ))))    
+    expect_message(outC <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun2 = function(x) {
+                rep(FALSE, length(x))
+            }
+        )
+    ))
+    expect_null(outC)    
+    
+    expect_message(outD <- with(pres_debates2012[1:10, ], 
+        discourse_connector_logical(dialogue, list(time, person),
+            regex = "[AaEe]",
+            terms = list(ae = c("a", "e")), names = "v",
+            fun3 = function(x) {
+                gsub("[^ ]", "X", x)
+            }
+        )
+    ))
+    expect_null(outD)     
+    
+})
+
+
