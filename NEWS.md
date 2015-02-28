@@ -47,7 +47,7 @@ And constructed with the following guidelines:
 
 **BUG FIXES**
 
-* `dicourse_connector` woud error if a regex did not match any indices.  It now
+* `dicourse_connector` would error if a regex did not match any indices.  It now
   returns `NULL` and gives a message indicating what regex did not match any 
   indices.
 
