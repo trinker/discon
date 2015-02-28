@@ -396,7 +396,8 @@ test_that("discourse_connector_logical gives null if fun1-fun2 causes no data to
             }
         )
     ))
-    expect_null(outD)     
+    expect_null(outD[[2]])  
+    expect_true(sum(outD[[1]][[1]][, "ae"]) == 0)
     
 })
 
