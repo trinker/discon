@@ -38,7 +38,7 @@ Please see the following resources for additional information:
 
 To download the development version of discon:
 
-Download the [zip ball](https://github.com/trinker/discon/zipball/master) or [tar ball](https://github.com/trinker/discon/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
+Download the [zip ball](https://github.com/trinker/discon/zipball/master) or [tar ball](https://github.com/trinker/discon/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **pacman** package to install the development version:
 
 ```r
 if (!require("pacman")) install.packages("pacman")
